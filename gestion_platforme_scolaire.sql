@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1
--- Généré le : sam. 20 mai 2023 à 20:52
+-- Généré le : sam. 20 mai 2023 à 21:32
 -- Version du serveur : 10.4.27-MariaDB
 -- Version de PHP : 8.2.0
 
@@ -28,23 +28,54 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE `admin` (
-  `ID` int(11) NOT NULL,
-  `Nom` varchar(100) DEFAULT NULL,
-  `Prénom` varchar(100) DEFAULT NULL,
-  `Email` varchar(100) DEFAULT NULL,
-  `MotDePasse` varchar(100) DEFAULT NULL
+  `id` int(11) NOT NULL,
+  `nom` varchar(255) NOT NULL,
+  `prenom` varchar(255) NOT NULL,
+  `login` varchar(255) NOT NULL,
+  `mot_de_passe` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
 --
--- Structure de la table `etdmodule`
+-- Structure de la table `affectation_etudiant_module`
 --
 
-CREATE TABLE `etdmodule` (
-  `ID` int(11) NOT NULL,
-  `ID_Étudiant` int(11) DEFAULT NULL,
-  `ID_Module` int(11) DEFAULT NULL
+CREATE TABLE `affectation_etudiant_module` (
+  `id` int(11) NOT NULL,
+  `id_etudiant` int(11) NOT NULL,
+  `id_module` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `etudiant`
+--
+
+CREATE TABLE `etudiant` (
+  `id` int(11) NOT NULL,
+  `nom` varchar(255) NOT NULL,
+  `prenom` varchar(255) NOT NULL,
+  `adresse` varchar(255) NOT NULL,
+  `email` varchar(255) NOT NULL,
+  `telephone` varchar(10) NOT NULL,
+  `mot_de_passe` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `evaluation`
+--
+
+CREATE TABLE `evaluation` (
+  `id` int(11) NOT NULL,
+  `type` varchar(255) NOT NULL,
+  `id_module` int(11) NOT NULL,
+  `date` date NOT NULL,
+  `heure` time NOT NULL,
+  `salle` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
@@ -54,9 +85,9 @@ CREATE TABLE `etdmodule` (
 --
 
 CREATE TABLE `modules` (
-  `ID` int(11) NOT NULL,
-  `Nom` varchar(100) DEFAULT NULL,
-  `Description` varchar(200) DEFAULT NULL
+  `id` int(11) NOT NULL,
+  `nom` varchar(255) NOT NULL,
+  `description` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
@@ -66,41 +97,10 @@ CREATE TABLE `modules` (
 --
 
 CREATE TABLE `notes` (
-  `ID` int(11) NOT NULL,
-  `ID_Évaluation` int(11) DEFAULT NULL,
-  `ID_Étudiant` int(11) DEFAULT NULL,
-  `Valeur` decimal(5,2) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
--- --------------------------------------------------------
-
---
--- Structure de la table `étudiants`
---
-
-CREATE TABLE `étudiants` (
-  `ID` int(11) NOT NULL,
-  `Nom` varchar(100) DEFAULT NULL,
-  `Prénom` varchar(100) DEFAULT NULL,
-  `Adresse` varchar(200) DEFAULT NULL,
-  `Email` varchar(100) DEFAULT NULL,
-  `Téléphone` varchar(20) DEFAULT NULL,
-  `mot_de_passe` varchar(200) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
--- --------------------------------------------------------
-
---
--- Structure de la table `évaluations`
---
-
-CREATE TABLE `évaluations` (
-  `ID` int(11) NOT NULL,
-  `Type` varchar(100) DEFAULT NULL,
-  `ID_Module` int(11) DEFAULT NULL,
-  `Date` date DEFAULT NULL,
-  `Heure` time DEFAULT NULL,
-  `Salle` varchar(100) DEFAULT NULL
+  `id` int(11) NOT NULL,
+  `id_evaluation` int(11) NOT NULL,
+  `id_etudiant` int(11) NOT NULL,
+  `valeur` decimal(10,0) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
@@ -111,66 +111,106 @@ CREATE TABLE `évaluations` (
 -- Index pour la table `admin`
 --
 ALTER TABLE `admin`
-  ADD PRIMARY KEY (`ID`);
+  ADD PRIMARY KEY (`id`);
 
 --
--- Index pour la table `etdmodule`
+-- Index pour la table `affectation_etudiant_module`
 --
-ALTER TABLE `etdmodule`
-  ADD PRIMARY KEY (`ID`),
-  ADD KEY `ID_Étudiant` (`ID_Étudiant`),
-  ADD KEY `ID_Module` (`ID_Module`);
+ALTER TABLE `affectation_etudiant_module`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `fk_id_etudiant` (`id_etudiant`),
+  ADD KEY `fk_id_mod` (`id_module`);
+
+--
+-- Index pour la table `etudiant`
+--
+ALTER TABLE `etudiant`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Index pour la table `evaluation`
+--
+ALTER TABLE `evaluation`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `fk_id_module` (`id_module`);
 
 --
 -- Index pour la table `modules`
 --
 ALTER TABLE `modules`
-  ADD PRIMARY KEY (`ID`);
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Index pour la table `notes`
 --
 ALTER TABLE `notes`
-  ADD PRIMARY KEY (`ID`),
-  ADD KEY `ID_Évaluation` (`ID_Évaluation`),
-  ADD KEY `ID_Étudiant` (`ID_Étudiant`);
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `fk_id_etd` (`id_etudiant`),
+  ADD KEY `fk_id_eval` (`id_evaluation`);
 
 --
--- Index pour la table `étudiants`
+-- AUTO_INCREMENT pour les tables déchargées
 --
-ALTER TABLE `étudiants`
-  ADD PRIMARY KEY (`ID`);
 
 --
--- Index pour la table `évaluations`
+-- AUTO_INCREMENT pour la table `admin`
 --
-ALTER TABLE `évaluations`
-  ADD PRIMARY KEY (`ID`),
-  ADD KEY `ID_Module` (`ID_Module`);
+ALTER TABLE `admin`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT pour la table `affectation_etudiant_module`
+--
+ALTER TABLE `affectation_etudiant_module`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT pour la table `etudiant`
+--
+ALTER TABLE `etudiant`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT pour la table `evaluation`
+--
+ALTER TABLE `evaluation`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT pour la table `modules`
+--
+ALTER TABLE `modules`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT pour la table `notes`
+--
+ALTER TABLE `notes`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- Contraintes pour les tables déchargées
 --
 
 --
--- Contraintes pour la table `etdmodule`
+-- Contraintes pour la table `affectation_etudiant_module`
 --
-ALTER TABLE `etdmodule`
-  ADD CONSTRAINT `etdmodule_ibfk_1` FOREIGN KEY (`ID_Étudiant`) REFERENCES `étudiants` (`ID`),
-  ADD CONSTRAINT `etdmodule_ibfk_2` FOREIGN KEY (`ID_Module`) REFERENCES `modules` (`ID`);
+ALTER TABLE `affectation_etudiant_module`
+  ADD CONSTRAINT `fk_id_etudiant` FOREIGN KEY (`id_etudiant`) REFERENCES `etudiant` (`id`),
+  ADD CONSTRAINT `fk_id_mod` FOREIGN KEY (`id_module`) REFERENCES `modules` (`id`);
+
+--
+-- Contraintes pour la table `evaluation`
+--
+ALTER TABLE `evaluation`
+  ADD CONSTRAINT `fk_id_module` FOREIGN KEY (`id_module`) REFERENCES `modules` (`id`);
 
 --
 -- Contraintes pour la table `notes`
 --
 ALTER TABLE `notes`
-  ADD CONSTRAINT `notes_ibfk_1` FOREIGN KEY (`ID_Évaluation`) REFERENCES `évaluations` (`ID`),
-  ADD CONSTRAINT `notes_ibfk_2` FOREIGN KEY (`ID_Étudiant`) REFERENCES `étudiants` (`ID`);
-
---
--- Contraintes pour la table `évaluations`
---
-ALTER TABLE `évaluations`
-  ADD CONSTRAINT `évaluations_ibfk_1` FOREIGN KEY (`ID_Module`) REFERENCES `modules` (`ID`);
+  ADD CONSTRAINT `fk_id_etd` FOREIGN KEY (`id_etudiant`) REFERENCES `etudiant` (`id`),
+  ADD CONSTRAINT `fk_id_eval` FOREIGN KEY (`id_evaluation`) REFERENCES `evaluation` (`id`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
