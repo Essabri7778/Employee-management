@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1
--- Généré le : sam. 20 mai 2023 à 20:09
+-- Généré le : sam. 20 mai 2023 à 20:52
 -- Version du serveur : 10.4.27-MariaDB
 -- Version de PHP : 8.2.0
 
@@ -84,7 +84,8 @@ CREATE TABLE `étudiants` (
   `Prénom` varchar(100) DEFAULT NULL,
   `Adresse` varchar(200) DEFAULT NULL,
   `Email` varchar(100) DEFAULT NULL,
-  `Téléphone` varchar(20) DEFAULT NULL
+  `Téléphone` varchar(20) DEFAULT NULL,
+  `mot_de_passe` varchar(200) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
