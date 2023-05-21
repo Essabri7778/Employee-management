@@ -57,7 +57,8 @@ class Module{
         }catch(PDOException $e){
             echo 'Error'. $e->getMessage();
         }
-
+        $stmt->close();
+        $stmt = null;
     }
 }
 ?>

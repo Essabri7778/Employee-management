@@ -1,6 +1,6 @@
 <?php
 
-class AffectationEtudiantModel {
+class AffectationEtudiantModule {
 
     //Récuperer tous les Affectation
     static public function getAllAffectations(){
@@ -21,6 +21,8 @@ class AffectationEtudiantModel {
         }catch(PDOException $e){
             echo 'Error'. $e->getMessage();
         }
+        $stmt->close();
+        $stmt = null;
     }
     //ajouter une affectation
     static public function addAffectation($data){
@@ -62,4 +64,6 @@ class AffectationEtudiantModel {
         $stmt->close();
         $stmt = null;
     }
+
+    //TODO: List des etudiants affectés aux modules
 }
