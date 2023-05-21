@@ -1,7 +1,4 @@
 <?php include_once("headerEtd.php"); ?>
-<!DOCTYPE html>
-<html lang="en">
-
 <body>
   <div class="container-fluid bg-primary text-white">
     <header class="header text-center py-5">
