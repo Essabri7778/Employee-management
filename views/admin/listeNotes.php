@@ -6,7 +6,7 @@
           <h1>Liste des Notes</h1>
           <div>
             <button id="afficherEtd" class="btn btn-dark">
-              <a class="text-reset text-decoration-none" href="listeEval.html"><i class="fas fa-plus"></i> Ajouter des Notes</a>
+              <a class="text-reset text-decoration-none" href="listeEval.php"><i class="fas fa-plus"></i> Ajouter des Notes</a>
             </button>
           </div>
         </div>

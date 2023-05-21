@@ -79,7 +79,7 @@
           <td class="w-50">Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequuntur, nulla ullam. Aspernatur animi consequuntur quod numquam laudantium dicta harum, autem possimus nulla quae tenetur. Dolore earum sunt ratione. Fugit, commodi.</td>
           <td class="justify-content-center">
             <button class="btn btn-primary mx-1">
-              <a class="text-reset text-decoration-none" href="ajouterEval.html"><i class="fas fa-clipboard-check"></i> Ajouter Evaluation(s) </a>
+              <a class="text-reset text-decoration-none" href="ajouterEval.php"><i class="fas fa-clipboard-check"></i> Ajouter Evaluation(s) </a>
             </button>
             <button class="btn btn-light btn-outline-secondary mx-1">
               <i class="fas fa-pencil-alt"></i> Modifier

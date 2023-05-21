@@ -23,7 +23,7 @@ if ($action == "ajouter") {
         'id_etudiant' => $id_etudiant ,
         'id_evaluation' => $id_evaluation ,
         'valeur' => $valeur ,
-    )
+    );
     $res = Note::addNote($data);
     if ($res == "ok")
         echo "ok";
@@ -35,7 +35,7 @@ if ($action == "ajouter") {
         'id_etudiant' => $id_etudiant ,
         'id_evaluation' => $id_evaluation ,
         'valeur' => $valeur ,
-    )
+    );
     $res = Note::updateNote($data);
     if ($res == "ok")
         echo "ok";

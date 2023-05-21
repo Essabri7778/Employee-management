@@ -29,7 +29,7 @@ if ($action == "ajouter") {
         'date' => $date ,
         'heure' => $heure ,
         'salle' => $salle ,
-    )
+    );
     $res = Evaluation::addEvaluation($data);
     if ($res == "ok")
         echo "ok";
@@ -43,7 +43,7 @@ if ($action == "ajouter") {
         'date' => $date ,
         'heure' => $heure ,
         'salle' => $salle ,
-    )
+    );
     $res = Evaluation::updateEvaluation($data);
     if ($res == "ok")
         echo "ok";

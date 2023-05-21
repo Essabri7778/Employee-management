@@ -17,59 +17,67 @@
 </head>
 
 <body>
-  <section>
-    <div class="container h-100">
-      <div class="row justify-content-sm-center h-100">
-        <div class="col-xxl-4 col-xl-5 col-lg-5 col-md-7 col-sm-9 mx-auto">
-          <div class="text-center my-5">
-            <i class="fas fa-graduation-cap fa-6x text-primary"></i>
-          </div>
-          <div class="card shadow-lg">
-            <div class="card-body p-5">
-              <h1 class="fs-4 card-title fw-bold mb-4">Authentification</h1>
-              <form method="POST" class="needs-validation" novalidate="" autocomplete="off">
-                <div class="mb-3">
-                  <label class="form-label mb-2 text-primary" for="userType">
-                    <i class="fas fa-user-cog"></i> Type de compte:
-                  </label>
-                  <select class="form-select bg-light text-primary" id="userType" name="userType">
-                    <option value="admin"><i class="fas fa-user-shield"></i> Admin</option>
-                    <option value="user"><i class="fas fa-user-graduate"></i> Etudiant</option>
-                  </select>
+<section class="vh-100 bg-primary">
+    <div class="container py-5 h-100">
+      <div class="row d-flex justify-content-center align-items-center h-100">
+        <div class="col col-xl-10">
+          <div class="card" style="border-radius: 1rem;">
+            <div class="row g-0">
+                <div class="col-md-6 col-lg-5 d-none d-md-block d-flex justify-content-center align-items-center">
+                    <img src="assets/girl-with-headphones-using-laptop-along-her-classmates-during-group-study.jpg" alt="login form" class="img-fluid log-img">
+                </div>                                   
+              <div class="col-md-6 col-lg-7 d-flex align-items-center">
+                <div class="card-body p-4 p-lg-5 text-black">
+  
+                  <form>
+  
+                    <div class="d-flex align-items-center mb-3 pb-1">
+                      <i class="fas fa-school fa-2x me-3 text-primary"></i>
+                      <span class="h1 fw-bold mb-0">Scolarité</span>
+                    </div>
+  
+                    <h5 class="fw-normal mb-3 pb-3" style="letter-spacing: 1px;">Connecter a votre Compte</h5>
+  
+                    <div class="mb-3">
+                        <label class="form-label mb-2 text-primary" for="userType">
+                          <i class="fas fa-user-cog"></i> Type de compte:
+                        </label>
+                        <select class="form-select bg-light text-primary" id="userType" name="userType">
+                          <option value="admin"><i class="fas fa-user-shield"></i> Admin</option>
+                          <option value="user"><i class="fas fa-user-graduate"></i> Etudiant</option>
+                        </select>
+                      </div>
+      
+                      <div class="mb-3">
+                        <label class="mb-2 text-muted" for="identifiant">Identifiant</label>
+                        <input id="identifiant" type="identifiant" class="form-control" name="identifiant" value="" required autofocus>
+                        <small id="sidentifiantVide" class="form-text text-danger" hidden>Ce champ doit être rempli!</small>
+                        <small id="sidentifiantFaux" class="form-text text-danger" hidden>Ce champ n'est pas valide!</small>
+                      </div>
+      
+                      <div class="mb-4">
+                        <label class="mb-2 text-muted" for="mdp">Mot de Passe</label>
+                        <input id="mdp" type="mdp" class="form-control" name="mdp" required>
+                        <small id="smdp" class="form-text text-danger" hidden>Ce champ doit être rempli!</small>
+                        <small id="smdpFaux" class="form-text text-danger" hidden>Ce champ n'est pas valide!</small>
+                      </div>
+  
+                      <div class="pt-1 mb-4">
+                        <button type="submit" class="btn btn-primary w-100">
+                          Se Connecter
+                        </button>
+                      </div>
+
+                    
+  
+                    <div class="text-center mt-5 text-secondary">
+                            &copy; 2023 Scolarité
+                    </div>
+                  </form>
+  
                 </div>
-
-                <div class="mb-3">
-                  <label class="mb-2 text-muted" for="identifiant">Identifiant</label>
-                  <input id="identifiant" type="email" class="form-control" name="email" value="" required autofocus>
-                  <div class="invalid-feedback">
-                    Identifiant invalide
-                  </div>
-                </div>
-
-                <div class="mb-4">
-                  <div class="mb-2 w-100">
-                    <label class="text-muted" for="mdp">Mot de Passe</label>
-                  </div>
-                  <input id="mdp" type="password" class="form-control" name="password" required>
-                  <div class="invalid-feedback">
-                    champs important!
-                  </div>
-                </div>
-
-                  <button type="submit" class="btn btn-primary">
-                    Se Connecter
-                  </button>
-
-              </form>
-            </div>
-            <div class="card-footer py-3 border-0">
-              <div class="text-center">
-                Vous n'avez pas de compte? <a href="fromDemander.html" class="text-dark">demander le votre</a>
               </div>
             </div>
-          </div>
-          <div class="text-center mt-5 text-secondary">
-            &copy; 2023 Scolarité
           </div>
         </div>
       </div>

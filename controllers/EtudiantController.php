@@ -32,7 +32,7 @@
         'telephone' => $telephone ,
         'mot_de_passe' => $mot_de_passe ,
 
-    )
+    );
     $res = Etudiant::addEtudiant($data);
     if ($res == "ok")
         echo "ok";
@@ -48,7 +48,7 @@
         'telephone' => $telephone ,
         'mot_de_passe' => $mot_de_passe ,
 
-    )
+    );
     $res = Etudiant::updateEtudiant($data);
     if ($res == "ok")
         echo "ok";

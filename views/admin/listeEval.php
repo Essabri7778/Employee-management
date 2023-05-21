@@ -5,7 +5,7 @@
       <h1>Liste des Evaluations</h1>
       <div>
         <button id="afficherEtd" class="btn btn-dark">
-          <a class="text-reset text-decoration-none" href="gestionMdl.html"><i class="fas fa-plus"></i> Ajouter Evaluations a un Modules</a>
+          <a class="text-reset text-decoration-none" href="gestionMdl.php"><i class="fas fa-plus"></i> Ajouter Evaluations a un Modules</a>
         </button>
       </div>
     </div>
@@ -44,7 +44,7 @@
             <td>GIiiiiiii</td>
             <td class="justify-content-center">
               <button class="btn btn-primary mx-1">
-                <a class="text-reset text-decoration-none" href="ajouterNote.html"><i class="fas fa-pen"></i> Noté un Etudiant</a>
+                <a class="text-reset text-decoration-none" href="ajouterNote.php"><i class="fas fa-pen"></i> Noté un Etudiant</a>
               </button>
               <button class="btn btn-light btn-outline-secondary mx-1">
                 <i class="fas fa-pencil-alt"></i> Modifier

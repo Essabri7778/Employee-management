@@ -117,10 +117,10 @@
             <td>
               <div class="d-flex justify-content-between align-items-center">
                 <button class="btn btn-primary me-2">
-                  <a class="text-reset text-decoration-none text-truncate" href="affectationMdl.html"><i class="fas fa-th"></i> Affecter des modules</a>
+                  <a class="text-reset text-decoration-none text-truncate" href="affectationMdl.php"><i class="fas fa-th"></i> Affecter des modules</a>
                 </button>
                 <button class="btn btn-dark me-2">
-                  <a class="text-reset text-decoration-none text-truncate" href="afficherMdlEtd.html"><i class="fas fa-list"></i> Afficher les modules</a>
+                  <a class="text-reset text-decoration-none text-truncate" href="afficherMdlEtd.php"><i class="fas fa-list"></i> Afficher les modules</a>
                 </button>
                 <button class="btn btn-light btn-outline-secondary me-2 text-truncate">
                   <i class="fas fa-pencil-alt"></i> Modifier
