@@ -22,6 +22,8 @@ class Note {
         }catch(PDOException $e){
             echo 'Error'. $e->getMessage();
         }
+        $stmt->close();
+        $stmt = null;
     }
 
     //Récuperer une note par son id_evaluation
@@ -34,6 +36,8 @@ class Note {
         }catch(PDOException $e){
             echo 'Error'. $e->getMessage();
         }
+        $stmt->close();
+        $stmt = null;
     }
     //Récuperer une note par son id_etudiant
     static public function getNoteByIdEtudiant($id_etudiant){
@@ -41,10 +45,12 @@ class Note {
             $stmt = DB::connect()->prepare('SELECT * FROM notes WHERE id_etudiant=?');
             $stmt->execute([$id_etudiant]);
             $notes = $stmt->fetch(PDO::FETCH_ASSOC);
-                return json_encode($notes);
-            }catch(PDOException $e){
-                echo 'Error'. $e->getMessage();
-            }
+            return json_encode($notes);
+        }catch(PDOException $e){
+            echo 'Error'. $e->getMessage();
+        }
+        $stmt->close();
+        $stmt = null;
     }
 
     //ajouter une note
@@ -88,5 +94,19 @@ class Note {
         }
         $stmt->close();
         $stmt = null;
+    }
+
+    //Afficher la liste de toutes notes 
+    //avec les nom_etudiants , prenom_etudiants, 
+    //nom_module et type_examen associés .
+
+    static public function listNotes(){
+        $query = 'SELECT n.id, n.id_evaluation, n.id_etudiant,e.id_module, etd.nom, etd.prenom, m.nom, e.type, n.valeur  FROM notes n INNER JOIN evaluation e INNER JOIN modules m INNER JOIN etudiant etd ON n.id_evaluation = e.id AND n.id_etudiant = etd.id AND e.id_module = m.id'
+        $stmt = DB::connect()->prepare($query);
+        $stmt->execute();
+        $notes = $stmt->fetch(PDO::FETCH_ASSOC);
+        return json_encode($notes); 
+        $stmt->close();
+        $stmt = null; 
     }
 }

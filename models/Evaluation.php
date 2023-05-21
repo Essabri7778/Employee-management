@@ -22,6 +22,8 @@ class Evaluation {
         }catch(PDOException $e){
             echo 'Error'. $e->getMessage();
         }
+        $stmt->close();
+        $stmt = null;
     }
 
     //ajouter une évaluation
@@ -61,13 +63,27 @@ class Evaluation {
     }
 
     //Supprimer une évaluation
-    static public function deleteEvaluation($id){
+    static public function deleteEvaluation($id)
+    {
         $stmt = DB::connect()->prepare('DELETE FROM evaluation WHERE id=?');
         if ($stmt->execute([$id])){
             return 'ok';
         }else{
             return 'error';
         }
+        $stmt->close();
+        $stmt = null;
+    }
+
+    //Afficher la liste des évaluations
+    //avec le nom de module associé
+    static public function listEvaluation()
+    {
+        $query = 'SELECT e.id, e.id_module, m.nom, e.type, e.date, e.heure, e.salle FROM evaluation e INNER JOIN modules m ON e.id_module = m.id;'
+        $stmt = DB::connect()->prepare($query);
+        $stmt->execute();
+        $evaluations = $stmt->fetchAll(PDO::FETCH_ASSOC);
+        return json_encode($evaluations);
         $stmt->close();
         $stmt = null;
     }

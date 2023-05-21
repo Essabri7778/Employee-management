@@ -22,6 +22,8 @@ class Etudiant {
         }catch(PDOException $e){
             echo 'Error'. $e->getMessage();
         }
+        $stmt->close();
+        $stmt = null; 
     }
 
     //ajouter un étudiant
