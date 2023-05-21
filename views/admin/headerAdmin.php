@@ -11,7 +11,7 @@
 <body>
   <nav class="navbar navbar-expand-lg navbar-light navbar-dark bg-primary px-3">
     <div class="container-fluid">
-      <a class="navbar-brand" href="#">
+      <a class="navbar-brand" href="dashboard.php">
         <i class="fas fa-school" style="color: #ffffff;"></i> Scolarité
       </a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -20,7 +20,7 @@
       <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
         <ul class="navbar-nav">
           <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="#">Dashboard</a>
+            <a class="nav-link active" aria-current="page" href="dashboard.php">Dashboard</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="gestionEtd.php">Gestion Etudiant</a>
@@ -29,18 +29,14 @@
             <a class="nav-link" href="gestionMdl.php">Gestion Modules</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="listeEval.php">Gestion Evaluation</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="listeNotes.php">Gestion Notes</a>
+            <a class="nav-link" href="gestionEval.php">Gestion Evaluation</a>
           </li>
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">Profile</a>
             <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-              <li class="dropdown-item">Name pre</li>
-              <li><a class="dropdown-item" href="#">Modifier profile</a></li>
+              <li class="dropdown-item"><i class="fas fa-user"></i> Name pre</li>
               <li><hr class="dropdown-divider"></li>
-              <li><a class="dropdown-item" href="#">Se Deconnecter</a></li>
+              <li><a class="dropdown-item" href="#"><i class="fas fa-sign-out-alt"></i> Se Deconnecter</a></li>
             </ul>
           </li>
         </ul>
