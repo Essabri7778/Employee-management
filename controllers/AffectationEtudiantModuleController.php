@@ -20,7 +20,7 @@ if ($action == "ajouter") {
     $data = array(
         'id_etudiant' => $id_etudiant ,
         'id_module' => $id_module 
-    )
+    );
     $res = AffectationEtudiantModule::addAffectation($data);
     if ($res == "ok")
         echo "ok";
@@ -31,7 +31,7 @@ if ($action == "ajouter") {
         'id' => $id ,
         'id_etudiant' => $id_etudiant ,
         'id_module' => $id_module 
-    )
+    );
     $res = AffectationEtudiantModule::updateAffectation($data);
     if ($res == "ok")
         echo "ok";
