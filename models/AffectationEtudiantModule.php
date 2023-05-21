@@ -24,7 +24,7 @@ class AffectationEtudiantModel {
     }
     //ajouter une affectation
     static public function addAffectation($data){
-        $stmt = DB::connect()->prepare('INSERT INTO affectation_etudiant_module (id_etudiant, id_module) VALUES (:id_etudiant,:id_module,:valeur)');
+        $stmt = DB::connect()->prepare('INSERT INTO affectation_etudiant_module (id_etudiant, id_module) VALUES (:id_etudiant,:id_module)');
         $stmt->bindParam(':id_etudiant',$data['id_etudiant']);
         $stmt->bindParam(':id_module',$data['id_module']);
         if ($stmt->execute()){

@@ -30,7 +30,7 @@ if ($action == "ajouter") {
         'heure' => $heure ,
         'salle' => $salle ,
     )
-    $res = addEvaluation($data);
+    $res = Evaluation::addEvaluation($data);
     if ($res == "ok")
         echo "ok";
     else
@@ -44,22 +44,22 @@ if ($action == "ajouter") {
         'heure' => $heure ,
         'salle' => $salle ,
     )
-    $res = updateEvaluation($data);
+    $res = Evaluation::updateEvaluation($data);
     if ($res == "ok")
         echo "ok";
     else
         echo "error";
 } else if ($action == "supprimer") {
-    $res = deleteEvaluation($id);
+    $res = Evaluation::deleteEvaluation($id);
     if ($res == "ok")
         echo "ok";
     else
         echo "error";
 } else if ($action == "afficher") {
-    $res = getEvaluation($id);
+    $res = Evaluation::getEvaluation($id);
     echo $res;
 } else if ($action == "afficherTous") {
-    $res = getAllEvaluations();
+    $res = Evaluation::getAllEvaluations();
     echo $res;
 } else {
     echo "action non reconnue";

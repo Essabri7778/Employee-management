@@ -24,7 +24,7 @@ if ($action == "ajouter") {
         'id_evaluation' => $id_evaluation ,
         'valeur' => $valeur ,
     )
-    $res = addNote($data);
+    $res = Note::addNote($data);
     if ($res == "ok")
         echo "ok";
     else
@@ -36,22 +36,22 @@ if ($action == "ajouter") {
         'id_evaluation' => $id_evaluation ,
         'valeur' => $valeur ,
     )
-    $res = updateNote($data);
+    $res = Note::updateNote($data);
     if ($res == "ok")
         echo "ok";
     else
         echo "error";
 } else if ($action == "supprimer") {
-    $res = deleteNote($id);
+    $res = Note::deleteNote($id);
     if ($res == "ok")
         echo "ok";
     else
         echo "error";
 } else if ($action == "afficher") {
-    $res = getNote($id);
+    $res = Note::getNote($id);
     echo $res;
 } else if ($action == "afficherTous") {
-    $res = getAllNotes();
+    $res = Note::getAllNotes();
     echo $res;
 } else {
     echo "action non reconnue";

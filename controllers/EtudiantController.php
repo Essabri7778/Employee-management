@@ -33,7 +33,7 @@
         'mot_de_passe' => $mot_de_passe ,
 
     )
-    $res = addEtudiant($data);
+    $res = Etudiant::addEtudiant($data);
     if ($res == "ok")
         echo "ok";
     else
@@ -49,22 +49,22 @@
         'mot_de_passe' => $mot_de_passe ,
 
     )
-    $res = updateEtudiant($data);
+    $res = Etudiant::updateEtudiant($data);
     if ($res == "ok")
         echo "ok";
     else
         echo "error";
 } else if ($action == "supprimer") {
-    $res = deleteEtudiant($id);
+    $res = Etudiant::deleteEtudiant($id);
     if ($res == "ok")
         echo "ok";
     else
         echo "error";
 } else if ($action == "afficher") {
-    $res = getEtudiant($id);
+    $res = Etudiant::getEtudiant($id);
     echo $res;
 } else if ($action == "afficherTous") {
-    $res = getAllEtudiants();
+    $res = Etudiant::getAllEtudiants();
     echo $res;
 } else {
     echo "action non reconnue";

@@ -43,8 +43,8 @@ class Evaluation {
     }
 
     //mettre à jour une évaluation
-    static public function updatEevaluation($data){
-        $stmt = DB::connect()->prepare('UPDATE evaluation SET type= :type, id_module= :id_module, date= :date, heure= :heure, salle= :salle, mot_de_passe= :mot_de_passe WHERE id= :id');
+    static public function updateEvaluation($data){
+        $stmt = DB::connect()->prepare('UPDATE evaluation SET type= :type, id_module= :id_module, date= :date, heure= :heure, salle= :salle WHERE id= :id');
         $stmt->bindParam(':type',$data['type']);
         $stmt->bindParam(':id_module',$data['id_module']);
         $stmt->bindParam(':date',$data['date']);
