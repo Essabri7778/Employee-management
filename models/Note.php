@@ -23,17 +23,6 @@ class Note {
             echo 'Error'. $e->getMessage();
         }
     }
-    //Récuperer une note par son id
-    static public function getNote($id){
-        try{
-            $stmt = DB::connect()->prepare('SELECT * FROM notes WHERE id=?');
-            $stmt->execute([$id]);
-            $note = $stmt->fetch(PDO::FETCH_ASSOC);
-            return json_encode($note);
-        }catch(PDOException $e){
-            echo 'Error'. $e->getMessage();
-        }
-    }
     //Récuperer une note par son id_evaluation
     static public function getNotesByIdEvaluation($id_evaluation){
         try{
