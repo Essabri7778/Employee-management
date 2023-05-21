@@ -29,10 +29,10 @@ class Etudiant {
         $stmt = DB::connect()->prepare('INSERT INTO etudiant (nom, prenom, adresse, email, telephone, mot_de_passe) VALUES (:nom,:prenom,:adresse,:email,:telephone,:mot_de_passe)');
         $stmt->bindParam(':nom',$data['nom']);
         $stmt->bindParam(':prenom',$data['prenom']);
-        $stmt->bindParam(':matricule',$data['adresse']);
-        $stmt->bindParam(':depart',$data['email']);
-        $stmt->bindParam(':post',$data['telephone']);
-        $stmt->bindParam(':date_emb',$data['mot_de_passe']);
+        $stmt->bindParam(':adresse',$data['adresse']);
+        $stmt->bindParam(':email',$data['email']);
+        $stmt->bindParam(':telephone',$data['telephone']);
+        $stmt->bindParam(':mot_de_passe',$data['mot_de_passe']);
         
         if ($stmt->execute()){
             return 'ok';
@@ -48,10 +48,10 @@ class Etudiant {
         $stmt = DB::connect()->prepare('UPDATE etudiant SET nom= :nom, prenom= :prenom, adresse= :adresse, email= :email, telephone= :telephone, mot_de_passe= :mot_de_passe WHERE id= :id');
         $stmt->bindParam(':nom',$data['nom']);
         $stmt->bindParam(':prenom',$data['prenom']);
-        $stmt->bindParam(':matricule',$data['adresse']);
-        $stmt->bindParam(':depart',$data['email']);
-        $stmt->bindParam(':post',$data['telephone']);
-        $stmt->bindParam(':date_emb',$data['mot_de_passe']);
+        $stmt->bindParam(':adresse',$data['adresse']);
+        $stmt->bindParam(':email',$data['email']);
+        $stmt->bindParam(':telephone',$data['telephone']);
+        $stmt->bindParam(':mot_de_passe',$data['mot_de_passe']);
         $stmt->bindParam(':id',$data['id']);
         if ($stmt->execute()){
             return 'ok';
@@ -73,7 +73,7 @@ class Etudiant {
         $stmt->close();
         $stmt = null;
     }
-
+    //TODO:
     //Trouver un étudiant par son nom ou prenom
     // static public function findEtudiant($data){
     //     $search = $data['search'];
