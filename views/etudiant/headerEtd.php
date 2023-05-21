@@ -23,16 +23,16 @@
             <a class="nav-link active" aria-current="page" href="#">Home</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="afficherMdl.html">Afficher Modules</a>
+            <a class="nav-link" href="afficherMdl.php">Afficher Modules</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="afficherEtdMdl.html">Afficher Mes Modules</a>
+            <a class="nav-link" href="afficherEtdMdl.php">Afficher Mes Modules</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="afficheEtdEval.html">Afficher Mes Evaluation</a>
+            <a class="nav-link" href="afficheEtdEval.php">Afficher Mes Evaluation</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="afficherEtdNotes.html">Afficher Mes Notes</a>
+            <a class="nav-link" href="afficherEtdNotes.php">Afficher Mes Notes</a>
           </li>
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">Profile</a>
@@ -47,10 +47,3 @@
       </div>
     </div>
   </nav>
-
-
-
-
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"></script>
-</body>
-</html>
