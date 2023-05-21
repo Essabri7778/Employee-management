@@ -9,6 +9,10 @@
         </button>
       </div>
     </div>
+
+    <div id="success" class="alert alert-success" role="alert" hidden></div>
+    <div id="failed" class="alert alert-danger" role="alert" hidden></div>
+
     <form id="formulaire">
       <h1 id="succes" style="background-color: lightgreen; color:darkgreen; font-size: medium; padding :10px;" hidden>Insertion faite avec succès</h1>
       <h1 id="failed" style="background-color: #FFCCCB; color:darkred; font-size: medium; padding :10px;" hidden>Insertion non faite</h1>
@@ -67,9 +71,6 @@
       </div>
     </form>
 
-    <h3 id="res" class="my-3 text-center" style="color:green" hidden></h3>
-
-
     <div class="row collapse mt-5" id="listeNotes">
 
       <div class="form-group row mb-3">
@@ -87,6 +88,8 @@
       <thead>
         <tr>
           <th scope="col">#</th>
+          <th scope="col">Nom</th>
+          <th scope="col">Prenom</th>
           <th scope="col">Evaluation</th>
           <th scope="col">Module</th>
           <th scope="col">Valeure</th>
@@ -96,6 +99,8 @@
       <tbody id="listStudent">
         <tr>
           <th scope="row">1</th>
+          <th scope="col">Nom</th>
+          <th scope="col">Prenom</th>
           <td>Type</td>
           <td>Module</td>
           <td>20</td>
