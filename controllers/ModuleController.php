@@ -42,6 +42,9 @@ if ($action == "ajouter") {
 } else if ($action == "afficherTous") {
     $res =  Module::getAllModules();
     echo $res;
+} else if ($action == "getByName") {
+    $res =  Module::getModuleByName($nom);
+    echo $res;
 } else {
     echo "action non reconnue";
 }
