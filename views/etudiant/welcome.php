@@ -1,25 +1,23 @@
-<?php 
+<?php
 session_start();
 
-include_once("headerEtd.php"); 
+include_once("headerEtd.php");
 
 ?>
 
 <body>
     <div class="container-fluid bg-primary text-white">
         <header class="header text-center py-5">
-            <h1 class="display-4 fw-bold">Bienvenue, <?=$_SESSION['nom_complet'];?>!</h1>
+            <h1 class="display-4 fw-bold">Bienvenue, <?= $_SESSION['nom_complet']; ?>!</h1>
             <div class="container">
                 <div class="row justify-content-center">
-                    <div class="col-lg-8">
+                    <div class="col-lg-7">
                         <p class="lead">
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Temporibus provident repellat
-                            minus, animi praesentium consequatur explicabo nisi? Quod, consequuntur hic? Ad ex,
-                            explicabo modi esse saepe aliquam et officiis nemo!
+                            Soyez les bienvenue sur notre plateforme de gestion étudiant <strong>Scolarité!</strong> Nous sommes ravis de vous accueillir dans un environnement numérique dédié à la réussite et à l'épanouissement des étudiants.
                         </p>
                     </div>
                 </div>
-                <div class="row justify-content-center mt-4">
+                <div class="row justify-content-center mt-3">
                     <div class="col-lg-6">
                         <a href="afficherEtdNotes.php" class="btn btn-light btn-lg me-3">
                             <i class="fas fa-list"></i> Voir Notes

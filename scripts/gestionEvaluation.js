@@ -30,7 +30,7 @@ function listModules() {
     let data = new FormData();
     data.append("action", "afficherTous");
     xhr.send(data);
-  }
+}
 
 function MdlComboBox(Mdl) {
     for (let mdl of Mdl) {

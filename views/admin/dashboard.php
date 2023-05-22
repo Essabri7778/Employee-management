@@ -62,7 +62,7 @@ include_once("headerAdmin.php");
                                             <th scope="col">Salle</th>
                                         </tr>
                                     </thead>
-                                    <tbody id="listStudent">
+                                    <tbody id="listEvaluation">
                                         <tr>
                                             <th scope="row">1</th>
                                             <td>Type</td>
@@ -93,7 +93,7 @@ include_once("headerAdmin.php");
                                             <th scope="col">Description</th>
                                         </tr>
                                     </thead>
-                                    <tbody id="listStudent">
+                                    <tbody id="listModules">
                                         <tr>
                                             <th scope="row">1</th>
                                             <td>JS</td>
@@ -127,7 +127,7 @@ include_once("headerAdmin.php");
                                             <th scope="col">Valeure</th>
                                         </tr>
                                     </thead>
-                                    <tbody id="listStudent">
+                                    <tbody id="listNote">
                                         <tr>
                                             <th scope="row">1</th>
                                             <th scope="col">Nom</th>
@@ -146,6 +146,9 @@ include_once("headerAdmin.php");
             </div>
         </div>
     </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="../../scripts/dashboard.js" type="module"></script>
 </body>
 
 </html>
