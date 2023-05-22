@@ -14,23 +14,19 @@
   <div id="failed" class="alert alert-danger" role="alert" hidden></div>
 
   <form id="formulaire">
-    <h1 id="succes" style="background-color: lightgreen; color:darkgreen; font-size: medium; padding :10px;" hidden>Insertion faite avec succès</h1>
-    <h1 id="failed" style="background-color: #FFCCCB; color:darkred; font-size: medium; padding :10px;" hidden>Insertion non faite</h1>
     <div class="form-group row mb-3">
       <input type="hidden" id="id">
+      <input type="hidden" id="idetd">
       <label for="etd" class="col-sm-2 col-form-label">Etudiant</label>
       <div class="col-sm-10">
         <select class="form-select" id="etd">
-          <option selected>Choisissez un etudiant</option>
-          <option value="1">et1</option>
-          <option value="2">et2</option>
-          <option value="3">et3</option>
         </select>
         <small id="setd" style="color:red" hidden>Ce champ doit être rempli</small>
       </div>
     </div>
 
     <div class="form-group row mb-3">
+      <input type="hidden" id="idmdl">
       <label for="module" class="col-sm-2 col-form-label">Module</label>
       <div class="col-sm-10">
         <input type="text" class="form-control" name="module" id="module" placeholder="nom module" disabled>
@@ -39,6 +35,7 @@
     </div>
 
     <div class="form-group row mb-3">
+      <input type="hidden" id="ideval">
       <label for="eval" class="col-sm-2 col-form-label">Evaluation</label>
       <div class="col-sm-10">
         <input type="text" class="form-control" name="eval" id="eval" placeholder="evaluation" disabled>
@@ -50,7 +47,7 @@
       <label for="valeur" class="col-sm-2 col-form-label">Valeur</label>
       <div class="col-sm-10">
         <input type="number" class="form-control" name="valeur" id="valeur" placeholder="20" required>
-        <small id="svaleur" style="color:red" hidden>Ce champ doit être rempli</small>
+        <small id="svaleur" style="color:red" hidden>Ce champ doit être rempli et enter 0 et 20</small>
       </div>
     </div>
 
@@ -58,11 +55,8 @@
       <div class="col-sm-10 offset-sm-2 d-flex justify-content-between">
         <div>
           <button id="ajouter" type="submit" class="btn btn-primary me-2">
-            <i id="iconAjouter" class="fas fa-user-plus"></i>
+            <i id="iconAjouter" class="fas fa-pen"></i>
             <span id="ajouterText">Ajouter la note</span>
-          </button>
-          <button type="reset" class="btn btn-outline-primary">
-            <i class="fas fa-undo"></i> Réinitialiser
           </button>
         </div>
         <button class="btn btn-dark" type="button" id="afficherEtd" data-bs-toggle="collapse" href="#listeNotes">
@@ -85,7 +79,7 @@
         </button>
       </div>
     </div>
-    <table id="personnes" class="table table-bordered border-dark">
+    <table id="notes" class="table table-bordered border-dark">
       <thead>
         <tr>
           <th scope="col">#</th>
@@ -97,7 +91,7 @@
           <th scope="col">Actions</th>
         </tr>
       </thead>
-      <tbody id="listStudent">
+      <tbody id="listNote">
         <tr>
           <th scope="row">1</th>
           <th scope="col">Nom</th>
@@ -120,6 +114,7 @@
   </div>
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="../../scripts/gestionNote.js" type="module"></script>
   </body>
 
   </html>

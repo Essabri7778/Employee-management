@@ -88,7 +88,7 @@ function ajouterEvaluation() {
         data.append("action", "ajouter");
         xhr.send(data);
       } else {
-        console.log("Module not found");
+        console.log("Module non trouver");
       }
     });
   }
@@ -111,6 +111,9 @@ function listEvaluation() {
 
 function afficherEval(evl) {
     tbody.innerHTML = "";
+    if (!Array.isArray(evl)) {
+      evl = [evl];
+  }
     for (let e of evl) {
       let newEvl = `
         <tr>
@@ -122,8 +125,8 @@ function afficherEval(evl) {
           <td>${e.salle}</td>
           <td id="id_module" hidden>${e.id_module}</td>
           <td class="justify-content-center">
-            <button class="btn btn-primary mx-1">
-              <a class="text-reset text-decoration-none" href="ajouterNote.php"><i class="fas fa-pen"></i> Noté un Etudiant</a>
+            <button class="btn btn-primary mx-1 noteB">
+              <i class="fas fa-pen"></i> Noté un Etudiant
             </button>
             <button class="btn btn-light btn-outline-secondary mx-1 modifier">
               <i class="fas fa-pencil-alt"></i> Modifier
@@ -150,6 +153,29 @@ function afficherEval(evl) {
     for (let m of mod) {
         m.addEventListener("click", () => {
         modifierEval(m.parentElement.parentElement);
+        });
+
+}
+
+    let note = document.getElementsByClassName("noteB");
+    let note_array = Array.from(note);
+    for (let n of note_array) {
+        n.addEventListener("click", () => {
+            const idEval = n.parentElement.parentElement.children[0].textContent;
+            const nomEval = n.parentElement.parentElement.children[1].textContent;
+            const nomMdl = n.parentElement.parentElement.children[2].textContent;
+            const idMdl = n.parentElement.parentElement.children[6].textContent;
+
+            const queryParams = new URLSearchParams();
+            queryParams.append('idEval', idEval);
+            queryParams.append('idMdl', idMdl);
+            queryParams.append('nomEval', nomEval);
+            queryParams.append('nomMdl', nomMdl);
+            
+            const queryString = queryParams.toString();
+
+            const redirectURL = `http://localhost/gestion-platforme-scolaire/views/admin/ajouterNote.php?${queryString}`;
+            window.location.href = redirectURL;
         });
     }
 }
@@ -219,6 +245,7 @@ function modifierEval(evl) {
     };
     let data = new FormData(form);
     data.append("id", id.value);
+    data.append("type", type.value);
     data.append("id_module",idmod.value);
     data.append("action", "modifier");
     xhr.send(data);
@@ -295,3 +322,4 @@ form.addEventListener("submit", (e) => {
     }, 3000);
   }
 });
+

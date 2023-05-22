@@ -111,8 +111,8 @@
           <td>2000</td>
           <td>GIiiiiiii</td>
           <td class="justify-content-center">
-            <button class="btn btn-primary mx-1">
-              <a class="text-reset text-decoration-none" href="ajouterNote.php"><i class="fas fa-pen"></i> Noté un Etudiant</a>
+            <button id="noteB" class="btn btn-primary mx-1">
+              <i class="fas fa-pen"></i> Noté un Etudiant
             </button>
             <button class="btn btn-light btn-outline-secondary mx-1">
               <i class="fas fa-pencil-alt"></i> Modifier

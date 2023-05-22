@@ -55,6 +55,9 @@ function listModules() {
 
 function afficherMdl(Mdl) {
   tbody.innerHTML = "";
+  if (!Array.isArray(Mdl)) {
+    Mdl = [Mdl];
+}
   for (let mdl of Mdl) {
     let newmdl = `
       <tr>
