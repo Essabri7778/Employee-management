@@ -8,6 +8,7 @@
         href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.0.0-beta3/css/all.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="./views/style.css" />
+    <link rel="icon" href="./views/assets/favicon.ico" type="image/x-icon">
     <title>Scolarité</title>
 </head>
 
