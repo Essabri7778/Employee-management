@@ -10,7 +10,7 @@ session_start();
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css">
-
+    <script src="../../scripts/navlinks.js" defer></script>
     <link rel="icon" href="../assets/favicon.ico" type="image/x-icon">
     <title>Scolarité</title>
 </head>
@@ -21,9 +21,7 @@ session_start();
             <a class="navbar-brand" href="welcome.php">
                 <i class="fas fa-school" style="color: #ffffff;"></i> <span class="fw-bold">Scolarité</span>
             </a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
-                aria-label="Toggle navigation">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
@@ -44,10 +42,9 @@ session_start();
                         <a class="nav-link" href="afficherEtdNotes.php">Afficher Mes Notes</a>
                     </li>
                     <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
-                            data-bs-toggle="dropdown" aria-expanded="false">Profil</a>
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">Profil</a>
                         <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                            <li class="dropdown-item"><i class="fas fa-user"></i><?= $_SESSION['nom_complet'];?></li>
+                            <li class="dropdown-item"><i class="fas fa-user"></i><?= $_SESSION['nom_complet']; ?></li>
                             <li><a class="dropdown-item" href="profileEtd.php"><i class="fas fa-address-card"></i></i>
                                     Afficher Profil</a></li>
                             <li><a class="dropdown-item" href="editMdpEtd.php"><i class="fas fa-lock"></i> Modifier Mot
