@@ -26,7 +26,7 @@
                             <div class="col-md-6 col-lg-7 d-flex align-items-center">
                                 <div class="card-body p-4 p-lg-5 text-black">
 
-                                    <form>
+                                    <form id="loginForm">
 
                                         <div class="d-flex align-items-center mb-3 pb-1">
                                             <i class="fas fa-school fa-2x me-3 text-primary"></i>
@@ -40,18 +40,17 @@
                                             <label class="form-label mb-2 text-primary" for="userType">
                                                 <i class="fas fa-user-cog"></i> Type de compte:
                                             </label>
-                                            <select class="form-select bg-light text-primary" id="userType"
-                                                name="userType">
+                                            <select class="form-select bg-light text-primary" id="userType" name="role">
                                                 <option value="admin"><i class="fas fa-user-shield"></i> Admin</option>
-                                                <option value="user"><i class="fas fa-user-graduate"></i> Etudiant
+                                                <option value="etudiant"><i class="fas fa-user-graduate"></i> Etudiant
                                                 </option>
                                             </select>
                                         </div>
 
                                         <div class="mb-3">
                                             <label class="mb-2 text-muted" for="identifiant">Identifiant</label>
-                                            <input id="identifiant" type="identifiant" class="form-control"
-                                                name="identifiant" value="" required autofocus>
+                                            <input id="identifiant" type="identifiant" class="form-control" name="login"
+                                                value="" required autofocus>
                                             <small id="sidentifiantVide" class="form-text text-danger" hidden>Ce champ
                                                 doit être rempli!</small>
                                             <small id="sidentifiantFaux" class="form-text text-danger" hidden>Ce champ
@@ -88,7 +87,7 @@
             </div>
         </div>
     </section>
-    <script src="./scripts/login.js"></script>
+    <script src="./scripts/login.js" type="module"></script>
 </body>
 
 </html>
