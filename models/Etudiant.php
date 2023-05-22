@@ -78,14 +78,16 @@ class Etudiant {
     }
     //TODO:
     //Trouver un étudiant par son nom ou prenom
-    // static public function findEtudiant($data){
-    //     $search = $data['search'];
-    //     try{
-    //         $stmt = DB::connect()->prepare('SELECT * FROM etudiant WHERE nom LIKE ? OR prenom LIKE ?');
-    //         $stmt->execute(['%'.$search.'%','%'.$search.'%']);
-    //         return $stmt->fetchAll();
-    //     }catch(PDOException $e){
-    //         echo 'Error'. $e->getMessage();
-    //     }
-    // }
+    static public function findEtudiant($data){
+        $search = $data['search'];
+        try{
+            $stmt = DB::connect()->prepare('SELECT * FROM etudiant WHERE LOWER(nom) LIKE LOWER(:keyword) OR LOWER(prenom) LIKE LOWER(:keyword)');
+            $stmt->bindParam(':keyword','%'.$search.'%');
+            $stmt->execute();
+            $etudiants = $stmt->fetchAll(PDO::FETCH_ASSOC);
+            return json_encode($etudiants);
+        }catch(PDOException $e){
+            echo 'Error'. $e->getMessage();
+        }
+    }
 }

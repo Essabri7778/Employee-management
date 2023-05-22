@@ -1,9 +1,13 @@
-<?php include_once("headerAdmin.php"); ?>
+<?php 
+session_start();
+include_once("headerAdmin.php"); 
+
+?>
 
 <body class="bg-primary">
     <div class="container-fluid bg-primary text-white">
         <header class="header text-center py-4">
-            <h1 class="display-4 fw-bold">Bienvenue, Admin!</h1>
+            <h1 class="display-4 fw-bold">Bienvenue, <?=$_SESSION['nom_complet'];?>!</h1>
         </header>
         <div class="container">
             <div class="row mt-5">
@@ -89,7 +93,10 @@
                                     <tr>
                                         <th scope="row">1</th>
                                         <td>JS</td>
-                                        <td class="w-50">Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequuntur, nulla ullam. Aspernatur animi consequuntur quod numquam laudantium dicta harum, autem possimus nulla quae tenetur. Dolore earum sunt ratione. Fugit, commodi.</td>
+                                        <td class="w-50">Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                                            Consequuntur, nulla ullam. Aspernatur animi consequuntur quod numquam
+                                            laudantium dicta harum, autem possimus nulla quae tenetur. Dolore earum sunt
+                                            ratione. Fugit, commodi.</td>
                                     </tr>
                                 </tbody>
                             </table>

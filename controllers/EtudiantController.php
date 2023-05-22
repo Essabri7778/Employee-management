@@ -69,6 +69,10 @@
 } else if ($action == "afficherTous") {
     $res = Etudiant::getAllEtudiants();
     echo $res;
+} else if ($action == "chercher") {
+    $data = array('search' => $_POST['search']);
+    $res = Etudiant::findEtudiant($data);
+    echo $res;
 } else {
     echo "action non reconnue";
 }
