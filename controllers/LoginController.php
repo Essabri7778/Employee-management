@@ -2,6 +2,8 @@
 
 
 require_once('../models/LoginAdmin.php');
+require_once('../models/LoginEtudiant.php');
+
 
     $login = isset($_POST['login']) ? $_POST['login'] : NULL;
     $mdp = isset($_POST['mdp']) ? $_POST['mdp'] : NULL;

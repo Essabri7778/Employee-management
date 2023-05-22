@@ -1,6 +1,7 @@
 <?php 
  
-include_once("../models/Etudiant.php");
+ require_once('../models/Etudiant.php');
+
  //Récuperation des données
  //Methode Get
 //  $nom = isset($_GET['nom']) ? $_GET['nom'] : NULL;
