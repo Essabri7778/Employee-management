@@ -1,5 +1,7 @@
 <?php
 
+include_once('../models/Module.php');
+
 $nom = isset($_POST['nom']) ? $_POST['nom'] : NULL;
 $description = isset($_POST['description']) ? $_POST['description'] : NULL;
 $id = isset($_POST['id']) ? $_POST['id'] : NULL;

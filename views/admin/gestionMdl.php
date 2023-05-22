@@ -49,6 +49,8 @@
     </div>
   </form>
 
+  <h3 id="res" class="my-3 text-center" style="color:green" hidden></h3>
+
 
   <div class="row collapse mt-5" id="listeMdl">
 
@@ -73,7 +75,7 @@
           <th scope="col">Actions</th>
         </tr>
       </thead>
-      <tbody id="listStudent">
+      <tbody id="listModules">
         <tr>
           <th scope="row">1</th>
           <td>JS</td>
@@ -93,6 +95,7 @@
   </div>
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="../../scripts//gestionModule.js" type="module"></script>
   </body>
 
   </html>
