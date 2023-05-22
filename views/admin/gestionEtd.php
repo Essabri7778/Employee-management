@@ -9,8 +9,9 @@
       </button>
     </div>
   </div>
-  <div id="success" class="alert alert-success" role="alert" hidden></div>
-  <div id="failed" class="alert alert-danger" role="alert" hidden></div>
+  <!--//FIXME: 2 champs hidden pour afficher les messages-->
+  <!--<div id="success" class="alert alert-success" role="alert" hidden></div>
+  <div id="failed" class="alert alert-danger" role="alert" hidden></div>-->
   
   <form id="formulaire">
     <h1 id="succes" class="alert alert-success" role="alert" hidden>Insertion réussie</h1>
@@ -35,7 +36,7 @@
     <div class="form-group row mb-3">
       <label for="Address" class="col-sm-2 col-form-label">Adresse</label>
       <div class="col-sm-10">
-        <input type="text" class="form-control" name="Address" id="Address" placeholder="Adresse de l'étudiant" required>
+        <input type="text" class="form-control" name="adresse" id="Address" placeholder="Adresse de l'étudiant" required>
         <small id="saddress" class="form-text text-danger" hidden>Ce champ doit être rempli</small>
       </div>
     </div>
@@ -59,7 +60,7 @@
     <div class="form-group row mb-3">
       <label for="Mdp" class="col-sm-2 col-form-label">Mot de passe</label>
       <div class="col-sm-10">
-        <input type="password" class="form-control" name="mdp" id="mdp" placeholder="Mot de passe initial" required>
+        <input type="password" class="form-control" name="mot_de_passe" id="mdp" placeholder="Mot de passe initial" required>
         <small id="smdp" class="form-text text-danger" hidden>Ce champ doit être rempli</small>
       </div>
     </div>
@@ -139,6 +140,8 @@
 
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"></script>
+<script src="../../scripts/gestionEtudiantScript.js" type="module"></script>
 </body>
+
 
 </html>

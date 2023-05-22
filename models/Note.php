@@ -1,5 +1,5 @@
 <?php
-
+include_once("../database/DB.php");
 class Note {
     
     //Récuperer tous les note

@@ -1,5 +1,5 @@
 <?php
-
+include_once("../database/DB.php");
     class LoginEtudiant{
 
         static public function logEtudiant($email){

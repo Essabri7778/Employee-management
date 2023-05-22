@@ -1,6 +1,6 @@
 <?php 
  
-
+include_once("../models/Etudiant.php");
  //Récuperation des données
  //Methode Get
 //  $nom = isset($_GET['nom']) ? $_GET['nom'] : NULL;
@@ -19,7 +19,9 @@
  $adresse = isset($_POST['adresse']) ? $_POST['adresse'] : NULL;
  $telephone = isset($_POST['telephone']) ? $_POST['telephone'] : NULL;
  $mot_de_passe = isset($_POST['mot_de_passe']) ? $_POST['mot_de_passe'] : NULL;
+ //ce champs est remplie dans l'ajout mais dans le update il est remplie
  $id = isset($_POST['id']) ? $_POST['id'] : NULL;
+ //on remplie ce champs en javaScript
  $action = isset($_POST['action']) ? $_POST['action'] : NULL;
  
  //traitement

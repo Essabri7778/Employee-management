@@ -1,4 +1,5 @@
 <?php
+include_once("../database/DB.php");
 
 class Etudiant {
 
