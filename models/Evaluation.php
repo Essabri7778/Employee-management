@@ -79,7 +79,7 @@ class Evaluation {
     //avec le nom de module associé
     static public function listEvaluation()
     {
-        $query = 'SELECT e.id, e.id_module, m.nom, e.type, e.date, e.heure, e.salle FROM evaluation e INNER JOIN modules m ON e.id_module = m.id;'
+        $query = 'SELECT e.id, e.id_module, m.nom, e.type, e.date, e.heure, e.salle FROM evaluation e INNER JOIN modules m ON e.id_module = m.id';
         $stmt = DB::connect()->prepare($query);
         $stmt->execute();
         $evaluations = $stmt->fetchAll(PDO::FETCH_ASSOC);

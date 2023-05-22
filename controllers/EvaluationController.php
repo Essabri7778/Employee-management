@@ -59,7 +59,7 @@ if ($action == "ajouter") {
     $res = Evaluation::getEvaluation($id);
     echo $res;
 } else if ($action == "afficherTous") {
-    $res = Evaluation::getAllEvaluations();
+    $res = Evaluation::listEvaluation();
     echo $res;
 } else {
     echo "action non reconnue";

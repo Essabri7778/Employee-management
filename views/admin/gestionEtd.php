@@ -9,15 +9,13 @@
       </button>
     </div>
   </div>
-  <!--//FIXME: 2 champs hidden pour afficher les messages-->
-  <!--<div id="success" class="alert alert-success" role="alert" hidden></div>
-  <div id="failed" class="alert alert-danger" role="alert" hidden></div>-->
+
+  <div id="succes" class="alert alert-success" role="alert" hidden></div>
+  <div id="failed" class="alert alert-danger" role="alert" hidden></div>
   
   <form id="formulaire">
-    <h1 id="succes" class="alert alert-success" role="alert" hidden>Insertion réussie</h1>
-    <h1 id="failed" class="alert alert-danger" role="alert" hidden>Insertion échouée</h1>
     <div class="form-group row mb-3">
-      <input type="hidden" id="id">
+      <input type="text" id="id" hidden>
       <label for="nom" class="col-sm-2 col-form-label">Nom</label>
       <div class="col-sm-10">
         <input type="text" class="form-control" name="nom" id="nom" placeholder="Nom de l'étudiant" required>
@@ -60,7 +58,7 @@
     <div class="form-group row mb-3">
       <label for="Mdp" class="col-sm-2 col-form-label">Mot de passe</label>
       <div class="col-sm-10">
-        <input type="text" class="form-control" name="mdp" id="mdp" placeholder="Mot de passe initial" required>
+        <input type="text" class="form-control" name="mot_de_passe" id="mdp" placeholder="Mot de passe initial" >
         <small id="smdp" class="form-text text-danger" hidden>Ce champ doit être rempli</small>
       </div>
     </div>
@@ -69,15 +67,13 @@
       <div class="col-sm-10 offset-sm-2 d-flex justify-content-between">
         <div>
           <button id="ajouter" type="submit" class="btn btn-primary me-2">
-            <i class="fas fa-user-plus"></i> Ajouter un étudiant
+            <i id="iconAjouter" class="fas fa-user-plus"></i>
+            <span id="ajouterText">Ajouter un Etudiant</span>
           </button>
           <button type="reset" class="btn btn-outline-primary">
             <i class="fas fa-undo"></i> Réinitialiser
           </button>
         </div>
-        <button type="button" class="btn btn-dark" id="afficherEtd" data-bs-toggle="collapse" href="#listeEtd">
-          <i class="fas fa-list"></i> Afficher la liste des étudiants
-        </button>
       </div>
     </div>
   </form>

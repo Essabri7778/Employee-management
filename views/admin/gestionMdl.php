@@ -2,7 +2,7 @@
 
 <div class="container" style="padding: 20px;">
   <div class="d-flex justify-content-between align-items-end mb-3">
-    <h1>Ajouter Modlule</h1>
+    <h1>Ajouter Module</h1>
     <div>
       <button class="btn btn-dark" id="afficherEtd" data-bs-toggle="collapse" href="#listeMdl">
         <i class="fas fa-list"></i>
@@ -13,13 +13,12 @@
   <div id="failed" class="alert alert-danger" role="alert" hidden></div>
 
   <form id="formulaire">
-    <h1 id="succes" style="background-color: lightgreen; color:darkgreen; font-size: medium; padding :10px;" hidden>Insertion faite avec succès</h1>
-    <h1 id="failed" style="background-color: #FFCCCB; color:darkred; font-size: medium; padding :10px;" hidden>Insertion non faite</h1>
+
     <div class="form-group row mb-3">
       <input type="hidden" id="id">
       <label for="nom" class="col-sm-2 col-form-label">Nom</label>
       <div class="col-sm-10">
-        <input type="text" class="form-control" name="nom" id="nom" placeholder="Votre nom" required>
+        <input type="text" class="form-control" name="nom" id="nom" placeholder="Votre nom">
         <small id="snom" style="color:red" hidden>Ce champ doit être rempli</small>
       </div>
     </div>
@@ -27,7 +26,7 @@
     <div class="form-group row mb-3">
       <label for="description" class="col-sm-2 col-form-label">Description</label>
       <div class="col-sm-10">
-        <input type="text" class="form-control" name="description" id="description" placeholder="description module" required>
+        <input type="text" class="form-control" name="description" id="description" placeholder="description module">
         <small id="sdescription" style="color:red" hidden>Ce champ doit être rempli</small>
       </div>
     </div>
@@ -36,7 +35,8 @@
       <div class="col-sm-10 offset-sm-2 d-flex justify-content-between">
         <div>
           <button id="ajouter" type="submit" class="btn btn-primary me-2">
-            <i class="fas fa-user-plus"></i> Ajouter un Module
+            <i id="iconAjouter" class="fas fa-user-plus"></i>
+            <span id="ajouterText">Ajouter un Module</span>
           </button>
           <button type="reset" class="btn btn-outline-primary">
             <i class="fas fa-undo"></i> Réinitialiser
@@ -49,7 +49,7 @@
     </div>
   </form>
 
-  <h3 id="res" class="my-3 text-center" style="color:green" hidden></h3>
+  <h3 id="res" class="my-3 text-center" hidden></h3>
 
 
   <div class="row collapse mt-5" id="listeMdl">
@@ -95,7 +95,7 @@
   </div>
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"></script>
-  <script src="../../scripts//gestionModule.js" type="module"></script>
+  <script src="../../scripts/gestionModule.js" type="module"></script>
   </body>
 
   </html>
