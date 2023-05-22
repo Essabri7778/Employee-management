@@ -1,5 +1,8 @@
 <?php
-include_once("../database/DB.php");
+
+
+include_once('../database/DB.php');
+
 class Module{
     
     static public function addModule($data){

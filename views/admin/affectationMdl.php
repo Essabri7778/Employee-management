@@ -52,7 +52,7 @@
           <i class="fas fa-user-plus"></i> Affecter les Modules
         </button>
         <button type="reset" class="btn ms-2 btn-outline-primary">
-          <i class="fas fa-undo"></i> Vider
+          <i class="fas fa-undo"></i> Réinitialiser
         </button>
       </div>
     </div>

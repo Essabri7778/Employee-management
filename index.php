@@ -1,8 +1,8 @@
 <?php
+session_start();
 
-    require_once('./autoload.php');
+  
+    
 
-    include_once("./views/login.php");
+include_once("./views/login.php");
    
-
-?>

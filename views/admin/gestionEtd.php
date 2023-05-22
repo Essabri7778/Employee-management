@@ -60,7 +60,7 @@
     <div class="form-group row mb-3">
       <label for="Mdp" class="col-sm-2 col-form-label">Mot de passe</label>
       <div class="col-sm-10">
-        <input type="password" class="form-control" name="mot_de_passe" id="mdp" placeholder="Mot de passe initial" required>
+        <input type="text" class="form-control" name="mdp" id="mdp" placeholder="Mot de passe initial" required>
         <small id="smdp" class="form-text text-danger" hidden>Ce champ doit être rempli</small>
       </div>
     </div>
@@ -75,7 +75,7 @@
             <i class="fas fa-undo"></i> Réinitialiser
           </button>
         </div>
-        <button class="btn btn-dark" id="afficherEtd" data-bs-toggle="collapse" href="#listeEtd">
+        <button type="button" class="btn btn-dark" id="afficherEtd" data-bs-toggle="collapse" href="#listeEtd">
           <i class="fas fa-list"></i> Afficher la liste des étudiants
         </button>
       </div>
@@ -105,6 +105,7 @@
           <th scope="col">Adresse</th>
           <th scope="col">Téléphone</th>
           <th scope="col">Email</th>
+          <th scope="col">Init MDP</th>
           <th scope="col">Actions</th>
         </tr>
       </thead>
@@ -115,6 +116,7 @@
           <td>James</td>
           <td>mark.james@gmail.com</td>
           <td>2000</td>
+          <td>GIiiiiiii</td>
           <td>GIiiiiiii</td>
           <td>
             <div class="d-flex justify-content-between align-items-center">
