@@ -42,7 +42,7 @@
             <i class="fas fa-undo"></i> Réinitialiser
           </button>
         </div>
-        <button class="btn btn-dark" id="afficherEtd" data-bs-toggle="collapse" href="#listeMdl">
+        <button type="button" class="btn btn-dark" id="afficherEtd" data-bs-toggle="collapse" href="#listeMdl">
           <i class="fas fa-list"></i> Afficher la liste des modules
         </button>
       </div>

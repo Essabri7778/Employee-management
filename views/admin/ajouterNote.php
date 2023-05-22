@@ -64,7 +64,7 @@
             <i class="fas fa-undo"></i> Réinitialiser
           </button>
         </div>
-        <button class="btn btn-dark" id="afficherEtd" data-bs-toggle="collapse" href="#listeNotes">
+        <button class="btn btn-dark" type="button" id="afficherEtd" data-bs-toggle="collapse" href="#listeNotes">
           <i class="fas fa-list"></i> Afficher la liste des notes
         </button>
       </div>
