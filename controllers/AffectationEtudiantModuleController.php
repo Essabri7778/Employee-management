@@ -1,5 +1,6 @@
 <?php
 
+require_once('../models/AffectationEtudiantModule.php');
 //Récuperation des données
 
  //Methode Get

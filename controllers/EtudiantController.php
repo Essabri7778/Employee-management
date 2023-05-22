@@ -1,5 +1,6 @@
 <?php 
  
+ require_once('../models/Etudiant.php');
 
  //Récuperation des données
  //Methode Get

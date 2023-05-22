@@ -1,5 +1,5 @@
 <?php
-
+require_once('../models/Note.php');
 //Récuperation des données
 
  //Methode Get
