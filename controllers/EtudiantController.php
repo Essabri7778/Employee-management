@@ -17,11 +17,11 @@
  $nom = isset($_POST['nom']) ? $_POST['nom'] : NULL;
  $prenom = isset($_POST['prenom']) ? $_POST['prenom'] : NULL;
  $email = isset($_POST['email']) ? $_POST['email'] : NULL;
- $adresse = isset($_POST['adresse']) ? $_POST['adresse'] : NULL;
+ $adresse = isset( $_POST['adresse']) ? $_POST['adresse'] : NULL;
  $telephone = isset($_POST['telephone']) ? $_POST['telephone'] : NULL;
  $mot_de_passe = isset($_POST['mot_de_passe']) ? $_POST['mot_de_passe'] : NULL;
  //ce champs est remplie dans l'ajout mais dans le update il est remplie
- $id = isset($_POST['id']) ? $_POST['id'] : NULL;
+ $id = isset($_POST['id']) ? intval($_POST['id'])  : NULL;
  //on remplie ce champs en javaScript
  $action = isset($_POST['action']) ? $_POST['action'] : NULL;
  
@@ -54,7 +54,7 @@
     );
     $res = Etudiant::updateEtudiant($data);
     if ($res == "ok")
-        echo "ok";
+        echo 'ok';
     else
         echo "error";
 } else if ($action == "supprimer") {
