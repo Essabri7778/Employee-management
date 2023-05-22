@@ -1,122 +1,213 @@
-import getXhr from "./utilities.js"
+import getXhr from "./utilities.js";
 
 let form = document.getElementById("formulaire");
 let res = document.getElementById("res");
-
-form.addEventListener("submit",(e)=>{
-    e.preventDefault(e);
-    ajouterModule();
-    listModules();
-});
+let nom = document.getElementById("nom");
+let description = document.getElementById("description");
+let sdescription = document.getElementById("sdescription");
+let snom = document.getElementById("snom");
+let ajouter = document.getElementById("ajouter");
 
 listModules();
 
-function ajouterModule(){
-    let xhr = getXhr();
-    xhr.open("POST", "../../controllers/ModuleController.php", true);
-    xhr.onreadystatechange = function(){
-        if(xhr.readyState == 4 && xhr.status == 200){
-            res.hidden=false;
-            res.innerHTML=xhr.responseText;
-            listModules();
-        }
-    }
+let etat = "ajouter";
 
-    let data = new FormData(form);
-    data.append("action","ajouter");
-    xhr.send(data);
-    form.reset();
+function ajouterModule() {
+  let xhr = getXhr();
+  xhr.open("POST", "../../controllers/ModuleController.php", true);
+  xhr.onreadystatechange = function () {
+    if (xhr.readyState == 4 && xhr.status == 200) {
+      let resCtr = xhr.responseText;
+      if (resCtr == "ok") {
+        res.innerHTML = "Tout passe bien";
+        res.hidden = false;
+      } else if (resCtr == "error") {
+        res.innerHTML = "Une erreur est survenue";
+        res.hidden = false;
+      }
+      setTimeout(function () {
+        res.hidden = true;
+      }, 3000);
+      listModules();
+    }
+  };
+  let data = new FormData(form);
+  data.append("action", "ajouter");
+  xhr.send(data);
 }
 
 let tbody = document.getElementById("listModules");
 
-function listModules(){
-    let xhr = getXhr();
-    let listMdl;
-    xhr.open("Post", "../../controllers/ModuleController.php", true);
-    xhr.onreadystatechange = function(){
-        if(xhr.readyState == 4 && xhr.status == 200){
-            listMdl = xhr.response;
-            afficherMdl(JSON.parse(listMdl));
-        }
+function listModules() {
+  let xhr = getXhr();
+  let listMdl;
+  xhr.open("POST", "../../controllers/ModuleController.php", true);
+  xhr.onreadystatechange = function () {
+    if (xhr.readyState == 4 && xhr.status == 200) {
+      listMdl = xhr.response;
+      afficherMdl(JSON.parse(listMdl));
     }
-    let data = new FormData();
-    data.append("action","afficherTous");
-    xhr.send(data);
+  };
+  let data = new FormData();
+  data.append("action", "afficherTous");
+  xhr.send(data);
 }
 
-
-function afficherMdl(Mdl){
-    tbody.innerHTML="";
-    for(let mdl of Mdl){
-        let newmdl = `<tr>
+function afficherMdl(Mdl) {
+  tbody.innerHTML = "";
+  for (let mdl of Mdl) {
+    let newmdl = `
+      <tr>
         <td scope="row">${mdl.id}</td>
         <td>${mdl.nom}</td>
         <td>${mdl.description}</td>
         <td class="justify-content-center">
-        <button class="btn btn-light btn-outline-secondary mx-1 modifier">
-          <i class="fas fa-pencil-alt"></i> Modifier
-        </button>
-        <button class="btn btn-danger supprimer">
-          <i class="fas fa-trash"></i> Supprimer
-        </button>
-      </td>
+          <button class="btn btn-light btn-outline-secondary mx-1 modifier">
+            <i class="fas fa-pencil-alt"></i> Modifier
+          </button>
+          <button class="btn btn-danger supprimer">
+            <i class="fas fa-trash"></i> Supprimer
+          </button>
+        </td>
+      </tr>
+    `;
+    tbody.insertAdjacentHTML("beforeend", newmdl);
+  }
 
-    </tr>`
-        tbody.insertAdjacentHTML("beforeend",newmdl);
-    }
-    let supp=document.getElementsByClassName("supprimer");
-    let sup = Array.from(supp);
-    console.log(sup);
-    for(let s of sup){
-        s.addEventListener("click",()=>{
-        supprimerMdl(s.parentElement.parentElement.children[0].textContent);
+  let supp = document.getElementsByClassName("supprimer");
+  let sup = Array.from(supp);
+  for (let s of sup) {
+    s.addEventListener("click", () => {
+      supprimerMdl(s.parentElement.parentElement.children[0].textContent);
     });
-    }
-    let modif=document.getElementsByClassName("modifier");
-    let mod = Array.from(modif);
-    for(let m of mod){
-        m.addEventListener("click",()=>{
-        modifierMdl(m.parentElement.parentElement);
+  }
+
+  let modif = document.getElementsByClassName("modifier");
+  let mod = Array.from(modif);
+  for (let m of mod) {
+    m.addEventListener("click", () => {
+      modifierMdl(m.parentElement.parentElement);
     });
+  }
+}
+
+function supprimerMdl(id) {
+  let xhr = getXhr();
+  xhr.open("POST", "../../controllers/ModuleController.php", true);
+  xhr.onreadystatechange = function () {
+    if (xhr.readyState == 4 && xhr.status == 200) {
+      let resCtr = xhr.responseText;
+      if (resCtr == "ok") {
+        res.innerHTML = "Tout passe bien";
+        res.hidden = false;
+      } else if (resCtr == "error") {
+        res.innerHTML = "Une erreur est survenue";
+        res.hidden = false;
+      }
+      setTimeout(function () {
+        res.hidden = true;
+      }, 3000);
+      listModules();
     }
+  };
+  let data = new FormData();
+  data.append("id", id);
+  data.append("action", "supprimer");
+  xhr.send(data);
 }
 
-function supprimerMdl(id){
-    let xhr = getXhr();
-    xhr.open("Post", "../../controllers/ModuleController.php", true);
-    xhr.onreadystatechange = function(){
-        if(xhr.readyState == 4 && xhr.status == 200){
-            res.hidden=false;
-            res.innerHTML=xhr.responseText;
-            listModules();
-        }
+function modifierMdl(mdl) {
+  etat = "modifier";
+  id.value = mdl.children[0].textContent;
+  nom.value = mdl.children[1].textContent;
+  description.value = mdl.children[2].textContent;
+  ajouterText.innerHTML = "Modifier le Module";
+  iconAjouter.className = "fas fa-edit";
+
+  ajouter.removeEventListener("click", ajouterModule);
+  ajouter.addEventListener("click", modifierSubmit);
+}
+
+function modifierSubmit() {
+  let xhr = getXhr();
+  xhr.open("POST", "../../controllers/ModuleController.php", true);
+  xhr.onreadystatechange = function () {
+    if (xhr.readyState == 4 && xhr.status == 200) {
+      let resCtr = xhr.responseText;
+      if (resCtr == "ok") {
+        res.innerHTML = "Tout passe bien";
+        res.hidden = false;
+        etat = "ajouter";
+        ajouterText.innerHTML = "Ajouter un Module";
+        iconAjouter.className = "fas fa-user-plus";
+      } else if (resCtr == "error") {
+        res.innerHTML = "Une erreur est survenue";
+        res.hidden = false;
+      }
+      setTimeout(function () {
+        res.hidden = true;
+      }, 3000);
+      listModules();
     }
-    let data = new FormData();
-    data.append("id",id);
-    data.append("action","supprimer");
-    xhr.send(data);
+  };
+  let data = new FormData(form);
+  data.append("id", id.value);
+  data.append("action", "modifier");
+  xhr.send(data);
 }
 
+let validateNom = function () {
+  if (nom.value.length == 0) {
+    return false;
+  }
+  return true;
+};
 
-function modifierMdl(mdl){
-    nom.value=mdl.children[1].textContent;
-    description.value=mdl.children[2].textContent;
-    document.getElementById("ajouter").innerHTML="Modifier";
-    document.getElementById("ajouter").addEventListener("click",()=>{
-        let xhr = getXhr();
-        xhr.open("Post", "../../controllers/ModuleController.php", true);
-        xhr.onreadystatechange = function(){
-            if(xhr.readyState == 4 && xhr.status == 200){
-                document.getElementById("ajouter").innerHTML="Ajouter";
-                res.hidden=false;
-                res.innerHTML=xhr.responseText;
-                listModules();
-            }
-        }
-        let data = new FormData(form);
-        data.append("id",etd.children[0].textContent);
-        data.append("action","modifier");
-        xhr.send(data);
-    })
-}
+let validateDescription = function () {
+  if (description.value.length == 0) {
+    return false;
+  }
+  return true;
+};
+
+nom.addEventListener("blur", function (e) {
+  if (validateNom() === false) {
+    snom.hidden = false;
+  } else {
+    snom.hidden = true;
+  }
+});
+
+description.addEventListener("blur", function (e) {
+  if (validateDescription() === false) {
+    sdescription.hidden = false;
+  } else {
+    sdescription.hidden = true;
+  }
+});
+
+form.addEventListener("submit", (e) => {
+  e.preventDefault();
+
+  if (validateNom() === true && validateDescription() === true) {
+    if (etat === "ajouter") {
+      ajouterModule();
+    } else if (etat === "modifier") {
+      modifierSubmit();
+    }
+
+    listModules();
+
+    success.innerHTML = `Module ${etat} avec succès`;
+    success.hidden = false;
+    setTimeout(function () {
+      success.hidden = true;
+    }, 3000);
+  } else {
+    failed.innerHTML = `Module non ${etat}`;
+    failed.hidden = false;
+    setTimeout(function () {
+      failed.hidden = true;
+    }, 3000);
+  }
+});

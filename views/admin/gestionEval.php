@@ -70,7 +70,8 @@
       <div class="col-sm-10 offset-sm-2 d-flex justify-content-between">
         <div>
           <button id="ajouter" type="submit" class="btn btn-primary me-2">
-            <i class="fas fa-user-plus"></i> Ajouter un évaluation
+            <i id="iconAjouter" class="fas fa-user-plus"></i>
+            <span id="ajouterText">Ajouter un Evaluation</span>
           </button>
           <button type="reset" class="btn btn-outline-primary">
             <i class="fas fa-undo"></i> Réinitialiser
