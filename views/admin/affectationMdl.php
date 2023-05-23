@@ -70,7 +70,7 @@ $id_etudiant = isset($_GET['id_etd']) ? intval($_GET['id_etd']) : NULL;
 
       <div class="row mb-3">
         <div class="col-md-6">
-          <button class="btn btn-light btn-outline-secondary w-100" id="updateModules">
+          <button class="btn btn-light btn-outline-secondary w-100" id="updateModules" >
             <i class="fas fa-pencil-alt"></i> Modifier les modules
           </button>
         </div>
