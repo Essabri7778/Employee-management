@@ -18,7 +18,7 @@
       <input type="hidden" id="id">
       <input type="hidden" id="idetd">
       <label for="etd" class="col-sm-2 col-form-label">Etudiant</label>
-      <div class="col-sm-10">
+      <div class="col-sm-10" id="etdDiv">
         <select class="form-select" id="etd">
         </select>
         <small id="setd" style="color:red" hidden>Ce champ doit être rempli</small>
@@ -83,44 +83,44 @@
     </div>
     <div class="table-responsive">
 
-    <table id="notes" class="table table-bordered border-dark">
-      <thead>
-        <tr>
-          <th scope="col">#</th>
-          <th scope="col">Nom</th>
-          <th scope="col">Prenom</th>
-          <th scope="col">Evaluation</th>
-          <th scope="col">Module</th>
-          <th scope="col">Valeure</th>
-          <th scope="col">Actions</th>
-        </tr>
-      </thead>
-      <tbody id="listNote">
-        <tr>
-          <th scope="row">1</th>
-          <th scope="col">Nom</th>
-          <th scope="col">Prenom</th>
-          <td>Type</td>
-          <td>Module</td>
-          <td>20</td>
-          <td class="justify-content-center">
-            <button class="btn btn-light btn-outline-secondary mx-1">
-              <i class="fas fa-pencil-alt"></i> Modifier
-            </button>
-            <button class="btn btn-danger">
-              <i class="fas fa-trash"></i> Supprimer
-            </button>
-          </td>
+      <table id="notes" class="table table-bordered border-dark">
+        <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">Nom</th>
+            <th scope="col">Prenom</th>
+            <th scope="col">Evaluation</th>
+            <th scope="col">Module</th>
+            <th scope="col">Valeure</th>
+            <th scope="col">Actions</th>
+          </tr>
+        </thead>
+        <tbody id="listNote">
+          <tr>
+            <th scope="row">1</th>
+            <th scope="col">Nom</th>
+            <th scope="col">Prenom</th>
+            <td>Type</td>
+            <td>Module</td>
+            <td>20</td>
+            <td class="justify-content-center">
+              <button class="btn btn-light btn-outline-secondary mx-1">
+                <i class="fas fa-pencil-alt"></i> Modifier
+              </button>
+              <button class="btn btn-danger">
+                <i class="fas fa-trash"></i> Supprimer
+              </button>
+            </td>
 
-        </tr>
-      </tbody>
-    </table>
-  </div>
+          </tr>
+        </tbody>
+      </table>
+    </div>
   </div>
 </div>
 
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"></script>
-  <script src="../../scripts/gestionNote.js" type="module"></script>
-  </body>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"></script>
+<script src="../../scripts/gestionNote.js" type="module"></script>
+</body>
 
-  </html>
+</html>

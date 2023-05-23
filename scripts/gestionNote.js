@@ -3,7 +3,6 @@ import getXhr from "./utilities.js";
 const urlParams = new URLSearchParams(window.location.search);
 const idEval = urlParams.get('idEval');
 const idMdl = urlParams.get('idMdl');
-console.log(idMdl);
 const nomEval = urlParams.get('nomEval');
 const nomMdl = urlParams.get('nomMdl');
 
@@ -42,7 +41,6 @@ function listEtd() {
     xhr.open("POST", "../../controllers/AffectationEtudiantModuleController.php", true);
     xhr.onreadystatechange = function () {
       if (xhr.readyState == 4 && xhr.status == 200) {
-        console.log(xhr.responseText);
         listEtd = xhr.response;
         EtdComboBox(JSON.parse(listEtd));
       }
@@ -58,7 +56,7 @@ function EtdComboBox(Etd) {
         Etd = [Etd];
     }
     for (let e of Etd) {
-        let newetd = `<option>${e.etd_nom} ${e.prenom}</option>`;
+        let newetd = `<option>${e.etd_nom} ${e.prenom}</option><option hidden>${e.etd_id}</option>`;
         etd.insertAdjacentHTML("beforeend", newetd);
     }
 }
@@ -126,29 +124,10 @@ function afficherNote(Notes) {
 }
 }
 
-function getEtd(val, callback) {
-    let xhr = getXhr();
-    let listEtd;
-    xhr.open("POST", "../../controllers/AffectationEtudiantModuleController.php", true);
-    xhr.onreadystatechange = function () {
-      if (xhr.readyState == 4 && xhr.status == 200) {
-        listEtd = JSON.parse(xhr.responseText);
-        if (!Array.isArray(listEtd)) {
-          listEtd = [listEtd];
-        }
-        for (let etd of listEtd) {
-          if (etd.etd_nom+" "+etd.prenom === val) {
-            callback(etd.etd_id);
-            return;
-          }
-        }
-        callback(null);
-      }
-    };
-    let data = new FormData();
-    data.append("action", "getEtdOfMdl");
-    data.append("module_id",idMdl);
-    xhr.send(data);
+function getEtdId() {
+  var EtdSelecter = etd.options[etd.selectedIndex];
+  var IdEtd = EtdSelecter.nextElementSibling.value;
+  return IdEtd;
 }
 
 
@@ -174,15 +153,9 @@ function ajouterNote() {
     let data = new FormData(form);
     data.append("id_evaluation", idEval);
     data.append("id_module", idMdl);
-    getEtd(etd.value, function (etdId) {
-        if (etdId !== null) {
-          data.append("id_etudiant", etdId);
-          data.append("action", "ajouter");
-          xhr.send(data);
-        } else {
-          console.log("Etudiant non trouver");
-        }
-    });
+    data.append("id_etudiant", getEtdId());
+    data.append("action", "ajouter");
+    xhr.send(data);
 }
 
 
@@ -216,7 +189,7 @@ etd.value="hh";
 function modifierNote(note) {
     etat = "modifier";
     id.value = note.children[0].textContent;
-    etd.value = `${note.children[1].textContent} ${note.children[2].textContent}`;
+    //etd.value = `${note.children[1].textContent} ${note.children[2].textContent}`;
     evaluation.value = note.children[3].textContent;
     module.value = note.children[4].textContent;
     valeur.value = note.children[5].textContent;
@@ -226,6 +199,10 @@ function modifierNote(note) {
     ajouterText.innerHTML = "Modifier la note";
     title.innerHTML = "Modifier Note";
     iconAjouter.className = "fas fa-edit";
+    const newOption = document.createElement("option");
+    newOption.textContent = `${note.children[1].textContent} ${note.children[2].textContent}`;
+    newOption.selected = true;
+    etd.appendChild(newOption);
     etd.disabled = true;
     ajouter.removeEventListener("click", ajouterNote);
     ajouter.addEventListener("click", modifierSubmit);
@@ -298,6 +275,7 @@ form.addEventListener("submit", (e) => {
     setTimeout(function () {
       success.hidden = true;
     }, 3000);
+
   } else {
     failed.innerHTML = `Note non ${etat}`;
     failed.hidden = false;

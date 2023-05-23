@@ -1,4 +1,5 @@
 <?php
+session_start();
 require_once('../models/Note.php');
 //Récuperation des données
 
@@ -56,6 +57,14 @@ if ($action == "ajouter") {
 } else if ($action == "listNotes") {
     $res = Note::listNotes();
     echo $res;
-} else {
+}else if ($action == "afficherMesNotes") {
+    $id = $_SESSION['id_etd'];
+    $res = Note::getAllNotesDoneByEtd($id);
+    echo $res;
+} else if($action == "chercherMesNotes"){
+    $data = array('search' => $_POST['search'], 'id' => $_SESSION['id_etd']);
+    $res = Note::findNotesOfEtudiant($data);
+    echo $res;
+}else {
     echo "action non reconnue";
 }
