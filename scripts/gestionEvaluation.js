@@ -249,9 +249,15 @@ function modifierEval(evl) {
     let data = new FormData(form);
     data.append("id", id.value);
     data.append("type", type.value);
-    data.append("id_module",idmod.value);
-    data.append("action", "modifier");
-    xhr.send(data);
+    getModule(modules.value, function (modId) {
+      if (modId !== null) {
+        data.append("id_module", modId);
+        data.append("action", "modifier");
+        xhr.send(data);
+      } else {
+        console.log("Module non trouver");
+      }
+    });
   }
 
 

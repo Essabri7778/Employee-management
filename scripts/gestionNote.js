@@ -53,7 +53,7 @@ function listEtd() {
         Etd = [Etd];
     }
     for (let e of Etd) {
-        let newetd = `<option>${e.etd_nom} ${e.prenom}<input type="hidden" value="${e.etd_id}"></option>`;
+        let newetd = `<option>${e.etd_nom} ${e.prenom}</option>`;
         etd.insertAdjacentHTML("beforeend", newetd);
     }
 }

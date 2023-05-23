@@ -2,15 +2,7 @@
 require_once('../database/DB.php');
 class AffectationEtudiantModule {
 
-    //Récuperer tous les Affectation
-    static public function getAllAffectations(){
-        $stmt = DB::connect()->prepare('SELECT * FROM affectation_etudiant_module');
-        $stmt->execute();
-        $affectations = $stmt->fetchAll(PDO::FETCH_ASSOC);
-        return json_encode($affectations);
-        $stmt->close();
-        $stmt = null;
-    }
+   
     /**
      * Récuperer tous les Affectation d'un etudiant
      * 
