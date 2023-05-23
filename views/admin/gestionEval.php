@@ -52,13 +52,13 @@
             </div>
         </div>
 
-        <div class="form-group row mb-3">
-            <label for="salle" class="col-sm-2 col-form-label">Salle</label>
-            <div class="col-sm-10">
-                <input type="text" class="form-control" name="salle" id="salle" placeholder="A">
-                <small id="ssalle" style="color:red" hidden>Ce champ doit être rempli</small>
-            </div>
-        </div>
+    <div class="form-group row mb-3">
+      <label for="salle" class="col-sm-2 col-form-label">Salle</label>
+      <div class="col-sm-10">
+        <input type="text" class="form-control" name="salle" id="salle" placeholder="nom du salle">
+        <small id="ssalle" style="color:red" hidden>Ce champ doit être rempli</small>
+      </div>
+    </div>
 
         <div class="row">
             <div class="col-sm-10 offset-sm-2 d-flex justify-content-between">
