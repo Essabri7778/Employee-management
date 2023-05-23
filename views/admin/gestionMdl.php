@@ -18,7 +18,7 @@
       <input type="hidden" id="id">
       <label for="nom" class="col-sm-2 col-form-label">Nom</label>
       <div class="col-sm-10">
-        <input type="text" class="form-control" name="nom" id="nom" placeholder="Votre nom">
+        <input type="text" class="form-control" name="nom" id="nom" placeholder="nom de Module">
         <small id="snom" style="color:red" hidden>Ce champ doit être rempli</small>
       </div>
     </div>
@@ -26,7 +26,7 @@
     <div class="form-group row mb-3">
       <label for="description" class="col-sm-2 col-form-label">Description</label>
       <div class="col-sm-10">
-        <input type="text" class="form-control" name="description" id="description" placeholder="description module">
+        <input type="text" class="form-control" name="description" id="description" placeholder="description de module">
         <small id="sdescription" style="color:red" hidden>Ce champ doit être rempli</small>
       </div>
     </div>

@@ -11,11 +11,19 @@ include_once("headerAdmin.php");
         <div class="container">
             <div class="row mt-5">
                 <div class="col-lg-6 mb-4">
-                    <div class="card">
+                    <div class="card" style="height: 300px;">
                         <div class="card-header text-white bg-dark">
-                            <h2>Liste Etudiant</h2>
+                            <div class="row align-items-center">
+                                <div class="col">
+                                    <h2 class="mb-0">Liste Etudiant</h2>
+                                </div>
+                                <div class="col-auto">
+                                    <i class="fas fa-users fa-2x"></i>
+                                </div>
+                            </div>
                         </div>
-                        <div class="card-body">
+
+                        <div class="card-body" style="height: 100%; overflow-y: auto;">
                             <div class="table-responsive">
                                 <table id="etudiants" class="table table-striped">
                                     <thead>
@@ -45,11 +53,18 @@ include_once("headerAdmin.php");
                 </div>
 
                 <div class="col-lg-6 mb-4">
-                    <div class="card">
+                    <div class="card" style="height: 300px;">
                         <div class="card-header text-white bg-dark">
-                            <h2>Liste Evaluations</h2>
+                            <div class="row align-items-center">
+                                <div class="col">
+                                    <h2 class="mb-0">Liste Evaluations</h2>
+                                </div>
+                                <div class="col-auto">
+                                    <i class="fas fa-poll fa-2x"></i>
+                                </div>
+                            </div>
                         </div>
-                        <div class="card-body">
+                        <div class="card-body" style="height: 100%; overflow-y: auto;">
                             <div class="table-responsive">
                                 <table id="etudiants" class="table table-striped">
                                     <thead>
@@ -79,11 +94,20 @@ include_once("headerAdmin.php");
                 </div>
 
                 <div class="col-lg-6 mb-4">
-                    <div class="card">
+                    <div class="card" style="height: 300px;">
                         <div class="card-header text-white bg-dark">
-                            <h2>Liste Modules</h2>
+                            <div class="card-header text-white bg-dark">
+                                <div class="row align-items-center">
+                                    <div class="col">
+                                        <h2 class="mb-0">Liste Modules</h2>
+                                    </div>
+                                    <div class="col-auto">
+                                        <i class="fas fa-cubes fa-2x"></i>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
-                        <div class="card-body">
+                        <div class="card-body" style="height: 100%; overflow-y: auto;">
                             <div class="table-responsive">
                                 <table id="etudiants" class="table table-striped">
                                     <thead>
@@ -110,11 +134,20 @@ include_once("headerAdmin.php");
                 </div>
 
                 <div class="col-lg-6 mb-4">
-                    <div class="card">
+                    <div class="card" style="height: 300px;">
                         <div class="card-header text-white bg-dark">
-                            <h2>Liste Notes</h2>
+                            <div class="card-header text-white bg-dark">
+                                <div class="row align-items-center">
+                                    <div class="col">
+                                        <h2 class="mb-0">Liste Notes</h2>
+                                    </div>
+                                    <div class="col-auto">
+                                        <i class="fas fa-clipboard fa-2x"></i>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
-                        <div class="card-body">
+                        <div class="card-body" style="height: 100%; overflow-y: auto;">
                             <div class="table-responsive">
                                 <table id="etudiants" class="table table-striped">
                                     <thead>
