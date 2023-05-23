@@ -8,7 +8,6 @@ function populateList() {
   xhr.onreadystatechange = function () {
     if (xhr.readyState == 4 && xhr.status == 200) {
       let list = xhr.responseText;
-      console.log(JSON.parse(list));
       afficherEval(JSON.parse(list));
     }
   };
@@ -35,4 +34,26 @@ function afficherEval(evaluations) {
     `;
     tbody.insertAdjacentHTML("beforeend", neweval);
   }
+}
+
+// search form
+
+let searchForm = document.getElementById("formulaire");
+
+searchForm.addEventListener("submit", searchEvaluation);
+
+function searchEvaluation(e) {
+  e.preventDefault();
+  let xhr = getXhr();
+  xhr.open("POST", "../../controllers/EvaluationController.php", true);
+  xhr.addEventListener("readystatechange", function () {
+    if (xhr.readyState == 4 && xhr.status == 200) {
+      let res = xhr.responseText;
+      afficherEval(JSON.parse(res));
+    }
+  });
+
+  let data = new FormData(searchForm);
+  data.append("action", "chercherMesEval");
+  xhr.send(data);
 }
