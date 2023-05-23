@@ -50,7 +50,7 @@
 
                                             <div class="mb-3">
                                                 <label class="mb-2 text-muted" for="identifiant">Identifiant</label>
-                                                <input id="identifiantS" type="identifiant" class="form-control" name="login" value="">
+                                                <input id="identifiant" type="identifiant" class="form-control" name="login" value="">
                                                 <small id="loginError" class="form-text text-danger" hidden></small>
 
                                             </div>
