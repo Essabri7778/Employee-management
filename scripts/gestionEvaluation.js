@@ -33,6 +33,9 @@ function listModules() {
 }
 
 function MdlComboBox(Mdl) {
+    if (!Array.isArray(Mdl)) {
+    Mdl = [Mdl];
+    }
     for (let mdl of Mdl) {
       let newmdl = `<option>${mdl.nom}</option>`;
       modules.insertAdjacentHTML("beforeend", newmdl);

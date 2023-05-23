@@ -30,8 +30,8 @@ ideval.value = idEval;
 listNote();
 let etat = "ajouter";
 
-/*
 listEtd();
+
 function listEtd() {
     let xhr = getXhr();
     let listEtd;
@@ -43,17 +43,21 @@ function listEtd() {
       }
     };
     let data = new FormData();
-    data.append("action", "afficherTous");
+    data.append("action", "getEtdOfMdl");
+    data.append("id_module",idMdl);
     xhr.send(data);
   }
 
-function EtdComboBox(Etd) {
+  function EtdComboBox(Etd) {
+    if (!Array.isArray(Etd)) {
+        Etd = [Etd];
+    }
     for (let e of Etd) {
-      let newetd = `<option>${e.nom} ${e.prenom}</option>`;
-      etd.insertAdjacentHTML("beforeend", newetd);
+        let newetd = `<option>${e.etd_nom} ${e.prenom}<input type="hidden" value="${e.etd_id}"></option>`;
+        etd.insertAdjacentHTML("beforeend", newetd);
     }
 }
-*/
+
 
 function listNote() {
     let xhr = getXhr();
@@ -124,9 +128,12 @@ function getEtd(val, callback) {
     xhr.onreadystatechange = function () {
       if (xhr.readyState == 4 && xhr.status == 200) {
         listEtd = JSON.parse(xhr.responseText);
+        if (!Array.isArray(listEtd)) {
+          listEtd = [listEtd];
+        }
         for (let etd of listEtd) {
-          if (etd.nom === val) {
-            callback(etd.id);
+          if (etd.etd_nom+" "+etat.prenom === val) {
+            callback(etd.etd_id);
             return;
           }
         }
@@ -134,12 +141,13 @@ function getEtd(val, callback) {
       }
     };
     let data = new FormData();
-    data.append("action", "afficherTous");//listfihakolchi
+    data.append("action", "getEtdOfMdl");
+    data.append("module_id",idMdl);
     xhr.send(data);
 }
 
 
-function ajouterEvaluation() {
+function ajouterNote() {
     let xhr = getXhr();
     xhr.open("POST", "../../controllers/NoteController.php", true);
     xhr.onreadystatechange = function () {
@@ -161,6 +169,7 @@ function ajouterEvaluation() {
     let data = new FormData(form);
     data.append("id_evaluation", idEval);
     data.append("id_module", idMdl);
+    data.append("id_etudiant", etdId);
     getEtd(etd.value, function (etdId) {
         if (etdId !== null) {
           data.append("id_etudiant", etdId);
@@ -269,19 +278,19 @@ form.addEventListener("submit", (e) => {
 
   if (validateValeur() === true) {
     if (etat === "ajouter") {
-      ajouterEvaluation();
+      ajouterNote();
     } else if (etat === "modifier") {
       modifierSubmit();
     }
-    listEvaluation();
+    listNote();
 
-    success.innerHTML = `Evaluation ${etat} avec succès`;
+    success.innerHTML = `Note ${etat} avec succès`;
     success.hidden = false;
     setTimeout(function () {
       success.hidden = true;
     }, 3000);
   } else {
-    failed.innerHTML = `Evaluation non ${etat}`;
+    failed.innerHTML = `Note non ${etat}`;
     failed.hidden = false;
     setTimeout(function () {
       failed.hidden = true;

@@ -50,6 +50,9 @@ if ($action == "ajouter") {
 } else if ($action == "afficherTous") {
     $res = AffectationEtudiantModule::getAllAffectations();
     echo $res;
+} else if ($action == "getEtdOfMdl") {
+    $res = AffectationEtudiantModule::getEtdOfModule($id_module);
+    echo $res;
 } else {
     echo "action non reconnue";
 }

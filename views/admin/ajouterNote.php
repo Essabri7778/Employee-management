@@ -46,7 +46,7 @@
     <div class="form-group row mb-3">
       <label for="valeur" class="col-sm-2 col-form-label">Valeur</label>
       <div class="col-sm-10">
-        <input type="number" class="form-control" name="valeur" id="valeur" placeholder="20" required>
+        <input type="number" class="form-control" name="valeur" id="valeur" placeholder="20">
         <small id="svaleur" style="color:red" hidden>Ce champ doit être rempli et enter 0 et 20</small>
       </div>
     </div>
@@ -65,6 +65,8 @@
       </div>
     </div>
   </form>
+
+  <h3 id="res" class="my-3 text-center" hidden></h3>
 
   <div class="row collapse mt-5" id="listeNotes">
 

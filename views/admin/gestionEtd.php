@@ -78,10 +78,12 @@
     </div>
   </form>
 
+  <h3 id="res" class="my-3 text-center" hidden></h3>
+
   <div class="row collapse mt-5" id="listeEtd">
 
+  
     <div class="form-group row mb-3">
-
       <div class="input-group">
         <div class="form-outline flex-grow-1">
           <input type="search" id="searchBar" class="form-control" placeholder="Chercher" />

@@ -44,7 +44,7 @@ session_start();
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">Profil</a>
                         <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                            <li class="dropdown-item"><i class="fas fa-user"></i><?= $_SESSION['nom_complet']; ?></li>
+                            <li class="dropdown-item"><i class="fas fa-user"></i> <?= $_SESSION['nom_complet']; ?></li>
                             <li><a class="dropdown-item" href="profileEtd.php"><i class="fas fa-address-card"></i></i>
                                     Afficher Profil</a></li>
                             <li><a class="dropdown-item" href="editMdpEtd.php"><i class="fas fa-lock"></i> Modifier Mot
