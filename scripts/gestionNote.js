@@ -3,6 +3,7 @@ import getXhr from "./utilities.js";
 const urlParams = new URLSearchParams(window.location.search);
 const idEval = urlParams.get('idEval');
 const idMdl = urlParams.get('idMdl');
+console.log(idMdl);
 const nomEval = urlParams.get('nomEval');
 const nomMdl = urlParams.get('nomMdl');
 

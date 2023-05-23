@@ -68,7 +68,7 @@
         <div>
           <button id="ajouter" type="submit" class="btn btn-primary me-2">
             <i id="iconAjouter" class="fas fa-user-plus"></i>
-            <span id="ajouterText">Ajouter un Etudiant</span>
+            <span id="ajouterText">Ajouter Etudiant</span>
           </button>
           <button type="reset" class="btn btn-outline-primary">
             <i class="fas fa-undo"></i> Réinitialiser

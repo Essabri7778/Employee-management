@@ -17,6 +17,8 @@ $id_old_modules_list = isset($_POST['id_old_modules_list']) ?  explode(",", $_PO
 $id_module = isset($_GET['id_module']) ? $_GET['id_module'] : NULL;
 
 
+ $id_module = $id_module = isset($_POST['id_module']) ? $_POST['id_module'] : NULL;
+
 
 //traitement
 if ($action == "ajouter") {

@@ -8,6 +8,7 @@ let form = document.getElementById("formulaire");
 let id_etudiant = document.getElementById("id_etudiant").value;
 let delete_btn = document.getElementById("deleteModules");
 let update_btn = document.getElementById("updateModules");
+let submit_btn = document.getElementById("ajouter");
 let action = "ajouter";
 
 //initialise la liste de checkbox avec les modules existant dans la base de donnée
@@ -35,7 +36,18 @@ function InitializeTable() {
         if (xhr.readyState == 4 && xhr.status == 200) {
             let res = xhr.responseText;
             let obj = JSON.parse(res);
+            if(populateTableModuleOfEtudiant(obj) == ``){
+                action="ajouter";
+                update_btn.disabled = true ;
+            }
+            else{
+                action="modifier";
+                update_btn.disabled = false ;
+                submit_btn.disabled = true;
+                
+            }
             document.getElementById("listStudent").innerHTML = populateTableModuleOfEtudiant(obj);
+            
         }
     });
     let data = new FormData();
@@ -100,10 +112,10 @@ function affecterModules() {
             inputSuccess.hidden = false;
             inputSuccess.innerHTML= "Affectation Modules effectuée avec succes";
             setTimeout(function() {
-                document.getElementById("succes").hidden = true;  
+                inputSuccess.hidden = true;  
             },5000);
-            
         }
+        
         else{
             inputFailed.hidden = false;
             inputFailed.innerHTML= "Affectation Modules échouée";
@@ -146,7 +158,9 @@ function deleteModules() {
                 inputFailed.hidden = true;  
             },5000);
         }
+        resetPopulateCheckbox(false);
         InitializeTable();
+
     }
     });
     let data = new FormData();
@@ -158,8 +172,8 @@ function deleteModules() {
 
 //mettre à jour les modules affectées
 update_btn.addEventListener("click",function(){
-    action = "modifier";
-    resetPopulateCheckbox(true);   
+    resetPopulateCheckbox(true); 
+    submit_btn.disabled = false;  
 })
 
 function updateModules() {
