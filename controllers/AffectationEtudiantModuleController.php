@@ -9,20 +9,15 @@ require_once('../models/AffectationEtudiantModule.php');
 //  $id = isset($_POST['id']) ? $_POST['id'] : NULL;
 //  $action = isset($_POST['action']) ? $_POST['action'] : NULL;
 
-//Methode Post
-$id_module = isset($_POST['id_module']) ? $_POST['id_module'] : NULL;
-$id_etudiant = isset($_POST['id_etudiant']) ? $_POST['id_etudiant'] : NULL;
-$id = isset($_POST['id']) ? $_POST['id'] : NULL;
-$action = isset($_POST['action']) ? $_POST['action'] : NULL;
+ //Methode Post
+ $id_modules_list = isset($_POST['id_module']) ? $_POST['id_module'] : NULL;
+ $id_etudiant = isset($_GET['id_etd']) ? intval($_GET['id_etd']) : NULL;
+ $action = isset($_POST['action']) ? $_POST['action'] : NULL;
 
 
 //traitement
 if ($action == "ajouter") {
-    $data = array(
-        'id_etudiant' => $id_etudiant,
-        'id_module' => $id_module
-    );
-    $res = AffectationEtudiantModule::addAffectation($data);
+    $res = AffectationEtudiantModule::AddModulesOfEtudiant($id_etudiant,$id_modules_list);
     if ($res == "ok")
         echo "ok";
     else
@@ -33,22 +28,19 @@ if ($action == "ajouter") {
         'id_etudiant' => $id_etudiant,
         'id_module' => $id_module
     );
-    $res = AffectationEtudiantModule::updateAffectation($data);
+    $res = AffectationEtudiantModule::updateModulesOfEtudiant($old_id_modules,$new_id_modules , $id_etudiant);
     if ($res == "ok")
         echo "ok";
     else
         echo "error";
 } else if ($action == "supprimer") {
-    $res = AffectationEtudiantModule::deleteAffectation($id);
+    $res = AffectationEtudiantModule::deleteAffectationsOfEtudiant($id_etudiant);
     if ($res == "ok")
         echo "ok";
     else
         echo "error";
 } else if ($action == "afficher") {
-    $res = AffectationEtudiantModule::getAffectation($id);
-    echo $res;
-} else if ($action == "afficherTous") {
-    $res = AffectationEtudiantModule::getAllAffectations();
+    $res = AffectationEtudiantModule::getAllModulesOfEtudiant($id_etudiant);
     echo $res;
 } else if ($action == "getEtdOfMdl") {
     $res = AffectationEtudiantModule::getEtdOfModule($id_module);
