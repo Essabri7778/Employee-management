@@ -31,9 +31,13 @@ require_once('../models/LoginEtudiant.php');
         if($etd !== false){
             if($mdp == $etd->mot_de_passe){
                 $_SESSION['logged'] = true;
+                $_SESSION['id_etd'] = $etd->id;
                 $_SESSION['email'] = $etd->email;
                 $_SESSION['nom'] = $etd->nom;
                 $_SESSION['prenom'] = $etd->prenom;
+                $_SESSION['mdp'] = $etd->mot_de_passe;
+                $_SESSION['adresse'] = $etd->adresse;
+                $_SESSION['tele'] = $etd->telephone;
                 $_SESSION['nom_complet'] = $etd->nom." ".$etd->prenom;
                 echo 'okEtudiant';
             }else{
@@ -42,6 +46,6 @@ require_once('../models/LoginEtudiant.php');
         }else{
             echo 'error';
         }
-    } else {
+    }else {
         echo "role non reconnue";
     }

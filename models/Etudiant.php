@@ -80,9 +80,10 @@ class Etudiant {
     //Trouver un étudiant par son nom ou prenom
     static public function findEtudiant($data){
         $search = $data['search'];
+        $search = '%'.$search.'%';
         try{
             $stmt = DB::connect()->prepare('SELECT * FROM etudiant WHERE LOWER(nom) LIKE LOWER(:keyword) OR LOWER(prenom) LIKE LOWER(:keyword)');
-            $stmt->bindParam(':keyword','%'.$search.'%');
+            $stmt->bindParam(':keyword',$search);
             $stmt->execute();
             $etudiants = $stmt->fetchAll(PDO::FETCH_ASSOC);
             return json_encode($etudiants);
@@ -90,4 +91,38 @@ class Etudiant {
             echo 'Error'. $e->getMessage();
         }
     }
+
+
+    static public function updateMdp($data){
+        $stmt = DB::connect()->prepare('UPDATE etudiant SET mot_de_passe = :mot_de_passe WHERE nom= :nom AND prenom= :prenom');
+        $stmt->bindParam(':nom',$data['nom']);
+        $stmt->bindParam(':prenom',$data['prenom']);
+        $stmt->bindParam(':mot_de_passe',$data['mot_de_passe']);
+        if ($stmt->execute()){
+            return 'ok';
+        }else{
+            return 'error';
+        }
+        $stmt->close();
+        $stmt = null;
+    }
+
+ 
+    static public function updateEtudiantDoneByEtd($data){
+        $stmt = DB::connect()->prepare('UPDATE etudiant SET nom= :nom, prenom= :prenom, adresse= :adresse, email= :email, telephone= :telephone WHERE id= :id');
+        $stmt->bindParam(':nom',$data['nom']);
+        $stmt->bindParam(':prenom',$data['prenom']);
+        $stmt->bindParam(':adresse',$data['adresse']);
+        $stmt->bindParam(':email',$data['email']);
+        $stmt->bindParam(':telephone',$data['telephone']);
+        $stmt->bindParam(':id',$data['id']);
+        if ($stmt->execute()){
+            return 'ok';
+        }else{
+            return 'error';
+        }
+        $stmt->close();
+        $stmt = null;
+    }
+
 }

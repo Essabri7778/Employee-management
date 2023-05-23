@@ -82,9 +82,10 @@ class Module{
 
     static public function findModule($data){
         $search = $data['search'];
+        $search = '%'.$search.'%';
         try{
-            $stmt = DB::connect()->prepare('SELECT * FROM module WHERE LOWER(nom) LIKE LOWER(:keyword)');
-            $stmt->bindParam(':keyword','%'.$search.'%');
+            $stmt = DB::connect()->prepare('SELECT * FROM modules WHERE LOWER(nom) LIKE LOWER(:keyword)');
+            $stmt->bindParam(':keyword',$search);
             $stmt->execute();
             $modules = $stmt->fetchAll(PDO::FETCH_ASSOC);
             return json_encode($modules);
