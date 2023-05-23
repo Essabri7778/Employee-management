@@ -215,6 +215,7 @@ function modifierEval(evl) {
   idmod.value = evl.children[6].textContent;
   ajouterText.innerHTML = "Modifier l'evaluation";
   iconAjouter.className = "fas fa-edit";
+  title.innerHTML = "Modifier Evaluation";
   ajouter.removeEventListener("click", ajouterEvaluation);
   ajouter.addEventListener("click", modifierSubmit);
 }
@@ -230,6 +231,7 @@ function modifierSubmit() {
         res.hidden = false;
         etat = "ajouter";
         ajouterText.innerHTML = "Ajouter un Evaluation";
+        title.innerHTML = "Ajouter Evaluation";
         iconAjouter.className = "fas fa-copy";
       } else if (resCtr == "error") {
         res.innerHTML = "Une erreur est survenue";

@@ -50,14 +50,14 @@
 
                                             <div class="mb-3">
                                                 <label class="mb-2 text-muted" for="identifiant">Identifiant</label>
-                                                <input id="identifiant" type="identifiant" class="form-control" name="login" value="">
+                                                <input id="identifiantS" type="identifiant" class="form-control" name="login" value="">
                                                 <small id="loginError" class="form-text text-danger" hidden></small>
 
                                             </div>
 
                                             <div class="mb-4">
                                                 <label class="mb-2 text-muted" for="mdp">Mot de Passe</label>
-                                                <input id="mdp" type="mdp" class="form-control" name="mdp">
+                                                <input id="mdp" type="password" class="form-control" name="mdp">
                                                 <small id="mdpError" class="form-text text-danger" hidden></small>
 
                                             </div>

@@ -4,7 +4,7 @@ include_once("headerAdmin.php");
 ?>
 
 <body class="bg-primary">
-    <div class="container-fluid bg-primary text-white">
+    <div class="container-fluid bg-primary text-white mt-4">
         <header class="header text-center py-4">
             <h1 class="display-4 fw-bold">Bienvenue, <?= $_SESSION['nom_complet']; ?>!</h1>
         </header>
@@ -96,14 +96,12 @@ include_once("headerAdmin.php");
                 <div class="col-lg-6 mb-4">
                     <div class="card" style="height: 300px;">
                         <div class="card-header text-white bg-dark">
-                            <div class="card-header text-white bg-dark">
-                                <div class="row align-items-center">
-                                    <div class="col">
-                                        <h2 class="mb-0">Liste Modules</h2>
-                                    </div>
-                                    <div class="col-auto">
-                                        <i class="fas fa-cubes fa-2x"></i>
-                                    </div>
+                            <div class="row align-items-center">
+                                <div class="col">
+                                    <h2 class="mb-0">Liste Modules</h2>
+                                </div>
+                                <div class="col-auto">
+                                    <i class="fas fa-cubes fa-2x"></i>
                                 </div>
                             </div>
                         </div>
@@ -136,14 +134,12 @@ include_once("headerAdmin.php");
                 <div class="col-lg-6 mb-4">
                     <div class="card" style="height: 300px;">
                         <div class="card-header text-white bg-dark">
-                            <div class="card-header text-white bg-dark">
-                                <div class="row align-items-center">
-                                    <div class="col">
-                                        <h2 class="mb-0">Liste Notes</h2>
-                                    </div>
-                                    <div class="col-auto">
-                                        <i class="fas fa-clipboard fa-2x"></i>
-                                    </div>
+                            <div class="row align-items-center">
+                                <div class="col">
+                                    <h2 class="mb-0">Liste Notes</h2>
+                                </div>
+                                <div class="col-auto">
+                                    <i class="fas fa-clipboard fa-2x"></i>
                                 </div>
                             </div>
                         </div>
@@ -179,6 +175,11 @@ include_once("headerAdmin.php");
             </div>
         </div>
     </div>
+    <footer class="footer bg-white text-center py-3">
+        <div class="container">
+            <p class="mb-0">&copy; 2023 Scolarité</p>
+        </div>
+    </footer>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"></script>
     <script src="../../scripts/dashboard.js" type="module"></script>
