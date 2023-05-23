@@ -52,20 +52,20 @@
             </div>
         </div>
 
-    <div class="form-group row mb-3">
-      <label for="salle" class="col-sm-2 col-form-label">Salle</label>
-      <div class="col-sm-10">
-        <input type="text" class="form-control" name="salle" id="salle" placeholder="nom du salle">
-        <small id="ssalle" style="color:red" hidden>Ce champ doit être rempli</small>
-      </div>
-    </div>
+        <div class="form-group row mb-3">
+            <label for="salle" class="col-sm-2 col-form-label">Salle</label>
+            <div class="col-sm-10">
+                <input type="text" class="form-control" name="salle" id="salle" placeholder="nom du salle">
+                <small id="ssalle" style="color:red" hidden>Ce champ doit être rempli</small>
+            </div>
+        </div>
 
         <div class="row">
             <div class="col-sm-10 offset-sm-2 d-flex justify-content-between">
                 <div>
                     <button id="ajouter" type="submit" class="btn btn-primary me-2">
                         <i id="iconAjouter" class="fas fa-copy"></i>
-                        <span id="ajouterText">Ajouter un Evaluation</span>
+                        <span id="ajouterText">Ajouter une Evaluation</span>
                     </button>
                     <button type="reset" class="btn btn-outline-primary">
                         <i class="fas fa-undo"></i> Réinitialiser
@@ -78,17 +78,18 @@
     <h3 id="res" class="my-3 text-center" hidden></h3>
 
     <div class="row collapse mt-5" id="listeEval">
-        <div class="form-group row mb-3">
-
-            <div class="input-group">
-                <div class="form-outline flex-grow-1">
-                    <input type="search" id="searchBar" class="form-control" placeholder="Chercher" />
+        <form id="chercheForm">
+            <div class="form-group row mb-3">
+                <div class="input-group">
+                    <div class="form-outline flex-grow-1">
+                        <input type="search" id="searchBar" name="search" class="form-control" placeholder="Chercher" />
+                    </div>
+                    <button type="submit" class="btn btn-primary">
+                        <i class="fas fa-search"></i>
+                    </button>
                 </div>
-                <button type="button" class="btn btn-primary">
-                    <i class="fas fa-search"></i>
-                </button>
             </div>
-        </div>
+        </form>
 
         <div class="table-responsive">
 

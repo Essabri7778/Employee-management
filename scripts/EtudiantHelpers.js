@@ -49,6 +49,7 @@ function populateEtudiantForme(e) {
   document.getElementById("email").value = student_row.children[5].innerHTML ;
   document.getElementById("mdp").value = student_row.children[6].innerHTML ;
   document.getElementById("ajouterText").innerHTML = "Modifier l'Etudiant";
+  document.getElementById("title").innerHTML = "Modifier Etudiant";
   document.getElementById("iconAjouter").className = "fas fa-edit";
 
 }

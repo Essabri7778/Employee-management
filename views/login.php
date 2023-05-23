@@ -57,7 +57,7 @@
 
                                             <div class="mb-4">
                                                 <label class="mb-2 text-muted" for="mdp">Mot de Passe</label>
-                                                <input id="mdp" type="mdp" class="form-control" name="mdp">
+                                                <input id="mdp" type="password" class="form-control" name="mdp">
                                                 <small id="mdpError" class="form-text text-danger" hidden></small>
 
                                             </div>
