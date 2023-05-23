@@ -18,7 +18,7 @@ include_once("headerEtd.php");
             <label for="mdpO" class="col-sm-2 col-form-label">Ancien Mot de passe</label>
             <div class="col-sm-10">
                 <input type="password" class="form-control" name="ancienMdp" id="mdpO" placeholder="Mot de passe"
-                    value="<?= $_SESSION['mdp'];?>">
+                    value="<?= $_SESSION['mdp'];?>" disabled=true>
                 <small id="smdpO" class="form-text text-danger" hidden>Ce champ doit être rempli</small>
             </div>
         </div>

@@ -3,7 +3,24 @@ import getXhr from "./utilities.js";
 let form = document.getElementById("formulaire");
 let nouvMdp = document.getElementById("mdpN");
 
-form.addEventListener("submit", modifierMotDePasse);
+form.addEventListener("submit", function(e){
+  e.preventDefault();
+  if(validateForm()) modifierMotDePasse(e);
+  else return validateForm();
+});
+
+function validateForm() {
+  if ( nouvMdp.value === "" ){
+      // Afficher un message d'erreur
+      document.getElementById("failed").hidden = false;
+      document.getElementById("failed").innerHTML ="Veulliez saisir tous les champs";
+      setTimeout(function () {
+        document.getElementById("failed").hidden = true;
+      }, 5000);
+      return false; // Empêcher la soumission du formulaire
+    }
+    return true;
+}
 
 function modifierMotDePasse(e) {
   e.preventDefault();
@@ -33,3 +50,18 @@ function modifierMotDePasse(e) {
   data.append("action", "modifierMdp");
   xhr.send(data);
 }
+
+let validateMdp = function () {
+  if (mdpN.value === "") {
+    return false;
+  }
+  return true;
+};
+
+mdpN.addEventListener("blur", function (e) {
+  if (validateMdp() === false) {
+    smdpN.hidden = false;
+  } else {
+    smdpN.hidden = true;
+  }
+});

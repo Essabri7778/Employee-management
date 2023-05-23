@@ -19,7 +19,7 @@ include_once("headerEtd.php"); ?>
             <label for="nom" class="col-sm-2 col-form-label">Nom</label>
             <div class="col-sm-10">
                 <input type="text" class="form-control" name="nom" id="nom" placeholder="Nom de l'étudiant"
-                    value="<?= $_SESSION['nom'];?>" required>
+                    value="<?= $_SESSION['nom'];?>" >
                 <small id="snom" class="form-text text-danger" hidden>Ce champ doit être rempli</small>
             </div>
         </div>
@@ -28,7 +28,7 @@ include_once("headerEtd.php"); ?>
             <label for="prenom" class="col-sm-2 col-form-label">Prénom</label>
             <div class="col-sm-10">
                 <input type="text" class="form-control" name="prenom" id="prenom" placeholder="Prénom de l'étudiant"
-                    value="<?= $_SESSION['prenom'];?>" required>
+                    value="<?= $_SESSION['prenom'];?>" >
                 <small id="sprenom" class="form-text text-danger" hidden>Ce champ doit être rempli</small>
             </div>
         </div>
@@ -37,7 +37,7 @@ include_once("headerEtd.php"); ?>
             <label for="Address" class="col-sm-2 col-form-label">Adresse</label>
             <div class="col-sm-10">
                 <input type="text" class="form-control" name="adresse" id="Address" placeholder="Adresse de l'étudiant"
-                    value="<?= $_SESSION['adresse'];?>" required>
+                    value="<?= $_SESSION['adresse'];?>" >
                 <small id="saddress" class="form-text text-danger" hidden>Ce champ doit être rempli</small>
             </div>
         </div>
@@ -46,7 +46,7 @@ include_once("headerEtd.php"); ?>
             <label for="telephone" class="col-sm-2 col-form-label">Téléphone</label>
             <div class="col-sm-10">
                 <input type="tel" class="form-control" name="telephone" id="telephone" placeholder="06********"
-                    value="<?= $_SESSION['tele'];?>" required>
+                    value="<?= $_SESSION['tele'];?>" >
                 <small id="stelephone" class="form-text text-danger" hidden>Ce champ doit être rempli</small>
             </div>
         </div>
@@ -55,7 +55,7 @@ include_once("headerEtd.php"); ?>
             <label for="email" class="col-sm-2 col-form-label">Email</label>
             <div class="col-sm-10">
                 <input type="email" class="form-control" name="email" id="email" placeholder="exemple@gmail.com"
-                    value="<?= $_SESSION['email'];?>" required>
+                    value="<?= $_SESSION['email'];?>" >
                 <small id="semail" class="form-text text-danger" hidden>Ce champ doit être rempli</small>
             </div>
         </div>

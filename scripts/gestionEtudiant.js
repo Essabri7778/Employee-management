@@ -4,7 +4,6 @@ import {
   populateEtudiantForme,
   populateEtudiantRow,
 } from "./EtudiantHelpers.js";
-console.log(hi);
 //variable globale pour determiner si on a une action d'ajout au modification
 let action = "ajouter";
 let id = document.getElementById("id");
@@ -33,8 +32,7 @@ function validateForm() {
   ) {
     // Afficher un message d'erreur
     document.getElementById("failed").hidden = false;
-    document.getElementById("failed").innerHTML =
-      "Veulliez saisir tous les champs";
+    document.getElementById("failed").innerHTML ="Veulliez saisir tous les champs";
     setTimeout(function () {
       document.getElementById("failed").hidden = true;
     }, 5000);
@@ -46,13 +44,15 @@ function validateForm() {
 form.addEventListener("submit", function (e) {
   e.preventDefault();
   if (validateForm()) {
-    console.log(validateForm());
     if (action == "modify") {
       updateEtudiant(e);
+      document.getElementById("ajouterText").innerHTML = "Ajouter Etudiant";
+      
     }
     if (action == "ajouter") {
       addEtudiant(e);
     }
+    action="ajouter";
   } else {
     return validateForm();
   }
