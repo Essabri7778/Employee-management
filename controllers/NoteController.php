@@ -65,6 +65,10 @@ if ($action == "ajouter") {
     $data = array('search' => $_POST['search'], 'id' => $_SESSION['id_etd']);
     $res = Note::findNotesOfEtudiant($data);
     echo $res;
+}else if($action == "chercherNotes"){
+    $data = array('search' => $_POST['search']);
+    $res = Note::findNotes($data);
+    echo $res;
 }else {
     echo "action non reconnue";
 }

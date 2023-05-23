@@ -133,33 +133,34 @@ function modifierMdl(mdl) {
 }
 
 function modifierSubmit() {
-  if (validateNom() && validateDescription()){
-  let xhr = getXhr();
-  xhr.open("POST", "../../controllers/ModuleController.php", true);
-  xhr.onreadystatechange = function () {
-    if (xhr.readyState == 4 && xhr.status == 200) {
-      let resCtr = xhr.responseText;
-      if (resCtr == "ok") {
-        res.innerHTML = "Tout passe bien";
-        res.hidden = false;
-        etat = "ajouter";
-        ajouterText.innerHTML = "Ajouter un Module";
-        title.innerHTML = "Ajouter Module";
-        iconAjouter.className = "fas fa-user-plus";
-      } else if (resCtr == "error") {
-        res.innerHTML = "Une erreur est survenue";
-        res.hidden = false;
+  if (validateNom() && validateDescription()) {
+    let xhr = getXhr();
+    xhr.open("POST", "../../controllers/ModuleController.php", true);
+    xhr.onreadystatechange = function () {
+      if (xhr.readyState == 4 && xhr.status == 200) {
+        let resCtr = xhr.responseText;
+        if (resCtr == "ok") {
+          res.innerHTML = "Tout passe bien";
+          res.hidden = false;
+          etat = "ajouter";
+          ajouterText.innerHTML = "Ajouter un Module";
+          title.innerHTML = "Ajouter Module";
+          iconAjouter.className = "fas fa-user-plus";
+        } else if (resCtr == "error") {
+          res.innerHTML = "Une erreur est survenue";
+          res.hidden = false;
+        }
+        setTimeout(function () {
+          res.hidden = true;
+        }, 3000);
+        listModules();
       }
-      setTimeout(function () {
-        res.hidden = true;
-      }, 3000);
-      listModules();
-    }
-  };
-  let data = new FormData(form);
-  data.append("id", id.value);
-  data.append("action", "modifier");
-  xhr.send(data);}
+    };
+    let data = new FormData(form);
+    data.append("id", id.value);
+    data.append("action", "modifier");
+    xhr.send(data);
+  }
 }
 
 let validateNom = function () {

@@ -21,7 +21,9 @@ session_start();
             <a class="navbar-brand" href="dashboard.php">
                 <i class="fas fa-school" style="color: #ffffff;"></i> <span class="fw-bold">Scolarité</span>
             </a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
@@ -30,23 +32,26 @@ session_start();
                         <a class="nav-link" id="dashboard-link" href="dashboard.php">Dashboard</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" id="gestion-etudiant-link" href="gestionEtd.php">Gestion Etudiant</a>
+                        <a class="nav-link" id="gestion-etudiant-link" href="gestionEtd.php">Gestion Etudiants</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" id="gestion-modules-link" href="gestionMdl.php">Gestion Modules</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" id="gestion-evaluation-link" href="gestionEval.php">Gestion Evaluation</a>
+                        <a class="nav-link" id="gestion-evaluation-link" href="gestionEval.php">Gestion Evaluations</a>
                     </li>
                     <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">Profil</a>
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                            data-bs-toggle="dropdown" aria-expanded="false">Profil</a>
                         <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                            <li class="dropdown-item text-primary"><i class="fas fa-user text-primary"></i> <?= $_SESSION['nom_complet']; ?></li>
+                            <li class="dropdown-item text-primary"><i class="fas fa-user text-primary"></i>
+                                <?= $_SESSION['nom_complet']; ?></li>
                             <li>
                                 <hr class="dropdown-divider text-primary">
                             </li>
-                            <li><a class="dropdown-item text-primary" href="../logout.php"><i class="fas fa-sign-out-alt"></i> Se
-                                    Deconnecter</a>
+                            <li><a class="dropdown-item text-primary" href="../logout.php"><i
+                                        class="fas fa-sign-out-alt"></i> Se
+                                    Déconnecter</a>
                             </li>
                         </ul>
                     </li>

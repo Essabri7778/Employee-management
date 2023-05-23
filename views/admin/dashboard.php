@@ -15,7 +15,7 @@ include_once("headerAdmin.php");
                         <div class="card-header text-white bg-dark">
                             <div class="row align-items-center">
                                 <div class="col">
-                                    <h2 class="mb-0">Liste Etudiant</h2>
+                                    <h2 class="mb-0">Liste Etudiants</h2>
                                 </div>
                                 <div class="col-auto">
                                     <i class="fas fa-users fa-2x"></i>
@@ -123,7 +123,8 @@ include_once("headerAdmin.php");
                                             <td>JS</td>
                                             <td class="w-50">Lorem ipsum dolor sit amet consectetur adipisicing elit.
                                                 Consequuntur, nulla ullam. Aspernatur animi consequuntur quod numquam
-                                                laudantium dicta harum, autem possimus nulla quae tenetur. Dolore earum sunt
+                                                laudantium dicta harum, autem possimus nulla quae tenetur. Dolore earum
+                                                sunt
                                                 ratione. Fugit, commodi.</td>
                                         </tr>
                                     </tbody>
