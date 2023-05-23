@@ -8,17 +8,18 @@
             </h1>
         </div>
     </div>
-
-    <div class="form-group row mb-3">
-        <div class="input-group">
-            <div class="form-outline flex-grow-1">
-                <input type="search" id="searchBar" class="form-control" placeholder="Chercher" />
+    <form id="formulaire">
+        <div class="form-group row mb-3">
+            <div class="input-group">
+                <div class="form-outline flex-grow-1">
+                    <input type="search" id="searchBar" name="search" class="form-control" placeholder="Chercher" />
+                </div>
+                <button type="submit" class="btn btn-primary">
+                    <i class="fas fa-search"></i>
+                </button>
             </div>
-            <button type="button" class="btn btn-primary">
-                <i class="fas fa-search"></i>
-            </button>
         </div>
-    </div>
+    </form>
 
     <table id="evaluations" class="table table-bordered border-dark">
         <thead>

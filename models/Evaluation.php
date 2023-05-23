@@ -114,4 +114,21 @@ class Evaluation {
             echo 'Error'. $e->getMessage();
         }
     }
+
+    static public function findEvaluationsOfEtudiant($data){
+        $id = $data['id'];
+        $search = $data['search'];
+        $search = '%'.$search.'%';
+        try{
+            $query = 'SELECT a.id_etudiant, a.id_module, m.nom, e.type, e.date, e.heure, e.salle FROM affectation_etudiant_module a INNER JOIN modules m ON a.id_module = m.id INNER JOIN evaluation e ON a.id_module=e.id_module WHERE a.id_etudiant = :id AND LOWER(e.type) LIKE :keyword OR LOWER(m.nom) LIKE :keyword';
+            $stmt = DB::connect()->prepare($query);
+            $stmt->bindParam(':id',$id);
+            $stmt->bindParam(':keyword',$search);
+            $stmt->execute();
+            $evaluations = $stmt->fetchAll(PDO::FETCH_ASSOC);
+            return json_encode($evaluations);
+        }catch(PDOException $e){
+            echo 'Error'. $e->getMessage();
+        }
+    }
 }

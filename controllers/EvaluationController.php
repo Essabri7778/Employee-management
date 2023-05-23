@@ -70,6 +70,10 @@ if ($action == "ajouter") {
     $id = $_SESSION['id_etd'];
     $res = Evaluation::getAllEvaluationsOfEtudiant($id);
     echo $res;
-}  else {
+} else if($action == "chercherMesEval"){
+    $data = array('search' => $_POST['search'], 'id' => $_SESSION['id_etd']);
+    $res = Evaluation::findEvaluationsOfEtudiant($data);
+    echo $res;
+} else {
     echo "action non reconnue";
 }

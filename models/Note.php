@@ -118,4 +118,32 @@ class Note
         $stmt->close();
         $stmt = null;
     }
+
+    static public function getAllNotesDoneByEtd($id)
+    {
+        $query = 'SELECT e.type , m.nom, n.valeur FROM affectation_etudiant_module a INNER JOIN modules m ON a.id_module = m.id INNER JOIN evaluation e ON a.id_module=e.id_module INNER JOIN notes n ON n.id_evaluation= e.id WHERE a.id_etudiant = ?';
+        $stmt = DB::connect()->prepare($query);
+        $stmt->execute([$id]);
+        $notes = $stmt->fetchALl(PDO::FETCH_ASSOC);
+        return json_encode($notes);
+        $stmt->close();
+        $stmt = null;
+    }
+
+    static public function findNotesOfEtudiant($data){
+        $id = $data['id'];
+        $search = $data['search'];
+        $search = '%'.$search.'%';
+        try{
+            $query = 'SELECT e.type , m.nom, n.valeur FROM affectation_etudiant_module a INNER JOIN modules m ON a.id_module = m.id INNER JOIN evaluation e ON a.id_module=e.id_module INNER JOIN notes n ON n.id_evaluation= e.id WHERE a.id_etudiant = :id AND LOWER(e.type) LIKE :keyword OR LOWER(m.nom) LIKE :keyword';
+            $stmt = DB::connect()->prepare($query);
+            $stmt->bindParam(':id',$id);
+            $stmt->bindParam(':keyword',$search);
+            $stmt->execute();
+            $notes = $stmt->fetchAll(PDO::FETCH_ASSOC);
+            return json_encode($notes);
+        }catch(PDOException $e){
+            echo 'Error'. $e->getMessage();
+        }
+    }
 }
