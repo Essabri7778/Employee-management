@@ -138,7 +138,7 @@
 
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"></script>
-<script src="../../scripts/gestionEtudiantScript.js" type="module"></script>
+<script src="../../scripts/gestionEtudiant.js" type="module"></script>
 </body>
 
 

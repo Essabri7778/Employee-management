@@ -1,6 +1,8 @@
-<?php include_once("headerAdmin.php"); ?>
+<?php include_once("headerAdmin.php"); 
 
-<div class="container" style="padding: 20px;">
+$id_etudiant = isset($_GET['id_etd']) ? intval($_GET['id_etd']) : NULL;
+?>
+$id_etudiant = isset($_GET['id_etd']) ? intval($_GET['id_etd']) : NULL;<div class="container" style="padding: 20px;">
   <div class="d-flex justify-content-between align-items-end mb-3">
     <h1>Affectation des Modules:</h1>
     <div>
@@ -17,7 +19,7 @@
       <input type="hidden" id="id">
       <label for="etudiant" class="col-sm-2 col-form-label">Etudiant</label>
       <div class="col-sm-10">
-        <input type="text" class="form-control" name="etudiant" id="etudiant" placeholder="HAMid" disabled>
+        <input type="text" class="form-control" name="id_edt" id="id_edt" placeholder="HAMid" disabled>
         <small id="setudiant" style="color:red" hidden>Ce champ doit être rempli</small>
       </div>
     </div>
@@ -25,7 +27,7 @@
     <div class="form-group row mb-3">
       <input type="hidden" id="id">
       <label for="mods" class="col-sm-2 col-form-label">Choisissez les Modules</label>
-      <div class="col-sm-10">
+      <div class="col-sm-10" id ="checkbox-list">
         <label class="list-group-item">
           <input class="form-check-input me-1" type="checkbox" name="module1" id="module1" value="Java">
           Java
@@ -92,14 +94,13 @@
             <th scope="row">1</th>
             <td>JS</td>
             <td>Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequuntur, nulla ullam. Aspernatur animi consequuntur quod numquam laudantium dicta harum, autem possimus nulla quae tenetur. Dolore earum sunt ratione. Fugit, commodi.</td>
-
-
           </tr>
         </tbody>
       </table>
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="../../scripts/gestionAffectationEtudiantModule.js" type="module"></script>
     </body>
 
     </html>
