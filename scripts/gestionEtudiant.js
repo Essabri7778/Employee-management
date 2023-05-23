@@ -70,7 +70,7 @@ function listAllEtudiants() {
                 btnModify.addEventListener("click", function(e){
                     action = "modify";
                     populateEtudiantForme(e);
-                    console.log(document.getElementById("id").value);
+                    document.getElementById("ajouterText").innerHTML="Modifier Etudiant";
                 });
             }
         }

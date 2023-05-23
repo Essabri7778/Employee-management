@@ -15,6 +15,8 @@ require_once('../models/AffectationEtudiantModule.php');
  $action = isset($_POST['action']) ? $_POST['action'] : NULL;
  $id_old_modules_list = isset($_POST['id_old_modules_list']) ?  explode(",",$_POST['id_old_modules_list'])  : NULL;
 
+ $id_module = $id_module = isset($_POST['id_module']) ? $_POST['id_module'] : NULL;
+
 
 //traitement
 if ($action == "ajouter") {
