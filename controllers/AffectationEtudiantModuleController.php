@@ -10,9 +10,10 @@ require_once('../models/AffectationEtudiantModule.php');
 //  $action = isset($_POST['action']) ? $_POST['action'] : NULL;
 
  //Methode Post
- $id_modules_list = isset($_POST['id_module']) ? $_POST['id_module'] : NULL;
- $id_etudiant = isset($_GET['id_etd']) ? intval($_GET['id_etd']) : NULL;
+ $id_modules_list = isset($_POST['id_modules_list']) ?  explode(",",$_POST['id_modules_list'])  : NULL;
+ $id_etudiant = isset($_POST['id_etd']) ? intval($_POST['id_etd'] ): NULL;
  $action = isset($_POST['action']) ? $_POST['action'] : NULL;
+ $id_old_modules_list = isset($_POST['id_old_modules_list']) ?  explode(",",$_POST['id_old_modules_list'])  : NULL;
  $id_module = isset($_GET['id_module']) ? $_GET['id_module'] : NULL;
 
 
@@ -25,12 +26,8 @@ if ($action == "ajouter") {
     else
         echo "error";
 } else if ($action == "modifier") {
-    $data = array(
-        'id' => $id,
-        'id_etudiant' => $id_etudiant,
-        'id_module' => $id_module
-    );
-    $res = AffectationEtudiantModule::updateModulesOfEtudiant($old_id_modules,$new_id_modules , $id_etudiant);
+
+    $res = AffectationEtudiantModule::updateModulesOfEtudiant($id_old_modules_list,$id_modules_list , $id_etudiant);
     if ($res == "ok")
         echo "ok";
     else
