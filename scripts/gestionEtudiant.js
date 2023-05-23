@@ -9,6 +9,7 @@ import {
 let action = "ajouter";
 
 let form = document.getElementById("formulaire");
+
 form.addEventListener("submit", function (e) {
   if (action == "modify") {
     updateEtudiant(e);
@@ -162,40 +163,5 @@ function updateEtudiant(e) {
   data.append("email", email);
   data.append("mot_de_passe", mdp);
   data.append("action", "modifier");
-  xhr.send(data);
-}
-
-// Search Form
-
-let searchForm = document.getElementById("chercheForm");
-
-searchForm.addEventListener("submit", searchEtudiant);
-
-function searchEtudiant(e) {
-  e.preventDefault();
-  let xhr = getXhr();
-  xhr.open("POST", "../../controllers/EtudiantController.php", true);
-  xhr.addEventListener("readystatechange", function () {
-    if (xhr.readyState == 4 && xhr.status == 200) {
-      let res = xhr.responseText;
-      let obj = JSON.parse(res);
-      document.getElementById("listStudent").innerHTML =
-        populateEtudiantTable(obj).rows;
-      let tab_ids = populateEtudiantTable(obj).tab_ids;
-      for (let i = 0; i < tab_ids.length; i++) {
-        let btnDelete = document.getElementById("delete" + tab_ids[i]);
-        let btnModify = document.getElementById("modify" + tab_ids[i]);
-        btnDelete.addEventListener("click", deleteStudent);
-        btnModify.addEventListener("click", function (e) {
-          action = "modify";
-          populateEtudiantForme(e);
-          console.log(document.getElementById("id").value);
-        });
-      }
-    }
-  });
-
-  let data = new FormData(searchForm);
-  data.append("action", "chercher");
   xhr.send(data);
 }

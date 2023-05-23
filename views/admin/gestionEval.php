@@ -2,7 +2,7 @@
 
 <div class="container" style="padding: 20px;">
     <div class="d-flex justify-content-between align-items-end mb-3">
-        <h1>Ajouter Evaluation</h1>
+        <h1 id="title">Ajouter Evaluation</h1>
         <div>
             <button id="afficherEtd" class="btn btn-dark" data-bs-toggle="collapse" href="#listeEval">
                 <i class="fas fa-list"></i> Afficher les Evaluations
@@ -78,55 +78,59 @@
     <h3 id="res" class="my-3 text-center" hidden></h3>
 
     <div class="row collapse mt-5" id="listeEval">
-        <form id="chercheForm">
-            <div class="form-group row mb-3">
-                <div class="input-group">
-                    <div class="form-outline flex-grow-1">
-                        <input type="search" id="searchBar" name="search" class="form-control" placeholder="Chercher" />
-                    </div>
-                    <button type="submit" class="btn btn-primary">
-                        <i class="fas fa-search"></i>
-                    </button>
-                </div>
-            </div>
-        </form>
-        <table id="evaluations" class="table table-bordered border-dark">
-            <thead>
-                <tr>
-                    <th scope="col">#</th>
-                    <th scope="col">Type</th>
-                    <th scope="col">Module</th>
-                    <th scope="col">Date</th>
-                    <th scope="col">Heure</th>
-                    <th scope="col">Salle</th>
-                    <th scope="col">Actions</th>
-                </tr>
-            </thead>
-            <tbody id="listEvaluation">
-                <tr>
-                    <th scope="row">1</th>
-                    <td>Type</td>
-                    <td>Module</td>
-                    <td>markcom</td>
-                    <td>2000</td>
-                    <td>GIiiiiiii</td>
-                    <td class="justify-content-center">
-                        <button id="noteB" class="btn btn-primary mx-1">
-                            <i class="fas fa-pen"></i> Noté un Etudiant
-                        </button>
-                        <button class="btn btn-light btn-outline-secondary mx-1">
-                            <i class="fas fa-pencil-alt"></i> Modifier
-                        </button>
-                        <button class="btn btn-danger">
-                            <i class="fas fa-trash"></i> Supprimer
-                        </button>
-                    </td>
+        <div class="form-group row mb-3">
 
-                </tr>
-            </tbody>
-        </table>
+            <div class="input-group">
+                <div class="form-outline flex-grow-1">
+                    <input type="search" id="searchBar" class="form-control" placeholder="Chercher" />
+                </div>
+                <button type="button" class="btn btn-primary">
+                    <i class="fas fa-search"></i>
+                </button>
+            </div>
+        </div>
+
+        <div class="table-responsive">
+
+            <table id="evaluations" class="table table-bordered border-dark">
+                <thead>
+                    <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">Type</th>
+                        <th scope="col">Module</th>
+                        <th scope="col">Date</th>
+                        <th scope="col">Heure</th>
+                        <th scope="col">Salle</th>
+                        <th scope="col">Actions</th>
+                    </tr>
+                </thead>
+                <tbody id="listEvaluation">
+                    <tr>
+                        <th scope="row">1</th>
+                        <td>Type</td>
+                        <td>Module</td>
+                        <td>markcom</td>
+                        <td>2000</td>
+                        <td>GIiiiiiii</td>
+                        <td class="justify-content-center">
+                            <button id="noteB" class="btn btn-primary mx-1">
+                                <i class="fas fa-pen"></i> Noté un Etudiant
+                            </button>
+                            <button class="btn btn-light btn-outline-secondary mx-1">
+                                <i class="fas fa-pencil-alt"></i> Modifier
+                            </button>
+                            <button class="btn btn-danger">
+                                <i class="fas fa-trash"></i> Supprimer
+                            </button>
+                        </td>
+
+                    </tr>
+                </tbody>
+            </table>
+        </div>
     </div>
 </div>
+
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"></script>
 <script src="../../scripts/gestionEvaluation.js" type="module"></script>

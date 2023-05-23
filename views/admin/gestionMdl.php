@@ -2,7 +2,7 @@
 
 <div class="container" style="padding: 20px;">
     <div class="d-flex justify-content-between align-items-end mb-3">
-        <h1>Ajouter Module</h1>
+        <h1 id="title">Ajouter Module</h1>
         <div>
             <button class="btn btn-dark" id="afficherEtd" data-bs-toggle="collapse" href="#listeMdl">
                 <i class="fas fa-list"></i>
@@ -52,53 +52,57 @@
 
     <h3 id="res" class="my-3 text-center" hidden></h3>
 
-
     <div class="row collapse mt-5" id="listeMdl">
-        <form id="chercheForm">
-            <div class="form-group row mb-3">
-                <div class="input-group">
-                    <div class="form-outline flex-grow-1">
-                        <input type="search" id="searchBar" name="search" class="form-control" placeholder="Chercher" />
-                    </div>
-                    <button type="submit" class="btn btn-primary">
-                        <i class="fas fa-search"></i>
-                    </button>
+
+        <div class="form-group row mb-3">
+
+            <div class="input-group">
+                <div class="form-outline flex-grow-1">
+                    <input type="search" id="searchBar" class="form-control" placeholder="Chercher" />
                 </div>
+                <button type="button" class="btn btn-primary">
+                    <i class="fas fa-search"></i>
+                </button>
             </div>
-        </form>
+        </div>
 
-        <table id="modules" class="table table-bordered border-dark">
-            <thead>
-                <tr>
-                    <th scope="col">#</th>
-                    <th scope="col">Nom</th>
-                    <th scope="col">Description</th>
-                    <th scope="col">Actions</th>
-                </tr>
-            </thead>
-            <tbody id="listModules">
-                <tr>
-                    <th scope="row">1</th>
-                    <td>JS</td>
-                    <td class="w-50">Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequuntur, nulla ullam.
-                        Aspernatur animi consequuntur quod numquam laudantium dicta harum, autem possimus nulla quae
-                        tenetur. Dolore earum sunt ratione. Fugit, commodi.</td>
-                    <td class="justify-content-center">
-                        <button class="btn btn-light btn-outline-secondary mx-1">
-                            <i class="fas fa-pencil-alt"></i> Modifier
-                        </button>
-                        <button class="btn btn-danger">
-                            <i class="fas fa-trash"></i> Supprimer
-                        </button>
-                    </td>
+        <div class="table-responsive">
 
-                </tr>
-            </tbody>
-        </table>
+            <table id="modules" class="table table-bordered border-dark">
+                <thead>
+                    <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">Nom</th>
+                        <th scope="col">Description</th>
+                        <th scope="col">Actions</th>
+                    </tr>
+                </thead>
+                <tbody id="listModules">
+                    <tr>
+                        <th scope="row">1</th>
+                        <td>JS</td>
+                        <td class="w-50">Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequuntur, nulla
+                            ullam. Aspernatur animi consequuntur quod numquam laudantium dicta harum, autem possimus
+                            nulla quae tenetur. Dolore earum sunt ratione. Fugit, commodi.</td>
+                        <td class="justify-content-center">
+                            <button class="btn btn-light btn-outline-secondary mx-1">
+                                <i class="fas fa-pencil-alt"></i> Modifier
+                            </button>
+                            <button class="btn btn-danger">
+                                <i class="fas fa-trash"></i> Supprimer
+                            </button>
+                        </td>
+
+                    </tr>
+                </tbody>
+            </table>
+        </div>
     </div>
+</div>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="../../scripts/gestionModule.js" type="module"></script>
-    </body>
 
-    </html>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"></script>
+<script src="../../scripts/gestionModule.js" type="module"></script>
+</body>
+
+</html>

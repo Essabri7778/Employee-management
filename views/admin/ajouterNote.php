@@ -2,7 +2,7 @@
 
 <div class="container" style="padding: 20px;">
   <div class="d-flex justify-content-between align-items-end mb-3">
-    <h1>Ajouter Note au Evaluation:</h1>
+    <h1 id="title">Ajouter Note a l'Evaluation:</h1>
     <div>
       <button class="btn btn-dark" id="afficherEtd" data-bs-toggle="collapse" href="#listeNotes">
         <i class="fas fa-list"></i>
@@ -46,7 +46,7 @@
     <div class="form-group row mb-3">
       <label for="valeur" class="col-sm-2 col-form-label">Valeur</label>
       <div class="col-sm-10">
-        <input type="number" class="form-control" name="valeur" id="valeur" placeholder="20" required>
+        <input type="number" class="form-control" name="valeur" id="valeur" placeholder="20">
         <small id="svaleur" style="color:red" hidden>Ce champ doit être rempli et enter 0 et 20</small>
       </div>
     </div>
@@ -66,6 +66,8 @@
     </div>
   </form>
 
+  <h3 id="res" class="my-3 text-center" hidden></h3>
+
   <div class="row collapse mt-5" id="listeNotes">
 
     <div class="form-group row mb-3">
@@ -79,6 +81,8 @@
         </button>
       </div>
     </div>
+    <div class="table-responsive">
+
     <table id="notes" class="table table-bordered border-dark">
       <thead>
         <tr>
@@ -112,6 +116,8 @@
       </tbody>
     </table>
   </div>
+  </div>
+</div>
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"></script>
   <script src="../../scripts/gestionNote.js" type="module"></script>

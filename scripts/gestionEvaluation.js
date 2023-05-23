@@ -13,6 +13,7 @@ let sdate = document.getElementById("sdate");
 let sheure = document.getElementById("sheure");
 let tbody = document.getElementById("listEvaluation");
 let idmod = document.getElementById("id_module");
+let title = document.getElementById("title");
 
 listEvaluation();
 listModules();
@@ -249,7 +250,7 @@ function modifierSubmit() {
 }
 
 let validateSalle = function () {
-  if (salle.value.length == 0) {
+  if (salle.value === "") {
     return false;
   }
   return true;
@@ -264,7 +265,7 @@ salle.addEventListener("blur", function (e) {
 });
 
 let validateDate = function () {
-  if (heure.value == 0) {
+  if (date.value == 0) {
     return false;
   }
   return true;
@@ -296,11 +297,7 @@ heure.addEventListener("blur", function (e) {
 form.addEventListener("submit", (e) => {
   e.preventDefault();
 
-  if (
-    validateDate() === true &&
-    validateHeure() === true &&
-    validateSalle() === true
-  ) {
+  if (validateDate() && validateHeure() && validateSalle()) {
     if (etat === "ajouter") {
       ajouterEvaluation();
     } else if (etat === "modifier") {

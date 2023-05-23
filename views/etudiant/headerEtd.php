@@ -44,15 +44,15 @@ session_start();
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">Profil</a>
                         <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                            <li class="dropdown-item"><i class="fas fa-user"></i><?= $_SESSION['nom_complet']; ?></li>
-                            <li><a class="dropdown-item" href="profileEtd.php"><i class="fas fa-address-card"></i></i>
+                            <li class="dropdown-item text-primary"><i class="fas fa-user text-primary"></i> <?= $_SESSION['nom_complet']; ?></li>
+                            <li><a class="dropdown-item text-primary" href="profileEtd.php"><i class="fas fa-address-card text-primary"></i></i>
                                     Afficher Profil</a></li>
-                            <li><a class="dropdown-item" href="editMdpEtd.php"><i class="fas fa-lock"></i> Modifier Mot
+                            <li><a class="dropdown-item text-primary" href="editMdpEtd.php"><i class="fas fa-lock text-primary"></i> Modifier Mot
                                     de passe</a></li>
                             <li>
-                                <hr class="dropdown-divider">
+                                <hr class="dropdown-divider text-primary">
                             </li>
-                            <li><a class="dropdown-item" href="../logout.php"><i class="fas fa-sign-out-alt"></i> Se
+                            <li><a class="dropdown-item text-primary" href="../logout.php"><i class="fas fa-sign-out-alt text-primary"></i> Se
                                     Deconnecter</a>
                             </li>
                         </ul>
