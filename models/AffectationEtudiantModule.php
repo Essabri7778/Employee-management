@@ -1,17 +1,19 @@
 <?php
 require_once('../database/DB.php');
-class AffectationEtudiantModule {
+class AffectationEtudiantModule
+{
 
-   
+
     /**
      * Récuperer tous les Affectation d'un etudiant
      * 
      * @param
      * @return
      * 
-    */
-     
-    static public function getAllModulesOfEtudiant($id_etudiant){
+     */
+
+    static public function getAllModulesOfEtudiant($id_etudiant)
+    {
         $stmt = DB::connect()->prepare('SELECT a.id_etudiant, a.id_module,m.nom, m.description FROM `affectation_etudiant_module` a INNER JOIN modules m ON a.id_module = m.id WHERE a.id_etudiant = ?');
         $stmt->execute([$id_etudiant]);
         $affectations = $stmt->fetchAll(PDO::FETCH_ASSOC);
@@ -125,34 +127,34 @@ class AffectationEtudiantModule {
         }
     }
 
- /**
-  * Ajouter les modules associés à un etudiant
-  *
-  *@param
-  *@param
-  *@return
-  */
- static public function AddModulesOfEtudiant($id_etudiant,$id_modules_list)
- {
-    for ($i=0; $i <6 ; $i++) { 
-        $stmt = DB::connect()->prepare('INSERT INTO affectation_etudiant_module (id_etudiant, id_module) VALUES (:id_etudiant,:id_module)');
-        $stmt->bindParam(':id_etudiant',$id_etudiant);
-        $stmt->bindParam(':id_module',$id_modules_list[$i]);
-        if (!$stmt->execute()){
-            return 'error';
+    /**
+     * Ajouter les modules associés à un etudiant
+     *
+     *@param
+     *@param
+     *@return
+     */
+    static public function AddModulesOfEtudiant($id_etudiant, $id_modules_list)
+    {
+        for ($i = 0; $i < 6; $i++) {
+            $stmt = DB::connect()->prepare('INSERT INTO affectation_etudiant_module (id_etudiant, id_module) VALUES (:id_etudiant,:id_module)');
+            $stmt->bindParam(':id_etudiant', $id_etudiant);
+            $stmt->bindParam(':id_module', $id_modules_list[$i]);
+            if (!$stmt->execute()) {
+                return 'error';
+            }
         }
+        return 'ok';
+        $stmt->close();
+        $stmt = null;
     }
-    return 'ok';
-    $stmt->close();
-    $stmt = null;
- }
 
 
 
     //List des etudiants affectés à un module
     //
     //Récuperer tous les Affectation
-   /* static public function getAllAffectations(){
+    /* static public function getAllAffectations(){
         $stmt = DB::connect()->prepare('SELECT * FROM affectation_etudiant_module');
         $stmt->execute();
         $affectations = $stmt->fetchAll(PDO::FETCH_ASSOC);
@@ -161,9 +163,9 @@ class AffectationEtudiantModule {
         $stmt = null;
     }*/
 
-    
-        //Récuperer une affectation par son id
-  /*  static public function getAffectation($id){
+
+    //Récuperer une affectation par son id
+    /*  static public function getAffectation($id){
         try{
             $stmt = DB::connect()->prepare('SELECT * FROM affectation_etudiant_module WHERE id=?');
             $stmt->execute([$id]);
@@ -176,7 +178,7 @@ class AffectationEtudiantModule {
         $stmt = null;
     }*/
     //ajouter une affectation
-   /* static public function addAffectation($data){
+    /* static public function addAffectation($data){
         $stmt = DB::connect()->prepare('INSERT INTO affectation_etudiant_module (id_etudiant, id_module) VALUES (:id_etudiant,:id_module)');
         $stmt->bindParam(':id_etudiant',$data['id_etudiant']);
         $stmt->bindParam(':id_module',$data['id_module']);
@@ -215,9 +217,9 @@ class AffectationEtudiantModule {
         $stmt->close();
         $stmt = null;
     }*/
-    
 
-    //TODO: List des etudiants affectés aux modules
+
+    //List des etudiants affectés aux modules
     static public function getEtdOfModule($id_module)
     {
         try {

@@ -13,6 +13,7 @@ let sdate = document.getElementById("sdate");
 let sheure = document.getElementById("sheure");
 let tbody = document.getElementById("listEvaluation");
 let idmod= document.getElementById("id_module");
+let title = document.getElementById("title");
 
 listEvaluation();
 listModules();
@@ -218,6 +219,7 @@ function modifierEval(evl) {
     heure.value = evl.children[4].textContent;
     salle.value = evl.children[5].textContent;
     idmod.value = evl.children[6].textContent;
+    title.innerHTML = "Modifier Evaluation";
     ajouterText.innerHTML = "Modifier l'evaluation";
     iconAjouter.className = "fas fa-edit";
     ajouter.removeEventListener("click", ajouterEvaluation);
@@ -225,6 +227,7 @@ function modifierEval(evl) {
   }
   
   function modifierSubmit() {
+    if (validateDate() && validateHeure() && validateSalle()) {
     let xhr = getXhr();
     xhr.open("POST", "../../controllers/EvaluationController.php", true);
     xhr.onreadystatechange = function () {
@@ -235,6 +238,7 @@ function modifierEval(evl) {
           res.hidden = false;
           etat = "ajouter";
           ajouterText.innerHTML = "Ajouter un Evaluation";
+          title.innerHTML = "Ajouter Evaluation";
           iconAjouter.className = "fas fa-copy";
         } else if (resCtr == "error") {
           res.innerHTML = "Une erreur est survenue";
@@ -257,12 +261,12 @@ function modifierEval(evl) {
       } else {
         console.log("Module non trouver");
       }
-    });
+    });}
   }
 
 
 let validateSalle = function () {
-    if (salle.value.length == 0) {
+    if (salle.value === "") {
       return false;
     }
     return true;
@@ -308,9 +312,9 @@ heure.addEventListener("blur", function (e) {
 
 
 form.addEventListener("submit", (e) => {
-    e.preventDefault();
+  e.preventDefault();
 
-  if (validateDate() === true && validateHeure() === true && validateSalle()===true) {
+  if (validateDate() && validateHeure() && validateSalle()) {
     if (etat === "ajouter") {
       ajouterEvaluation();
     } else if (etat === "modifier") {

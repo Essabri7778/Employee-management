@@ -2,7 +2,7 @@
 
 <div class="container" style="padding: 20px;">
   <div class="d-flex justify-content-between align-items-end mb-3">
-    <h1>Ajouter un étudiant</h1>
+  <h1 id="title">Ajouter un étudiant</h1>
     <div>
       <button class="btn btn-dark" id="afficherEtd" data-bs-toggle="collapse" href="#listeEtd">
         <i class="fas fa-list"></i>

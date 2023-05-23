@@ -21,6 +21,9 @@ let svaleur = document.getElementById("svaleur");
 let etd = document.getElementById("etd");
 let idetd = document.getElementById("idetd");
 let tbody = document.getElementById("listNote");
+let title = document.getElementById("title");
+
+let ajouterText=document.getElementById("ajouterText");
 
 evaluation.value = nomEval;
 module.value = nomMdl;
@@ -38,6 +41,7 @@ function listEtd() {
     xhr.open("POST", "../../controllers/AffectationEtudiantModuleController.php", true);
     xhr.onreadystatechange = function () {
       if (xhr.readyState == 4 && xhr.status == 200) {
+        console.log(xhr.responseText);
         listEtd = xhr.response;
         EtdComboBox(JSON.parse(listEtd));
       }
@@ -169,7 +173,6 @@ function ajouterNote() {
     let data = new FormData(form);
     data.append("id_evaluation", idEval);
     data.append("id_module", idMdl);
-    data.append("id_etudiant", etdId);
     getEtd(etd.value, function (etdId) {
         if (etdId !== null) {
           data.append("id_etudiant", etdId);
@@ -211,7 +214,8 @@ function supprimerNote(id) {
 function modifierNote(note) {
     etat = "modifier";
     id.value = note.children[0].textContent;
-    etd.value = note.children[1].textContent + note.children[2].textContent;
+    console.log(note.children[1].textContent);
+    etd.value = note.children[1].textContent;
     evaluation.value = note.children[3].textContent;
     module.value = note.children[4].textContent;
     valeur.value = note.children[5].textContent;
@@ -219,6 +223,7 @@ function modifierNote(note) {
     idetd.value = note.children[7].textContent;
     ideval.value = note.children[8].textContent;
     ajouterText.innerHTML = "Modifier la note";
+    title.innerHTML = "Modifier Note";
     iconAjouter.className = "fas fa-edit";
     etd.disabled = true;
     ajouter.removeEventListener("click", ajouterNote);
@@ -226,6 +231,8 @@ function modifierNote(note) {
   }
   
 function modifierSubmit() {
+  if (validateValeur() === true) {
+
     let xhr = getXhr();
     xhr.open("POST", "../../controllers/NoteController.php", true);
     xhr.onreadystatechange = function () {
@@ -236,6 +243,7 @@ function modifierSubmit() {
           res.hidden = false;
           etat = "ajouter";
           ajouterText.innerHTML = "Ajouter une Note";
+          title.innerHTML = "Ajouter Note";
           iconAjouter.className = "fas fa-copy";
           form.reset();
         } else if (resCtr == "error") {
@@ -250,11 +258,11 @@ function modifierSubmit() {
     };
     let data = new FormData(form);
     data.append("id", id.value);
-    data.append("id_module",idmod.value);
+    data.append("id_module",idmdl.value);
     data.append("id_evaluation",ideval.value);
     data.append("id_etudiant",idetd.value);
     data.append("action", "modifier");
-    xhr.send(data);
+    xhr.send(data);}
   }
 
 let validateValeur = function () {
