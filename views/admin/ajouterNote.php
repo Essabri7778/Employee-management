@@ -2,7 +2,7 @@
 
 <div class="container" style="padding: 20px;">
   <div class="d-flex justify-content-between align-items-end mb-3">
-  <h1 id="title">Ajouter Note au Evaluation:</h1>
+    <h1 id="title">Ajouter Note a l'Evaluation:</h1>
     <div>
       <button class="btn btn-dark" id="afficherEtd" data-bs-toggle="collapse" href="#listeNotes">
         <i class="fas fa-list"></i>
@@ -20,7 +20,6 @@
       <label for="etd" class="col-sm-2 col-form-label">Etudiant</label>
       <div class="col-sm-10">
         <select class="form-select" id="etd">
-          <option>HH</option>
         </select>
         <small id="setd" style="color:red" hidden>Ce champ doit être rempli</small>
       </div>
@@ -82,6 +81,8 @@
         </button>
       </div>
     </div>
+    <div class="table-responsive">
+
     <table id="notes" class="table table-bordered border-dark">
       <thead>
         <tr>
@@ -115,6 +116,8 @@
       </tbody>
     </table>
   </div>
+  </div>
+</div>
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"></script>
   <script src="../../scripts/gestionNote.js" type="module"></script>

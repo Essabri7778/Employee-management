@@ -53,7 +53,7 @@ function listEtd() {
     xhr.send(data);
   }
 
-  function EtdComboBox(Etd) {
+function EtdComboBox(Etd) {
     if (!Array.isArray(Etd)) {
         Etd = [Etd];
     }
@@ -211,12 +211,12 @@ function supprimerNote(id) {
     data.append("action", "supprimer");
     xhr.send(data);
 }
+etd.value="hh";
 
 function modifierNote(note) {
     etat = "modifier";
     id.value = note.children[0].textContent;
-    console.log(note.children[1].textContent);
-    etd.value = note.children[1].textContent;
+    etd.value = `${note.children[1].textContent} ${note.children[2].textContent}`;
     evaluation.value = note.children[3].textContent;
     module.value = note.children[4].textContent;
     valeur.value = note.children[5].textContent;

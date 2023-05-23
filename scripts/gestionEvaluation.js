@@ -281,7 +281,7 @@ salle.addEventListener("blur", function (e) {
   });
 
 let validateDate = function () {
-    if (heure.value == 0) {
+    if (date.value == 0) {
       return false;
     }
     return true;

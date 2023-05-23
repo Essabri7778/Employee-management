@@ -9,25 +9,27 @@ require_once('../models/AffectationEtudiantModule.php');
 //  $id = isset($_POST['id']) ? $_POST['id'] : NULL;
 //  $action = isset($_POST['action']) ? $_POST['action'] : NULL;
 
- //Methode Post
- $id_modules_list = isset($_POST['id_modules_list']) ?  explode(",",$_POST['id_modules_list'])  : NULL;
- $id_etudiant = isset($_POST['id_etd']) ? intval($_POST['id_etd'] ): NULL;
- $action = isset($_POST['action']) ? $_POST['action'] : NULL;
- $id_old_modules_list = isset($_POST['id_old_modules_list']) ?  explode(",",$_POST['id_old_modules_list'])  : NULL;
+//Methode Post
+$id_modules_list = isset($_POST['id_modules_list']) ?  explode(",", $_POST['id_modules_list'])  : NULL;
+$id_etudiant = isset($_POST['id_etd']) ? intval($_POST['id_etd']) : NULL;
+$action = isset($_POST['action']) ? $_POST['action'] : NULL;
+$id_old_modules_list = isset($_POST['id_old_modules_list']) ?  explode(",", $_POST['id_old_modules_list'])  : NULL;
+$id_module = isset($_GET['id_module']) ? $_GET['id_module'] : NULL;
+
 
  $id_module = $id_module = isset($_POST['id_module']) ? $_POST['id_module'] : NULL;
 
 
 //traitement
 if ($action == "ajouter") {
-    $res = AffectationEtudiantModule::AddModulesOfEtudiant($id_etudiant,$id_modules_list);
+    $res = AffectationEtudiantModule::AddModulesOfEtudiant($id_etudiant, $id_modules_list);
     if ($res == "ok")
         echo "ok";
     else
         echo "error";
 } else if ($action == "modifier") {
 
-    $res = AffectationEtudiantModule::updateModulesOfEtudiant($id_old_modules_list,$id_modules_list , $id_etudiant);
+    $res = AffectationEtudiantModule::updateModulesOfEtudiant($id_old_modules_list, $id_modules_list, $id_etudiant);
     if ($res == "ok")
         echo "ok";
     else
