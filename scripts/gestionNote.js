@@ -137,7 +137,7 @@ function getEtd(val, callback) {
           listEtd = [listEtd];
         }
         for (let etd of listEtd) {
-          if (etd.etd_nom+" "+etat.prenom === val) {
+          if (etd.etd_nom+" "+etd.prenom === val) {
             callback(etd.etd_id);
             return;
           }
