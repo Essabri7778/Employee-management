@@ -113,7 +113,7 @@ class Note
         $query = 'SELECT n.id, n.id_evaluation, n.id_etudiant,e.id_module, etd.nom AS etd_nom, etd.prenom, m.nom, e.type, n.valeur  FROM notes n INNER JOIN evaluation e INNER JOIN modules m INNER JOIN etudiant etd ON n.id_evaluation = e.id AND n.id_etudiant = etd.id AND e.id_module = m.id';
         $stmt = DB::connect()->prepare($query);
         $stmt->execute();
-        $notes = $stmt->fetch(PDO::FETCH_ASSOC);
+        $notes = $stmt->fetchALl(PDO::FETCH_ASSOC);
         return json_encode($notes);
         $stmt->close();
         $stmt = null;

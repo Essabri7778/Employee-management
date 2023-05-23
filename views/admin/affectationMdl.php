@@ -4,7 +4,7 @@ $id_etudiant = isset($_GET['id_etd']) ? intval($_GET['id_etd']) : NULL;
 ?>
 <div class="container" style="padding: 20px;">
   <div class="d-flex justify-content-between align-items-end mb-3">
-    <h1>Affectation des Modules:</h1>
+  <h1 id="title">Affectation des Modules:</h1>
     <div>
       <button id="afficherEtd" class="btn btn-dark" data-bs-toggle="collapse" href="#listeMdl">
         <i class="fas fa-list"></i> Afficher les Modules de cette Etudiant
@@ -60,6 +60,8 @@ $id_etudiant = isset($_GET['id_etd']) ? intval($_GET['id_etd']) : NULL;
       </div>
     </div>
   </form>
+
+  <h3 id="res" class="my-3 text-center" hidden></h3>
 
 
   <div class="row collapse mt-5" id="listeMdl">

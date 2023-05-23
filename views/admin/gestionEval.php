@@ -2,7 +2,7 @@
 
 <div class="container" style="padding: 20px;">
   <div class="d-flex justify-content-between align-items-end mb-3">
-    <h1>Ajouter Evaluation</h1>
+    <h1 id="title">Ajouter Evaluation</h1>
     <div>
       <button id="afficherEtd" class="btn btn-dark" data-bs-toggle="collapse" href="#listeEval">
         <i class="fas fa-list"></i> Afficher les Evaluations

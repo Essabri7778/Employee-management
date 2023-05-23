@@ -4,8 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet"
-        href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.0.0-beta3/css/all.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="./views/style.css" />
     <link rel="icon" href="./views/assets/favicon.ico" type="image/x-icon">
@@ -19,10 +18,8 @@
                 <div class="col col-xl-10">
                     <div class="card" style="border-radius: 1rem;">
                         <div class="row g-0">
-                            <div
-                                class="col-md-6 col-lg-5 d-none d-md-block d-flex justify-content-center align-items-center">
-                                <img src="./views/assets/girl-with-headphones-using-laptop-along-her-classmates-during-group-study.jpg"
-                                    alt="login form" class="img-fluid log-img">
+                            <div class="col-md-6 col-lg-5 d-none d-md-block d-flex justify-content-center align-items-center">
+                                <img src="./views/assets/girl-with-headphones-using-laptop-along-her-classmates-during-group-study.jpg" alt="login form" class="img-fluid log-img">
                             </div>
                             <div class="col-md-6 col-lg-7 d-flex align-items-center">
                                 <div class="card-body p-4 p-lg-5 text-black">
@@ -52,15 +49,14 @@
 
                                         <div class="mb-3">
                                             <label class="mb-2 text-muted" for="identifiant">Identifiant</label>
-                                            <input id="identifiant" type="identifiant" class="form-control" name="login"
-                                                value="" required>
+                                            <input id="identifiant" type="identifiant" class="form-control" name="login" value="" required>
                                             <small id="loginError" class="form-text text-danger" hidden></small>
 
                                         </div>
 
                                         <div class="mb-4">
                                             <label class="mb-2 text-muted" for="mdp">Mot de Passe</label>
-                                            <input id="mdp" type="mdp" class="form-control" name="mdp" required>
+                                            <input id="mdp" type="password" class="form-control" name="mdp" required>
                                             <small id="mdpError" class="form-text text-danger" hidden></small>
 
                                         </div>

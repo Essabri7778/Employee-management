@@ -21,6 +21,9 @@ let svaleur = document.getElementById("svaleur");
 let etd = document.getElementById("etd");
 let idetd = document.getElementById("idetd");
 let tbody = document.getElementById("listNote");
+let title = document.getElementById("title");
+
+let ajouterText=document.getElementById("ajouterText");
 
 evaluation.value = nomEval;
 module.value = nomMdl;
@@ -30,30 +33,35 @@ ideval.value = idEval;
 listNote();
 let etat = "ajouter";
 
-/*
 listEtd();
+
 function listEtd() {
     let xhr = getXhr();
     let listEtd;
     xhr.open("POST", "../../controllers/AffectationEtudiantModuleController.php", true);
     xhr.onreadystatechange = function () {
       if (xhr.readyState == 4 && xhr.status == 200) {
+        console.log(xhr.responseText);
         listEtd = xhr.response;
         EtdComboBox(JSON.parse(listEtd));
       }
     };
     let data = new FormData();
-    data.append("action", "afficherTous");
+    data.append("action", "getEtdOfMdl");
+    data.append("id_module",idMdl);
     xhr.send(data);
   }
 
-function EtdComboBox(Etd) {
+  function EtdComboBox(Etd) {
+    if (!Array.isArray(Etd)) {
+        Etd = [Etd];
+    }
     for (let e of Etd) {
-      let newetd = `<option>${e.nom} ${e.prenom}</option>`;
-      etd.insertAdjacentHTML("beforeend", newetd);
+        let newetd = `<option>${e.etd_nom} ${e.prenom}</option>`;
+        etd.insertAdjacentHTML("beforeend", newetd);
     }
 }
-*/
+
 
 function listNote() {
     let xhr = getXhr();
@@ -124,9 +132,12 @@ function getEtd(val, callback) {
     xhr.onreadystatechange = function () {
       if (xhr.readyState == 4 && xhr.status == 200) {
         listEtd = JSON.parse(xhr.responseText);
+        if (!Array.isArray(listEtd)) {
+          listEtd = [listEtd];
+        }
         for (let etd of listEtd) {
-          if (etd.nom === val) {
-            callback(etd.id);
+          if (etd.etd_nom+" "+etat.prenom === val) {
+            callback(etd.etd_id);
             return;
           }
         }
@@ -134,12 +145,13 @@ function getEtd(val, callback) {
       }
     };
     let data = new FormData();
-    data.append("action", "afficherTous");//listfihakolchi
+    data.append("action", "getEtdOfMdl");
+    data.append("module_id",idMdl);
     xhr.send(data);
 }
 
 
-function ajouterEvaluation() {
+function ajouterNote() {
     let xhr = getXhr();
     xhr.open("POST", "../../controllers/NoteController.php", true);
     xhr.onreadystatechange = function () {
@@ -202,7 +214,8 @@ function supprimerNote(id) {
 function modifierNote(note) {
     etat = "modifier";
     id.value = note.children[0].textContent;
-    etd.value = note.children[1].textContent + note.children[2].textContent;
+    console.log(note.children[1].textContent);
+    etd.value = note.children[1].textContent;
     evaluation.value = note.children[3].textContent;
     module.value = note.children[4].textContent;
     valeur.value = note.children[5].textContent;
@@ -210,6 +223,7 @@ function modifierNote(note) {
     idetd.value = note.children[7].textContent;
     ideval.value = note.children[8].textContent;
     ajouterText.innerHTML = "Modifier la note";
+    title.innerHTML = "Modifier Note";
     iconAjouter.className = "fas fa-edit";
     etd.disabled = true;
     ajouter.removeEventListener("click", ajouterNote);
@@ -217,6 +231,8 @@ function modifierNote(note) {
   }
   
 function modifierSubmit() {
+  if (validateValeur() === true) {
+
     let xhr = getXhr();
     xhr.open("POST", "../../controllers/NoteController.php", true);
     xhr.onreadystatechange = function () {
@@ -227,6 +243,7 @@ function modifierSubmit() {
           res.hidden = false;
           etat = "ajouter";
           ajouterText.innerHTML = "Ajouter une Note";
+          title.innerHTML = "Ajouter Note";
           iconAjouter.className = "fas fa-copy";
           form.reset();
         } else if (resCtr == "error") {
@@ -241,11 +258,11 @@ function modifierSubmit() {
     };
     let data = new FormData(form);
     data.append("id", id.value);
-    data.append("id_module",idmod.value);
+    data.append("id_module",idmdl.value);
     data.append("id_evaluation",ideval.value);
     data.append("id_etudiant",idetd.value);
     data.append("action", "modifier");
-    xhr.send(data);
+    xhr.send(data);}
   }
 
 let validateValeur = function () {
@@ -269,19 +286,19 @@ form.addEventListener("submit", (e) => {
 
   if (validateValeur() === true) {
     if (etat === "ajouter") {
-      ajouterEvaluation();
+      ajouterNote();
     } else if (etat === "modifier") {
       modifierSubmit();
     }
-    listEvaluation();
+    listNote();
 
-    success.innerHTML = `Evaluation ${etat} avec succès`;
+    success.innerHTML = `Note ${etat} avec succès`;
     success.hidden = false;
     setTimeout(function () {
       success.hidden = true;
     }, 3000);
   } else {
-    failed.innerHTML = `Evaluation non ${etat}`;
+    failed.innerHTML = `Note non ${etat}`;
     failed.hidden = false;
     setTimeout(function () {
       failed.hidden = true;

@@ -7,6 +7,7 @@ let description = document.getElementById("description");
 let sdescription = document.getElementById("sdescription");
 let snom = document.getElementById("snom");
 let ajouter = document.getElementById("ajouter");
+let title = document.getElementById("title");
 
 listModules();
 
@@ -126,12 +127,13 @@ function modifierMdl(mdl) {
   description.value = mdl.children[2].textContent;
   ajouterText.innerHTML = "Modifier le Module";
   iconAjouter.className = "fas fa-edit";
-
+  title.innerHTML = "Modifier Module";
   ajouter.removeEventListener("click", ajouterModule);
   ajouter.addEventListener("click", modifierSubmit);
 }
 
 function modifierSubmit() {
+  if (validateNom() && validateDescription()){
   let xhr = getXhr();
   xhr.open("POST", "../../controllers/ModuleController.php", true);
   xhr.onreadystatechange = function () {
@@ -142,6 +144,7 @@ function modifierSubmit() {
         res.hidden = false;
         etat = "ajouter";
         ajouterText.innerHTML = "Ajouter un Module";
+        title.innerHTML = "Ajouter Module";
         iconAjouter.className = "fas fa-user-plus";
       } else if (resCtr == "error") {
         res.innerHTML = "Une erreur est survenue";
@@ -156,18 +159,18 @@ function modifierSubmit() {
   let data = new FormData(form);
   data.append("id", id.value);
   data.append("action", "modifier");
-  xhr.send(data);
+  xhr.send(data);}
 }
 
 let validateNom = function () {
-  if (nom.value.length == 0) {
+  if (nom.value === "") {
     return false;
   }
   return true;
 };
 
 let validateDescription = function () {
-  if (description.value.length == 0) {
+  if (description.value === "") {
     return false;
   }
   return true;

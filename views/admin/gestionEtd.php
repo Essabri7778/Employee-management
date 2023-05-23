@@ -2,7 +2,7 @@
 
 <div class="container" style="padding: 20px;">
   <div class="d-flex justify-content-between align-items-end mb-3">
-    <h1>Ajouter un étudiant</h1>
+  <h1 id="title">Ajouter un étudiant</h1>
     <div>
       <button class="btn btn-dark" id="afficherEtd" data-bs-toggle="collapse" href="#listeEtd">
         <i class="fas fa-list"></i>
@@ -78,10 +78,12 @@
     </div>
   </form>
 
+  <h3 id="res" class="my-3 text-center" hidden></h3>
+
   <div class="row collapse mt-5" id="listeEtd">
 
+  
     <div class="form-group row mb-3">
-
       <div class="input-group">
         <div class="form-outline flex-grow-1">
           <input type="search" id="searchBar" class="form-control" placeholder="Chercher" />

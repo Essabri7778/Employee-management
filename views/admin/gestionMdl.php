@@ -2,7 +2,7 @@
 
 <div class="container" style="padding: 20px;">
   <div class="d-flex justify-content-between align-items-end mb-3">
-    <h1>Ajouter Module</h1>
+  <h1 id="title">Ajouter Module</h1>
     <div>
       <button class="btn btn-dark" id="afficherEtd" data-bs-toggle="collapse" href="#listeMdl">
         <i class="fas fa-list"></i>
@@ -50,7 +50,6 @@
   </form>
 
   <h3 id="res" class="my-3 text-center" hidden></h3>
-
 
   <div class="row collapse mt-5" id="listeMdl">
 
