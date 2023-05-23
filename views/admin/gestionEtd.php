@@ -5,7 +5,7 @@
         <h1 id="title">Ajouter un étudiant</h1>
         <div>
             <button class="btn btn-dark" id="afficherEtd" data-bs-toggle="collapse" href="#listeEtd">
-                <i class="fas fa-list"></i>
+                <i class="fas fa-list"></i> Afficher les Etudiants
             </button>
         </div>
     </div>

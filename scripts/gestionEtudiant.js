@@ -169,7 +169,7 @@ function updateEtudiant(e) {
       let res = xhr.responseText;
       console.log(res);
       if (res == "ok") {
-        console.log("srrd");
+        document.getElementById("title").innerHTML = "Ajouter Etudiant";
         document.getElementById("succes").hidden = false;
         document.getElementById("succes").innerHTML =
           "Mise à jour effectuée avec succes";
