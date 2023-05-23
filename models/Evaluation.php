@@ -115,6 +115,22 @@ class Evaluation {
         }
     }
 
+    static public function getCountEvaluationOfModulesList($list_module){
+        $count_list=[];
+        try {
+            for ($i=0; $i < count($list_module) ; $i++) { 
+                $query = 'SELECT COUNT(*) As module FROM evaluation WHERE id_module=?';
+                $stmt->execute([$id]);
+                $evaluations = $stmt->fetchAll(PDO::FETCH_ASSOC);
+                $count_list[$i]=$evaluations["module"];
+            }
+            return json_encode($count_list);
+        } catch (PDOException $e) {
+            echo 'Error'. $e->getMessage();
+        }
+        
+    }
+
     static public function findEvaluationsOfEtudiant($data){
         $id = $data['id'];
         $search = $data['search'];

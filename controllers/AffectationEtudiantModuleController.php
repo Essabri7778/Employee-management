@@ -1,6 +1,7 @@
 <?php
-
+session_start();
 require_once('../models/AffectationEtudiantModule.php');
+require_once('../models/Evaluation.php');
 //Récuperation des données
 
 //Methode Get
@@ -40,12 +41,23 @@ if ($action == "ajouter") {
         echo "ok";
     else
         echo "error";
-} else if ($action == "afficher") {
+} else if ($action == "afficher") {//i need it
     $res = AffectationEtudiantModule::getAllModulesOfEtudiant($id_etudiant);
     echo $res;
 } else if ($action == "getEtdOfMdl") {
     $res = AffectationEtudiantModule::getEtdOfModule($id_module);
     echo $res;
-} else {
+}else if($action == "populateModuleCard") {
+    $res = AffectationEtudiantModule::getAllModulesOfEtudiant($_SESSION["id_etd"]);
+    echo $res;
+}
+    // $list_module =json_decode( AffectationEtudiantModule::getAllModulesOfEtudiant($_SESSION["id_etd"]));
+    // $list=[];
+    // for ($i=0; $i <count($list_module) ; $i++) { 
+    //     $list[$i] = $list_module[$i]["id_module"];
+    // }
+    // $res = Evaluation::getCountEvaluationOfModulesList($list);
+    // echo $res;
+else {
     echo "action non reconnue";
 }

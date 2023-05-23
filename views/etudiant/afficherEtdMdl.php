@@ -22,7 +22,7 @@
     </div>
   </div>
 
-  <div class="row row-cols-1 row-cols-md-3 g-4">
+  <div class="row row-cols-1 row-cols-md-3 g-4" id="etd_module">
     <div class="col">
       <div class="card">
         <div class="card-body">
@@ -37,7 +37,7 @@
 
     <div class="col">
       <div class="card">
-        <div class="card-body">
+        <div class="card-body" >
           <h5 class="card-title">Module</h5>
           <p class="card-text">
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Quaerat, beatae architecto, aperiam error fugit, consectetur exercitationem omnis magnam placeat dolorum totam iure tempore excepturi at voluptates ratione. Incidunt, quas officiis!
@@ -63,6 +63,7 @@
 
 <script src="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.3/js/all.min.js" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"></script>
+<script src="../../scripts/afficherEtdMdl.js" type = "module"></script>
 </body>
 
 </html>

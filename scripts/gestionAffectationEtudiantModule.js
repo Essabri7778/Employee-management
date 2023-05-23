@@ -54,7 +54,7 @@ function InitializeTable() {
     let data = new FormData();
     data.append("action","afficher");
     data.append("id_etd",id_etudiant);
-    xhr.send(data)
+    xhr.send(data);
 }
 InitializeTable();
 

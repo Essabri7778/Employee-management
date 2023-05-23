@@ -20,14 +20,16 @@ function ajouterModule() {
     if (xhr.readyState == 4 && xhr.status == 200) {
       let resCtr = xhr.responseText;
       if (resCtr == "ok") {
-        res.innerHTML = "Tout passe bien";
-        res.hidden = false;
+        success.innerHTML = "Ajout effectué avec succes";
+        success.hidden = false;
       } else if (resCtr == "error") {
-        res.innerHTML = "Une erreur est survenue";
-        res.hidden = false;
+        failed.innerHTML = "Ajout échoué ";
+        failed.hidden = false;
       }
       setTimeout(function () {
-        res.hidden = true;
+        failed.hidden = true;
+        success.hidden = true;
+
       }, 3000);
       listModules();
     }
@@ -102,14 +104,16 @@ function supprimerMdl(id) {
     if (xhr.readyState == 4 && xhr.status == 200) {
       let resCtr = xhr.responseText;
       if (resCtr == "ok") {
-        res.innerHTML = "Tout passe bien";
-        res.hidden = false;
+         success.innerHTML = "Suppression effectuée avec succes";
+        success.hidden = false;
       } else if (resCtr == "error") {
-        res.innerHTML = "Une erreur est survenue";
-        res.hidden = false;
+        failed.innerHTML = "Suppression échouée";
+        failed.hidden = false;
       }
       setTimeout(function () {
-        res.hidden = true;
+        failed.hidden = true;
+        success.hidden = true;
+
       }, 3000);
       listModules();
     }
@@ -140,18 +144,19 @@ function modifierSubmit() {
     if (xhr.readyState == 4 && xhr.status == 200) {
       let resCtr = xhr.responseText;
       if (resCtr == "ok") {
-        res.innerHTML = "Tout passe bien";
-        res.hidden = false;
+        success.innerHTML = "Modification effectuée avec succes";
+        success.hidden = false;
         etat = "ajouter";
         ajouterText.innerHTML = "Ajouter un Module";
         title.innerHTML = "Ajouter Module";
         iconAjouter.className = "fas fa-user-plus";
       } else if (resCtr == "error") {
-        res.innerHTML = "Une erreur est survenue";
-        res.hidden = false;
+        failed.innerHTML = "Modification échouée";
+        failed.hidden = false;
       }
       setTimeout(function () {
-        res.hidden = true;
+        failed.hidden = true;
+        success.hidden = true;
       }, 3000);
       listModules();
     }
