@@ -13,6 +13,8 @@ require_once('../models/AffectationEtudiantModule.php');
  $id_modules_list = isset($_POST['id_module']) ? $_POST['id_module'] : NULL;
  $id_etudiant = isset($_GET['id_etd']) ? intval($_GET['id_etd']) : NULL;
  $action = isset($_POST['action']) ? $_POST['action'] : NULL;
+ $id_module = isset($_GET['id_module']) ? $_GET['id_module'] : NULL;
+
 
 
 //traitement
