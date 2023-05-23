@@ -90,6 +90,8 @@
       </div>
     </div>
 
+    <div class="table-responsive">
+
     <table id="evaluations" class="table table-bordered border-dark">
       <thead>
         <tr>
@@ -126,7 +128,9 @@
       </tbody>
     </table>
   </div>
+  </div>
 </div>
+
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"></script>
 <script src="../../scripts/gestionEvaluation.js" type="module"></script>

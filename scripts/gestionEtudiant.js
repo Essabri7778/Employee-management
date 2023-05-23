@@ -5,6 +5,7 @@ import {populateEtudiantTable,populateEtudiantForme,populateEtudiantRow} from ".
 let action = "ajouter";
 
 let form = document.getElementById("formulaire");
+
 form.addEventListener("submit", function(e){
     if(action == "modify") {
         updateEtudiant(e);
@@ -168,4 +169,105 @@ function updateEtudiant(e) {
    
 }
 
+let id = document.getElementById("id");
+let nom = document.getElementById("nom");
+let prenom= document.getElementById("prenom") ;
+let adresse= document.getElementById("Address");
+let tele= document.getElementById("telephone")  ;
+let email=document.getElementById("email") ;
+let mdp=document.getElementById("mdp") ;
+let snom = document.getElementById("snom");
+let sprenom= document.getElementById("sprenom") ;
+let sadresse= document.getElementById("sadresse");
+let stele= document.getElementById("stelephone")  ;
+let semail=document.getElementById("semail") ;
+let smdp=document.getElementById("smdp") ;
+
+//someValidations
+let validateNom = function () {
+    if (nom.value === "") {
+      return false;
+    }
+    return true;
+  };
+  
+nom.addEventListener("blur", function (e) {
+    if (validateNom() === false) {
+      snom.hidden = false;
+    } else {
+      snom.hidden = true;
+    }
+});
+
+let validatePrenom = function () {
+    if (nom.value === "") {
+      return false;
+    }
+    return true;
+  };
+  
+prenom.addEventListener("blur", function (e) {
+    if (validatePrenom() === false) {
+      sprenom.hidden = false;
+    } else {
+      sprenom.hidden = true;
+    }
+});
+
+let validateAdresse = function () {
+    if (adresse.value === "") {
+      return false;
+    }
+    return true;
+  };
+  
+adresse.addEventListener("blur", function (e) {
+    if (validateAdresse() === false) {
+      sadresse.hidden = false;
+    } else {
+      sadresse.hidden = true;
+    }
+});
+
+  
+function validateTelephone(tel) {
+    const regex = /^06\d{8}$/;
+    return regex.test(tel);
+  }
+tele.addEventListener("blur", function(e){ 
+    if(validateTelephone(tele.value)===false){
+        stele.hidden = false;
+    }else{
+        stele.hidden = true;
+    }
+ });
+
+email.className="";
+function emailValide(email) {
+    const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return regex.test(email);
+  }
+
+email.addEventListener("blur", function(e){ 
+    if(emailValide(email.value)===false){
+        semail.hidden = false;
+    }else{
+        semail.hidden = true;
+    }
+ });
+
+let validateMdp = function () {
+    if (mdp.value === "") {
+      return false;
+    }
+    return true;
+  };
+  
+mdp.addEventListener("blur", function (e) {
+    if (validateMdp() === false) {
+      smdp.hidden = false;
+    } else {
+      smdp.hidden = true;
+    }
+});
 
