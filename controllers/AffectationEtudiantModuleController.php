@@ -3,7 +3,7 @@
 require_once('../models/AffectationEtudiantModule.php');
 //Récuperation des données
 
- //Methode Get
+//Methode Get
 //  $id_module = isset($_GET['id_module']) ? $_GET['id_module'] : NULL;
 //  $id_etudiant = isset($_GET['id_etudiant']) ? $_GET['id_etudiant'] : NULL;
 //  $id = isset($_POST['id']) ? $_POST['id'] : NULL;
@@ -24,9 +24,9 @@ if ($action == "ajouter") {
         echo "error";
 } else if ($action == "modifier") {
     $data = array(
-        'id' => $id ,
-        'id_etudiant' => $id_etudiant ,
-        'id_module' => $id_module 
+        'id' => $id,
+        'id_etudiant' => $id_etudiant,
+        'id_module' => $id_module
     );
     $res = AffectationEtudiantModule::updateModulesOfEtudiant($old_id_modules,$new_id_modules , $id_etudiant);
     if ($res == "ok")

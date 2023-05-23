@@ -34,8 +34,10 @@
                                             <span class="h1 fw-bold mb-0">Scolarité</span>
                                         </div>
 
-                                        <h5 class="fw-normal mb-3 pb-3" style="letter-spacing: 1px;">Connecter a votre
+                                        <h5 class="fw-normal mb-3 pb-3" style="letter-spacing: 1px;">Connecter à votre
                                             Compte</h5>
+
+                                        <div id="failed" class="alert alert-danger" role="alert" hidden></div>
 
                                         <div class="mb-3">
                                             <label class="form-label mb-2 text-primary" for="userType">
@@ -51,20 +53,16 @@
                                         <div class="mb-3">
                                             <label class="mb-2 text-muted" for="identifiant">Identifiant</label>
                                             <input id="identifiant" type="identifiant" class="form-control" name="login"
-                                                value="" required autofocus>
-                                            <small id="sidentifiantVide" class="form-text text-danger" hidden>Ce champ
-                                                doit être rempli!</small>
-                                            <small id="sidentifiantFaux" class="form-text text-danger" hidden>Ce champ
-                                                n'est pas valide!</small>
+                                                value="" required>
+                                            <small id="loginError" class="form-text text-danger" hidden></small>
+
                                         </div>
 
                                         <div class="mb-4">
                                             <label class="mb-2 text-muted" for="mdp">Mot de Passe</label>
                                             <input id="mdp" type="mdp" class="form-control" name="mdp" required>
-                                            <small id="smdp" class="form-text text-danger" hidden>Ce champ doit être
-                                                rempli!</small>
-                                            <small id="smdpFaux" class="form-text text-danger" hidden>Ce champ n'est pas
-                                                valide!</small>
+                                            <small id="mdpError" class="form-text text-danger" hidden></small>
+
                                         </div>
 
                                         <div class="pt-1 mb-4">
