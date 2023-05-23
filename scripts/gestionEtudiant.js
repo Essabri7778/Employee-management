@@ -242,6 +242,7 @@ tele.addEventListener("blur", function(e){
     }
  });
 
+ /*
 email.className="";
 function emailValide(email) {
     const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -254,7 +255,7 @@ email.addEventListener("blur", function(e){
     }else{
         semail.hidden = true;
     }
- });
+ });*/
 
 let validateMdp = function () {
     if (mdp.value === "") {
