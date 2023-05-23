@@ -1,8 +1,8 @@
-<?php include_once("headerAdmin.php"); 
-
+<?php 
+include_once("headerAdmin.php"); 
 $id_etudiant = isset($_GET['id_etd']) ? intval($_GET['id_etd']) : NULL;
 ?>
-$id_etudiant = isset($_GET['id_etd']) ? intval($_GET['id_etd']) : NULL;<div class="container" style="padding: 20px;">
+<div class="container" style="padding: 20px;">
   <div class="d-flex justify-content-between align-items-end mb-3">
     <h1>Affectation des Modules:</h1>
     <div>
@@ -19,7 +19,7 @@ $id_etudiant = isset($_GET['id_etd']) ? intval($_GET['id_etd']) : NULL;<div clas
       <input type="hidden" id="id">
       <label for="etudiant" class="col-sm-2 col-form-label">Etudiant</label>
       <div class="col-sm-10">
-        <input type="text" class="form-control" name="id_edt" id="id_edt" placeholder="HAMid" disabled>
+        <input type="text" class="form-control" name="id_etudiant" id="id_etudiant" placeholder="id_etudiant" value="<?php echo($id_etudiant);?>" disabled>
         <small id="setudiant" style="color:red" hidden>Ce champ doit être rempli</small>
       </div>
     </div>
@@ -68,12 +68,12 @@ $id_etudiant = isset($_GET['id_etd']) ? intval($_GET['id_etd']) : NULL;<div clas
 
       <div class="row mb-3">
         <div class="col-md-6">
-          <button class="btn btn-light btn-outline-secondary w-100">
+          <button class="btn btn-light btn-outline-secondary w-100" id="updateModules">
             <i class="fas fa-pencil-alt"></i> Modifier les modules
           </button>
         </div>
         <div class="col-md-6">
-          <button class="btn btn-danger w-100">
+          <button class="btn btn-danger w-100" id = "deleteModules">
             <i class="fas fa-trash"></i> Supprimer les modules
           </button>
         </div>
@@ -91,7 +91,7 @@ $id_etudiant = isset($_GET['id_etd']) ? intval($_GET['id_etd']) : NULL;<div clas
         </thead>
         <tbody id="listStudent">
           <tr>
-            <th scope="row">1</th>
+            <th scope="row" >1</th>
             <td>JS</td>
             <td>Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequuntur, nulla ullam. Aspernatur animi consequuntur quod numquam laudantium dicta harum, autem possimus nulla quae tenetur. Dolore earum sunt ratione. Fugit, commodi.</td>
           </tr>
