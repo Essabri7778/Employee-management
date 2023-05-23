@@ -87,4 +87,31 @@ class Evaluation {
         $stmt->close();
         $stmt = null;
     }
+
+    static public function findEvaluation($data){
+        $search = $data['search'];
+        $search = '%'.$search.'%';
+        try{
+            $query = 'SELECT e.id, e.id_module, m.nom, e.type, e.date, e.heure, e.salle FROM evaluation e INNER JOIN modules m ON e.id_module = m.id WHERE LOWER(e.type) LIKE LOWER(:keyword) OR LOWER(m.nom) LIKE LOWER(:keyword)';
+            $stmt = DB::connect()->prepare($query);
+            $stmt->bindParam(':keyword',$search);
+            $stmt->execute();
+            $evaluations = $stmt->fetchAll(PDO::FETCH_ASSOC);
+            return json_encode($evaluations);
+        }catch(PDOException $e){
+            echo 'Error'. $e->getMessage();
+        }
+    }
+
+    static public function getAllEvaluationsOfEtudiant($id){
+        try{
+            $query = 'SELECT a.id_etudiant, a.id_module, m.nom, e.type, e.date, e.heure, e.salle FROM affectation_etudiant_module a INNER JOIN modules m ON a.id_module = m.id INNER JOIN evaluation e ON a.id_module=e.id_module WHERE a.id_etudiant = ?';
+            $stmt = DB::connect()->prepare($query);
+            $stmt->execute([$id]);
+            $evaluations = $stmt->fetchAll(PDO::FETCH_ASSOC);
+            return json_encode($evaluations);
+        }catch(PDOException $e){
+            echo 'Error'. $e->getMessage();
+        }
+    }
 }

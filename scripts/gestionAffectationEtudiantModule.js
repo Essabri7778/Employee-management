@@ -36,9 +36,10 @@ function InitializeTable() {
         if (xhr.readyState == 4 && xhr.status == 200) {
             let res = xhr.responseText;
             let obj = JSON.parse(res);
-            if(populateTableModuleOfEtudiant(obj) == ``){
+            if(populateTableModuleOfEtudiant(obj) == ""){
                 action="ajouter";
                 update_btn.disabled = true ;
+                submit_btn.disabled = false;
             }
             else{
                 action="modifier";

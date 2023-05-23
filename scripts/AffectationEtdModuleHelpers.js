@@ -62,7 +62,7 @@ function getIdModulesListFromTable() {
 }
 
 function resetPopulateCheckbox(action) {
-  let id_module_list
+  let id_module_list;
   if(action === true){
     id_module_list = getIdModulesListFromTable();
   }

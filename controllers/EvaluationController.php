@@ -1,4 +1,5 @@
 <?php
+session_start();
 require_once('../models/Evaluation.php');
 //Récuperation des données
 
@@ -61,6 +62,14 @@ if ($action == "ajouter") {
 } else if ($action == "afficherTous") {
     $res = Evaluation::listEvaluation();
     echo $res;
-} else {
+}else if ($action == "chercher") {
+    $data = array('search' => $_POST['search']);
+    $res = Evaluation::findEvaluation($data);
+    echo $res;
+}else if($action == "afficherMesEval"){
+    $id = $_SESSION['id_etd'];
+    $res = Evaluation::getAllEvaluationsOfEtudiant($id);
+    echo $res;
+}  else {
     echo "action non reconnue";
 }

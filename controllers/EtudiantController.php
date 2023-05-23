@@ -1,5 +1,6 @@
 <?php 
- 
+error_reporting(0);
+ session_start();
  require_once('../models/Etudiant.php');
 
  //Récuperation des données
@@ -73,6 +74,40 @@
     $data = array('search' => $_POST['search']);
     $res = Etudiant::findEtudiant($data);
     echo $res;
-} else {
+} else if ($action == "modifierMdp") {
+    $data = array(
+        'nom' =>  $_SESSION['nom'],
+        'prenom' =>  $_SESSION['prenom'] ,
+        'mot_de_passe' => $_POST['nouveauMdp'] 
+    );
+    $res = Etudiant::updateMdp($data);
+    if ($res == "ok"){
+        $_SESSION['mdp'] = $_POST['nouveauMdp'];
+        echo json_encode( array('mot_de_passe' => $_POST['nouveauMdp'] ));
+    } 
+    else
+        echo "error";
+}else if ($action == "modifierProfil") {
+    $data = array(
+        'id' => $_SESSION['id_etd'],
+        'nom' =>  $nom ,
+        'prenom' =>  $prenom ,
+        'email' =>  $email ,
+        'adresse' => $adresse ,
+        'telephone' => $telephone
+    );
+    $res = Etudiant::updateEtudiantDoneByEtd($data);
+    if ($res == "ok"){
+        $_SESSION['email'] = $email;
+        $_SESSION['nom'] = $nom;
+        $_SESSION['prenom'] = $prenom;
+        $_SESSION['adresse'] = $adresse;
+        $_SESSION['tele'] = $telephone;
+        $_SESSION['nom_complet'] = $nom." ".$prenom;
+        echo json_encode($data);
+    } 
+    else
+        echo "error";
+}else {
     echo "action non reconnue";
 }

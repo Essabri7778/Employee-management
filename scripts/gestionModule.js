@@ -58,7 +58,7 @@ function afficherMdl(Mdl) {
   tbody.innerHTML = "";
   if (!Array.isArray(Mdl)) {
     Mdl = [Mdl];
-}
+  }
   for (let mdl of Mdl) {
     let newmdl = `
       <tr>
@@ -217,3 +217,25 @@ form.addEventListener("submit", (e) => {
     }, 3000);
   }
 });
+
+// Search Form
+
+let searchForm = document.getElementById("chercheForm");
+
+searchForm.addEventListener("submit", searchModule);
+
+function searchModule(e) {
+  e.preventDefault();
+  let xhr = getXhr();
+  xhr.open("POST", "../../controllers/ModuleController.php", true);
+  xhr.addEventListener("readystatechange", function () {
+    if (xhr.readyState == 4 && xhr.status == 200) {
+      let res = xhr.responseText;
+      afficherMdl(JSON.parse(res));
+    }
+  });
+
+  let data = new FormData(searchForm);
+  data.append("action", "chercher");
+  xhr.send(data);
+}
