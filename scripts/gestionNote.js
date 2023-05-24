@@ -216,20 +216,17 @@ function modifierSubmit() {
       if (xhr.readyState == 4 && xhr.status == 200) {
         let resCtr = xhr.responseText;
         if (resCtr == "ok") {
-          res.innerHTML = "Tout passe bien";
-          res.hidden = false;
           etat = "ajouter";
           ajouterText.innerHTML = "Ajouter une Note";
           title.innerHTML = "Ajouter Note";
           iconAjouter.className = "fas fa-copy";
-          form.reset();
+          evaluation.value = nomEval;
+          module.value = nomMdl;
+          etd.disabled = false;
         } else if (resCtr == "error") {
-          res.innerHTML = "Une erreur est survenue";
-          res.hidden = false;
+          console.log("error");
         }
-        setTimeout(function () {
-          res.hidden = true;
-        }, 3000);
+
         listNote();
       }
     };
@@ -268,7 +265,8 @@ form.addEventListener("submit", (e) => {
       modifierSubmit();
     }
     listNote();
-
+    etd.innerHTML = "";
+    listEtd();
     success.innerHTML = `Note ${etat} avec succès`;
     success.hidden = false;
     setTimeout(function () {

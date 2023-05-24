@@ -150,7 +150,7 @@ class Note
         $search = $data['search'];
         $search = '%'.$search.'%';
         try{
-            $query = 'SELECT e.type , m.nom, n.valeur FROM affectation_etudiant_module a INNER JOIN modules m ON a.id_module = m.id INNER JOIN evaluation e ON a.id_module=e.id_module INNER JOIN notes n ON n.id_evaluation= e.id WHERE a.id_etudiant = :id AND LOWER(e.type) LIKE :keyword OR LOWER(m.nom) LIKE :keyword';
+            $query = 'SELECT e.type , m.nom, n.valeur FROM affectation_etudiant_module a INNER JOIN modules m ON a.id_module = m.id INNER JOIN evaluation e ON a.id_module=e.id_module INNER JOIN notes n ON n.id_evaluation= e.id WHERE a.id_etudiant = :id AND (LOWER(e.type) LIKE :keyword OR LOWER(m.nom) LIKE :keyword)';
             $stmt = DB::connect()->prepare($query);
             $stmt->bindParam(':id',$id);
             $stmt->bindParam(':keyword',$search);
