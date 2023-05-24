@@ -15,10 +15,17 @@ let stele = document.getElementById("stelephone");
 let semail = document.getElementById("semail");
 
 function validateForm() {
-  if (nom.value === "" || prenom.value === "" || adresse.value === "" || tele.value === "" || email.value === "" ) {
+  if (
+    nom.value === "" ||
+    prenom.value === "" ||
+    adresse.value === "" ||
+    tele.value === "" ||
+    email.value === ""
+  ) {
     // Afficher un message d'erreur
     document.getElementById("failed").hidden = false;
-    document.getElementById("failed").innerHTML ="Veulliez saisir tous les champs";
+    document.getElementById("failed").innerHTML =
+      "Veulliez saisir tous les champs";
     setTimeout(function () {
       document.getElementById("failed").hidden = true;
     }, 5000);
@@ -27,9 +34,9 @@ function validateForm() {
   return true;
 }
 
-form.addEventListener("submit", function(e){
+form.addEventListener("submit", function (e) {
   e.preventDefault();
-  if(validateForm()) modifierProfil(e);
+  if (validateForm()) modifierProfil(e);
   else return validateForm();
 });
 
@@ -63,7 +70,6 @@ function modifierProfil(e) {
   xhr.send(data);
 }
 
-
 //someValidations
 let validateNom = function () {
   if (nom.value === "") {
@@ -81,7 +87,7 @@ nom.addEventListener("blur", function (e) {
 });
 
 let validatePrenom = function () {
-  if (nom.value === "") {
+  if (prenom.value === "") {
     return false;
   }
   return true;
@@ -134,7 +140,3 @@ email.addEventListener("blur", function (e) {
     semail.hidden = true;
   }
 });
-
-
-
-

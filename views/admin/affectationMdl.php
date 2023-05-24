@@ -55,8 +55,8 @@ $prenom_etudiant = isset($_GET['prenom_etd']) ? $_GET['prenom_etd'] : NULL;
         <div class="form-group row">
             <div class="col-sm-10 offset-sm-2 d-flex justify-content-end">
                 <button id="ajouter" type="submit" class="btn btn-primary">
-                    <i id="iconAjouter" class="fas fa-user-plus"></i>
-                    <span id="ajouterText">Affecter les Module</span>
+                    <i id="iconAjouter" class="fas fa-cubes"></i>
+                    <span id="ajouterText">Affecter les Modules</span>
                 </button>
                 <button type="reset" class="btn ms-2 btn-outline-primary">
                     <i class="fas fa-undo"></i> Réinitialiser
