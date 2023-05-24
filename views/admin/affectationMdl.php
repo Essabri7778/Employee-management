@@ -22,7 +22,7 @@ $prenom_etudiant = isset($_GET['prenom_etd']) ? $_GET['prenom_etd'] : NULL;
             <input type="hidden" id="id">
             <label for="etudiant" class="col-sm-2 col-form-label">Etudiant</label>
             <div class="col-sm-10">
-                <input type="text" class="form-control" name="id_etudiant" id="id_etudiant" placeholder="id_etudiant"
+                <input type="text" class="form-control" name="<?php echo($id_etudiant); ?>" id="id_etudiant" placeholder="id_etudiant"
                     value="<?php echo($prenom_etudiant." ".$nom_etudiant); ?>" disabled>
                 <small id="setudiant" style="color:red" hidden>Ce champ doit être rempli</small>
             </div>
