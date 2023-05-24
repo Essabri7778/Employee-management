@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1
--- Généré le : mar. 23 mai 2023 à 23:29
+-- Généré le : mar. 23 mai 2023 à 23:59
 -- Version du serveur : 10.4.27-MariaDB
 -- Version de PHP : 8.2.0
 
@@ -40,7 +40,7 @@ CREATE TABLE `admin` (
 --
 
 INSERT INTO `admin` (`id`, `nom`, `prenom`, `login`, `mot_de_passe`) VALUES
-(1, 'benmamoun', 'nassim', 'admin', 'admin');
+(1, 'Admin', 'Admin', 'admin', 'admin');
 
 -- --------------------------------------------------------
 
@@ -59,18 +59,24 @@ CREATE TABLE `affectation_etudiant_module` (
 --
 
 INSERT INTO `affectation_etudiant_module` (`id`, `id_etudiant`, `id_module`) VALUES
-(3, 4, 1),
-(4, 4, 3),
-(5, 4, 4),
-(6, 4, 5),
-(7, 4, 6),
-(8, 4, 7),
-(9, 5, 1),
-(10, 5, 3),
-(11, 5, 4),
-(12, 5, 5),
-(13, 5, 6),
-(14, 5, 7);
+(15, 1, 1),
+(16, 1, 2),
+(17, 1, 3),
+(18, 1, 4),
+(19, 1, 5),
+(20, 1, 6),
+(21, 2, 1),
+(22, 2, 2),
+(23, 2, 4),
+(24, 2, 5),
+(25, 2, 6),
+(26, 2, 7),
+(27, 3, 1),
+(28, 3, 2),
+(29, 3, 3),
+(30, 3, 5),
+(31, 3, 6),
+(32, 3, 7);
 
 -- --------------------------------------------------------
 
@@ -93,9 +99,9 @@ CREATE TABLE `etudiant` (
 --
 
 INSERT INTO `etudiant` (`id`, `nom`, `prenom`, `adresse`, `email`, `telephone`, `mot_de_passe`) VALUES
-(1, 'benmamoun', 'hamza', '', 'nassim@gmail.com', '0623124312', 'nassim'),
-(4, 'BENMAMOUN', 'hamza', 'rabat', 'said.benmamoun@etu.uae.ac.ma', '0673627313', 'nassim'),
-(5, 'essabri', 'fz', 'rabat', 'dede.benmamoun@etu.uae.ac.ma', '0673627313', 'guye');
+(1, 'Benmamoun', 'Nassime', 'Rabat', 'nassime@gmail.com', '0612345678', 'password1'),
+(2, 'Fatima', 'Zahra', 'Meknes', 'fatimazahrae@gmail.com', '0623456789', 'password2'),
+(3, 'chentoui', 'Abdelali', 'Meknes', 'abdelali@gmail.com', '0634567890', 'password3');
 
 -- --------------------------------------------------------
 
@@ -117,12 +123,9 @@ CREATE TABLE `evaluation` (
 --
 
 INSERT INTO `evaluation` (`id`, `type`, `id_module`, `date`, `heure`, `salle`) VALUES
-(3, 'Devoirs', 4, '2023-05-03', '13:51:00', 'S13'),
-(4, 'Examens', 1, '2023-05-11', '15:56:00', 'S12'),
-(5, 'Devoirs', 3, '2023-05-28', '16:52:00', 'S2'),
-(6, 'Examens', 5, '2023-05-20', '17:00:00', 'S15'),
-(7, 'examen', 3, '2023-05-30', '17:34:39', 'S23'),
-(8, 'Examens', 7, '2023-05-03', '02:22:00', 's34');
+(9, 'Projet', 1, '2023-11-11', '10:10:00', 'A'),
+(10, 'Projet', 2, '2023-11-11', '11:10:00', 'A'),
+(11, 'Projet', 9, '2023-11-11', '17:10:00', 'A');
 
 -- --------------------------------------------------------
 
@@ -141,12 +144,15 @@ CREATE TABLE `modules` (
 --
 
 INSERT INTO `modules` (`id`, `nom`, `description`) VALUES
-(1, 'JEE', 'SPRING & servlets & Hibernate'),
-(3, 'WEB', 'javascript'),
-(4, 'gestion de projet', 'comment gérer un projet '),
-(5, 'controle de gestion', 'money money'),
-(6, 'algo', 'algoooooooooooo'),
-(7, 'DB', 'DBBBBBBBB');
+(1, 'JS', 'Cours de JS'),
+(2, 'PHP', 'Cours de PHP'),
+(3, 'ENGLISH', 'Cours de ENGLISH'),
+(4, 'PHP', 'Cours de PHP'),
+(5, 'Mathématiques', 'Cours de mathématiques'),
+(6, 'JEE', 'Cours de français'),
+(7, 'PYTHON', 'Cours de PYTHON'),
+(8, 'c#', 'Cours de c#'),
+(9, 'Français', 'Cours de français');
 
 -- --------------------------------------------------------
 
@@ -166,9 +172,12 @@ CREATE TABLE `notes` (
 --
 
 INSERT INTO `notes` (`id`, `id_evaluation`, `id_etudiant`, `valeur`) VALUES
-(1, 3, 5, '16'),
-(2, 7, 5, '19'),
-(3, 8, 4, '18');
+(4, 9, 1, '20'),
+(5, 9, 3, '20'),
+(6, 9, 2, '20'),
+(7, 10, 1, '20'),
+(8, 10, 2, '20'),
+(9, 10, 3, '20');
 
 --
 -- Index pour les tables déchargées
@@ -229,7 +238,7 @@ ALTER TABLE `admin`
 -- AUTO_INCREMENT pour la table `affectation_etudiant_module`
 --
 ALTER TABLE `affectation_etudiant_module`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=33;
 
 --
 -- AUTO_INCREMENT pour la table `etudiant`
@@ -241,19 +250,19 @@ ALTER TABLE `etudiant`
 -- AUTO_INCREMENT pour la table `evaluation`
 --
 ALTER TABLE `evaluation`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT pour la table `modules`
 --
 ALTER TABLE `modules`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT pour la table `notes`
 --
 ALTER TABLE `notes`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- Contraintes pour les tables déchargées
