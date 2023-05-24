@@ -1,6 +1,9 @@
 <?php
 include_once("headerAdmin.php");
 $id_etudiant = isset($_GET['id_etd']) ? intval($_GET['id_etd']) : NULL;
+$nom_etudiant = isset($_GET['nom_etd']) ? $_GET['nom_etd'] : NULL;
+$prenom_etudiant = isset($_GET['prenom_etd']) ? $_GET['prenom_etd'] : NULL;
+
 ?>
 <div class="container" style="padding: 20px;">
     <div class="d-flex justify-content-between align-items-end mb-3">
@@ -20,7 +23,7 @@ $id_etudiant = isset($_GET['id_etd']) ? intval($_GET['id_etd']) : NULL;
             <label for="etudiant" class="col-sm-2 col-form-label">Etudiant</label>
             <div class="col-sm-10">
                 <input type="text" class="form-control" name="id_etudiant" id="id_etudiant" placeholder="id_etudiant"
-                    value="<?php echo ($id_etudiant); ?>" disabled>
+                    value="<?php echo($prenom_etudiant." ".$nom_etudiant); ?>" disabled>
                 <small id="setudiant" style="color:red" hidden>Ce champ doit être rempli</small>
             </div>
         </div>
