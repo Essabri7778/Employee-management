@@ -154,7 +154,7 @@ include_once("headerAdmin.php");
                                             <th scope="col">Prenom</th>
                                             <th scope="col">Evaluation</th>
                                             <th scope="col">Module</th>
-                                            <th scope="col">Valeure</th>
+                                            <th scope="col">Valeur</th>
                                         </tr>
                                     </thead>
                                     <tbody id="listNote">
