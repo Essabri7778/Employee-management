@@ -104,7 +104,7 @@ function supprimerMdl(id) {
     if (xhr.readyState == 4 && xhr.status == 200) {
       let resCtr = xhr.responseText;
       if (resCtr == "ok") {
-         success.innerHTML = "Suppression effectuée avec succes";
+        success.innerHTML = "Suppression effectuée avec succes";
         success.hidden = false;
       } else if (resCtr == "error") {
         failed.innerHTML = "Suppression échouée";
@@ -149,7 +149,7 @@ function modifierSubmit() {
         etat = "ajouter";
         ajouterText.innerHTML = "Ajouter un Module";
         title.innerHTML = "Ajouter Module";
-        iconAjouter.className = "fas fa-user-plus";
+        iconAjouter.className = "fas fa-cubes";
       } else if (resCtr == "error") {
         failed.innerHTML = "Modification échouée";
         failed.hidden = false;

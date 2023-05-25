@@ -68,7 +68,10 @@ function ajouterEvaluation() {
   xhr.onreadystatechange = function () {
     if (xhr.readyState == 4 && xhr.status == 200) {
       let resCtr = xhr.responseText;
+      console.log(resCtr);
+      /*
       if (resCtr == "ok") {
+        console.log(resCtr);
         res.innerHTML = "Tout passe bien";
         res.hidden = false;
       } else if (resCtr == "error") {
@@ -77,7 +80,7 @@ function ajouterEvaluation() {
       }
       setTimeout(function () {
         res.hidden = true;
-      }, 3000);
+      }, 3000);*/
       listEvaluation();
     }
   };
@@ -185,15 +188,21 @@ function supprimerEval(id) {
   xhr.onreadystatechange = function () {
     if (xhr.readyState == 4 && xhr.status == 200) {
       let resCtr = xhr.responseText;
+      console.log(resCtr);
       if (resCtr == "ok") {
-        res.innerHTML = "Tout passe bien";
-        res.hidden = false;
+        success.innerHTML = "Suppression effectuée avec succes";
+        success.hidden = false;
+        //res.innerHTML = "Tout passe bien";
+        //res.hidden = false;
       } else if (resCtr == "error") {
-        res.innerHTML = "Une erreur est survenue";
-        res.hidden = false;
+        failed.innerHTML = "Suppression échouée";
+        failed.hidden = false;
+        //res.innerHTML = "Une erreur est survenue";
+        //res.hidden = false;
       }
       setTimeout(function () {
-        res.hidden = true;
+        failed.hidden = true;
+        success.hidden = true;
       }, 3000);
       listEvaluation();
     }
@@ -226,20 +235,21 @@ function modifierSubmit() {
   xhr.onreadystatechange = function () {
     if (xhr.readyState == 4 && xhr.status == 200) {
       let resCtr = xhr.responseText;
+      console.log(resCtr);
       if (resCtr == "ok") {
-        res.innerHTML = "Tout passe bien";
-        res.hidden = false;
+        //res.innerHTML = "Tout passe bien";
+        //res.hidden = false;
         etat = "ajouter";
         ajouterText.innerHTML = "Ajouter un Evaluation";
         title.innerHTML = "Ajouter Evaluation";
         iconAjouter.className = "fas fa-copy";
-      } else if (resCtr == "error") {
+      }/* else if (resCtr == "error") {
         res.innerHTML = "Une erreur est survenue";
         res.hidden = false;
       }
       setTimeout(function () {
         res.hidden = true;
-      }, 3000);
+      }, 3000);*/
       listEvaluation();
     }
   };

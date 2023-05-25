@@ -139,6 +139,8 @@ function ajouterNote() {
   xhr.onreadystatechange = function () {
     if (xhr.readyState == 4 && xhr.status == 200) {
       let resCtr = xhr.responseText;
+      console.log(resCtr);
+      /*
       if (resCtr == "ok") {
         res.innerHTML = "Tout passe bien";
         res.hidden = false;
@@ -148,7 +150,7 @@ function ajouterNote() {
       }
       setTimeout(function () {
         res.hidden = true;
-      }, 3000);
+      }, 3000);*/
       listNote();
     }
   };
@@ -166,15 +168,21 @@ function supprimerNote(id) {
   xhr.onreadystatechange = function () {
     if (xhr.readyState == 4 && xhr.status == 200) {
       let resCtr = xhr.responseText;
+      console.log(resCtr);
       if (resCtr == "ok") {
-        res.innerHTML = "Tout passe bien";
-        res.hidden = false;
+        success.innerHTML = "Suppression effectuée avec succes";
+        success.hidden = false;
+        //res.innerHTML = "Tout passe bien";
+        //res.hidden = false;
       } else if (resCtr == "error") {
-        res.innerHTML = "Une erreur est survenue";
-        res.hidden = false;
+        failed.innerHTML = "Suppression échouée";
+        failed.hidden = false;
+        //res.innerHTML = "Une erreur est survenue";
+        //res.hidden = false;
       }
       setTimeout(function () {
-        res.hidden = true;
+        failed.hidden = true;
+        success.hidden = true;
       }, 3000);
       listNote();
     }
