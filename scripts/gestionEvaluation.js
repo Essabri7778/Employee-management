@@ -34,31 +34,19 @@ function listModules() {
 }
 
 function MdlComboBox(Mdl) {
+  if (!Array.isArray(Mdl)) {
+    Mdl = [Mdl];
+  }
   for (let mdl of Mdl) {
-    let newmdl = `<option>${mdl.nom}</option>`;
+    let newmdl = `<option>${mdl.nom}</option><option hidden>${mdl.id}</option>`;
     modules.insertAdjacentHTML("beforeend", newmdl);
   }
 }
 
-function getModule(val, callback) {
-  let xhr = getXhr();
-  let listMdl;
-  xhr.open("POST", "../../controllers/ModuleController.php", true);
-  xhr.onreadystatechange = function () {
-    if (xhr.readyState == 4 && xhr.status == 200) {
-      listMdl = JSON.parse(xhr.responseText);
-      for (let mdl of listMdl) {
-        if (mdl.nom === val) {
-          callback(mdl.id);
-          return;
-        }
-      }
-      callback(null);
-    }
-  };
-  let data = new FormData();
-  data.append("action", "afficherTous");
-  xhr.send(data);
+function getModuleId() {
+  var MdlSelecter = modules.options[modules.selectedIndex];
+  var IdMdl = MdlSelecter.nextElementSibling.value;
+  return IdMdl;
 }
 
 let etat = "ajouter";
@@ -86,15 +74,9 @@ function ajouterEvaluation() {
   };
   let data = new FormData(form);
   data.append("type", type.value);
-  getModule(modules.value, function (modId) {
-    if (modId !== null) {
-      data.append("id_module", modId);
-      data.append("action", "ajouter");
-      xhr.send(data);
-    } else {
-      console.log("Module non trouver");
-    }
-  });
+  data.append("id_module", getModuleId());
+  data.append("action", "ajouter");
+  xhr.send(data);
 }
 
 function listEvaluation() {
@@ -256,7 +238,7 @@ function modifierSubmit() {
   let data = new FormData(form);
   data.append("id", id.value);
   data.append("type", type.value);
-  data.append("id_module", idmod.value);
+  data.append("id_module", getModuleId());
   data.append("action", "modifier");
   xhr.send(data);
 }
@@ -267,6 +249,7 @@ let validateSalle = function () {
   }
   return true;
 };
+
 
 salle.addEventListener("blur", function (e) {
   if (validateSalle() === false) {

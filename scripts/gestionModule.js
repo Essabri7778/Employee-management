@@ -146,6 +146,7 @@ function modifierSubmit() {
       if (resCtr == "ok") {
         success.innerHTML = "Modification effectuée avec succes";
         success.hidden = false;
+        id.value = "";
         etat = "ajouter";
         // ajouter.removeEventListener("click", modifierSubmit);
         // ajouter.addEventListener("click", ajouterModule);

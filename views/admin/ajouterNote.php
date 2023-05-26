@@ -94,7 +94,7 @@
                         <th scope="col">Prenom</th>
                         <th scope="col">Evaluation</th>
                         <th scope="col">Module</th>
-                        <th scope="col">Valeure</th>
+                        <th scope="col">Valeur</th>
                         <th scope="col">Actions</th>
                     </tr>
                 </thead>
