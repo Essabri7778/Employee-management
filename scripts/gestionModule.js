@@ -132,8 +132,8 @@ function modifierMdl(mdl) {
   ajouterText.innerHTML = "Modifier le Module";
   iconAjouter.className = "fas fa-edit";
   title.innerHTML = "Modifier Module";
-  ajouter.removeEventListener("click", ajouterModule);
-  ajouter.addEventListener("click", modifierSubmit);
+  // ajouter.removeEventListener("click", ajouterModule);
+  // ajouter.addEventListener("click", modifierSubmit);
 }
 
 function modifierSubmit() {
@@ -147,6 +147,8 @@ function modifierSubmit() {
         success.innerHTML = "Modification effectuée avec succes";
         success.hidden = false;
         etat = "ajouter";
+        // ajouter.removeEventListener("click", modifierSubmit);
+        // ajouter.addEventListener("click", ajouterModule);
         ajouterText.innerHTML = "Ajouter un Module";
         title.innerHTML = "Ajouter Module";
         iconAjouter.className = "fas fa-cubes";
@@ -203,7 +205,7 @@ form.addEventListener("submit", (e) => {
   if (validateNom() === true && validateDescription() === true) {
     if (etat === "ajouter") {
       ajouterModule();
-    } else if (etat === "modifier") {
+    } else {
       modifierSubmit();
     }
 

@@ -70,7 +70,7 @@ form.addEventListener("submit", function(e){
             setTimeout(function() {
                 inputSuccess.hidden = true;  
             },5000);
-            resetPopulateCheckbox(false);
+           resetPopulateCheckbox(false);
         }
         else{
             inputFailed.hidden = false;
@@ -160,7 +160,7 @@ function deleteModules() {
                 inputFailed.hidden = true;  
             },5000);
         }
-        resetPopulateCheckbox(false);
+       resetPopulateCheckbox(false);
         InitializeTable();
 
     }
@@ -174,6 +174,7 @@ function deleteModules() {
 
 //mettre à jour les modules affectées
 update_btn.addEventListener("click",function(){
+
     resetPopulateCheckbox(true); 
     submit_btn.disabled = false;  
 })

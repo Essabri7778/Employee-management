@@ -128,7 +128,6 @@ class Evaluation {
         } catch (PDOException $e) {
             echo 'Error'. $e->getMessage();
         }
-        
     }
 
     static public function findEvaluationsOfEtudiant($data){

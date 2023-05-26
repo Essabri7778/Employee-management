@@ -10,6 +10,7 @@ function populateModuleList(objects) {
 }
 
 function populateTableModuleOfEtudiant(objects){
+  console.log(objects);
   let rows=``;
   for(var obj of objects){
     //remplir le tableau
@@ -19,8 +20,6 @@ function populateTableModuleOfEtudiant(objects){
     <td>${obj.description}</td>
     </tr>`;
     rows+=row;
-   
-
   }
   return rows;
 }
@@ -34,7 +33,6 @@ function verifyCheckbox() {
       checkedCount++;
     }
   }
-  console.log(checkedCount)
   if (checkedCount !== maxCheckboxCount ) {
     return false;
   }
@@ -62,15 +60,14 @@ function getIdModulesListFromTable() {
 }
 
 function resetPopulateCheckbox(action) {
-  let id_module_list;
-  if(action === true){
+  let id_module_list=[];
+  if(action == true){
     id_module_list = getIdModulesListFromTable();
   }
   else{
     id_module_list =getIdModulesList();
   }
   for (let i = 0; i < id_module_list.length; i++) {
-      //cocher les modules
       document.getElementById(id_module_list[i]).checked = action; 
   }
 }

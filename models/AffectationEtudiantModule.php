@@ -2,8 +2,6 @@
 require_once('../database/DB.php');
 class AffectationEtudiantModule
 {
-
-
     /**
      * Récuperer tous les Affectation d'un etudiant
      * 
@@ -11,7 +9,6 @@ class AffectationEtudiantModule
      * @return
      * 
      */
-
     static public function getAllModulesOfEtudiant($id_etudiant)
     {
         $stmt = DB::connect()->prepare('SELECT a.id_etudiant, a.id_module,m.nom, m.description FROM `affectation_etudiant_module` a INNER JOIN modules m ON a.id_module = m.id WHERE a.id_etudiant = ?');
@@ -101,32 +98,7 @@ class AffectationEtudiantModule
         }
     }
 
-    /**
-     * Modifier les modules associés à un étudiant
-     *
-     * @param array $old_id_modules les anciens identifiants associés à un étudiant
-     * @param array $new_id_modules les nouveaux identifiants associés à un étudiant
-     * @param int $id_etudiant l'identifiant de l'étudiant
-     * @return boolean si la requête s'est effectuée avec succès
-     */
-    static public function updateModulesOfEtudiant($old_id_modules, $new_id_modules, $id_etudiant)
-    {
-        try {
-            for ($i = 0; $i < 6; $i++) {
-                $stmt = DB::connect()->prepare('UPDATE affectation_etudiant_module SET id_module= :new_id_module WHERE id_etudiant= :id_etudiant AND id_module= :old_id_module');
-                $stmt->bindParam(':id_etudiant', $id_etudiant);
-                $stmt->bindParam(':old_id_module', $old_id_modules[$i]);
-                $stmt->bindParam(':new_id_module', $new_id_modules[$i]);
-                if (!$stmt->execute()) {
-                    return 'error';
-                }
-            }
-            return 'ok';
-        } catch (PDOException $e) {
-            echo 'Error: ' . $e->getMessage();
-        }
-    }
-
+   
     /**
      * Ajouter les modules associés à un etudiant
      *
@@ -148,6 +120,45 @@ class AffectationEtudiantModule
         $stmt->close();
         $stmt = null;
     }
+
+     /**
+     * Modifier les modules associés à un étudiant
+     *
+     * @param array $old_id_modules les anciens identifiants associés à un étudiant
+     * @param array $new_id_modules les nouveaux identifiants associés à un étudiant
+     * @param int $id_etudiant l'identifiant de l'étudiant
+     * @return boolean si la requête s'est effectuée avec succès
+     */
+    static public function updateModulesOfEtudiant($old_id_modules, $new_id_modules, $id_etudiant)
+    {
+        $res1 = AffectationEtudiantModule::deleteAffectationsOfEtudiant($id_etudiant);
+        $res2 = AffectationEtudiantModule::AddModulesOfEtudiant($id_etudiant, $new_id_modules);
+        if ($res1 === 'ok' && $res2 === 'ok') {
+            return 'ok';
+        }
+        else return 'error';
+        $stmt->close();
+        $stmt = null;
+    }
+    
+        // try {
+        //     for ($i = 0; $i < 6; $i++) {
+        //         $stmt = DB::connect()->prepare('UPDATE affectation_etudiant_module SET id_module= :new_id_module WHERE (id_etudiant= :id_etudiant AND id_module= :old_id_module)');
+        //         $stmt->bindParam(':id_etudiant', $id_etudiant);
+        //         echo($old_id_modules[$i]);
+        //         echo($new_id_modules[$i]);
+        //         $stmt->bindParam(':old_id_module', $old_id_modules[$i]);
+        //         $stmt->bindParam(':new_id_module', $new_id_modules[$i]);
+        //         if (!$stmt->execute()) {
+        //             return 'error';
+        //         }
+        //     }
+        //     return 'ok';
+        // } catch (PDOException $e) {
+        //     echo 'Error: ' . $e->getMessage();
+        // }
+  
+
 
 
 
