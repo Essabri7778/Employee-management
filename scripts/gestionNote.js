@@ -225,6 +225,7 @@ function modifierSubmit() {
         let resCtr = xhr.responseText;
         if (resCtr == "ok") {
           etat = "ajouter";
+          id.value = "";
           ajouterText.innerHTML = "Ajouter une Note";
           title.innerHTML = "Ajouter Note";
           iconAjouter.className = "fas fa-copy";

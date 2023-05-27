@@ -222,6 +222,7 @@ function modifierSubmit() {
         //res.innerHTML = "Tout passe bien";
         //res.hidden = false;
         etat = "ajouter";
+        id.value = "";
         ajouterText.innerHTML = "Ajouter un Evaluation";
         title.innerHTML = "Ajouter Evaluation";
         iconAjouter.className = "fas fa-copy";
