@@ -30,5 +30,5 @@ This project aims to develop a web application for managing a school platform us
  - Open the project in your web browser.
 
 ## Contributors
- - [Essabri Fatima Zahrae](https://github.com/Essabri7778)
+ - [Benmamoun Nassim](https://github.com/nassimBenmamoun/)
  - [Chentoui Abdelali](https://github.com/AbdelaliChe)
